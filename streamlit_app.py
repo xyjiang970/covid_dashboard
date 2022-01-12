@@ -14,6 +14,7 @@ fig = px.bar(df.head(10).sort_values(by='confirmed_cases', ascending=True), x='c
                        'confirmed_cases':'Number of Confirmed Cases'},
              orientation='h')
 
-fig.update_layout(height=800, width=800)
+fig.update_layout(height=800, width=800,
+                  title_x=0.5)
 
 st.plotly_chart(fig)
