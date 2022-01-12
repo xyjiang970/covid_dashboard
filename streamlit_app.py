@@ -25,3 +25,5 @@ fig.update_layout(height=800, width=800,
                   )
 
 st.plotly_chart(fig)
+
+st.write('While it\'s helpful to see the breakdown of general confirmed daily covid cases, it would be more helpful to see what percentage of confirmed cases make up of the total state population as some states are larger than others.')
