@@ -11,7 +11,7 @@ df = df.sort_values(by='confirmed_cases', ascending=False)
 st.title('Daily Covid Dashboard')
 
 fig = px.bar(df.head(10).sort_values(by='confirmed_cases', ascending=True), x='confirmed_cases', y='state',
-             title="10 States With the Most Confirmed Covid Cases",
+             title="10 States With the Highest Confirmed Covid Cases",
              labels = {'state':'State',
                        'confirmed_cases':'Number of Confirmed Cases'},
              orientation='h',
