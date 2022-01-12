@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
+import datetime
 
 url = 'https://github.com/nytimes/covid-19-data/blob/master/live/us-states.csv?raw=true'
 df = pd.read_csv(url, index_col=0)
@@ -9,6 +10,9 @@ df = df[['state','cases','confirmed_cases','confirmed_deaths']]
 df = df.sort_values(by='confirmed_cases', ascending=False)
 
 st.title('Daily Covid Cases Dashboard')
+
+today = datetime.date.today()
+st.write('Today\'s date is: ',today)
 
 fig = px.bar(df.head(10).sort_values(by='confirmed_cases', ascending=True), x='confirmed_cases', y='state',
              title="10 States With the Highest Confirmed Covid Cases",
