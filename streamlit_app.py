@@ -11,7 +11,7 @@ df = df.sort_values(by='confirmed_cases', ascending=False)
 
 st.title('Daily Covid Cases Dashboard')
 
-today = datetime.date.today()
+today = str(datetime.date.today())
 st.write('Today\'s date is: ',today)
 
 fig = px.bar(df.head(10).sort_values(by='confirmed_cases', ascending=True), x='confirmed_cases', y='state',
