@@ -8,7 +8,7 @@ df = pd.read_csv(url, index_col=0)
 df = df[['state','cases','confirmed_cases','confirmed_deaths']]
 df = df.sort_values(by='confirmed_cases', ascending=False)
 
-fig = px.bar(df.head(10).sort_values(ascending=False), x='confirmed_cases', y='state',
+fig = px.bar(df.head(10).sort_values(by='confirmed_cases', ascending=False), x='confirmed_cases', y='state',
              title="10 States With the Most Confirmed Covid Cases",
              labels = {'state':'State',
                        'confirmed_cases':'Number of Confirmed Cases'},
