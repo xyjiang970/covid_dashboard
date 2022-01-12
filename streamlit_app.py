@@ -14,7 +14,8 @@ fig = px.bar(df.head(10).sort_values(by='confirmed_cases', ascending=True), x='c
              title="10 States With the Most Confirmed Covid Cases",
              labels = {'state':'State',
                        'confirmed_cases':'Number of Confirmed Cases'},
-             orientation='h')
+             orientation='h',
+             color='confirmed_cases')
 
 fig.update_layout(height=800, width=800,
                   title_x=0.55, 
