@@ -16,7 +16,8 @@ fig = px.bar(df.head(10).sort_values(by='confirmed_cases', ascending=True), x='c
 
 fig.update_layout(height=800, width=800,
                   title_x=0.5, 
-                  title=dict(font=dict(size=20))
+                  title=dict(font=dict(size=25)),
+                  font=dict(size=20)
                   )
 
 st.plotly_chart(fig)
