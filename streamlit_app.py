@@ -11,8 +11,9 @@ df = df.sort_values(by='confirmed_cases', ascending=False)
 fig = px.bar(df.head(10), x='state', y='confirmed_cases',
              title="10 States With the Most Confirmed Covid Cases",
              labels = {'state':'State',
-                       'confirmed_cases':'Number of Confirmed Cases'})
+                       'confirmed_cases':'Number of Confirmed Cases'},
+             orientation='h')
 
-fig.update_layout(height=800)
+fig.update_layout(width=800)
 
 st.plotly_chart(fig)
