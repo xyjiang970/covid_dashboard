@@ -73,7 +73,7 @@ fig = px.bar(df.head(10).sort_values(by='confirmed_cases', ascending=True), x='c
              orientation='h',
              color='confirmed_cases')
 
-fig.update_layout(height=800, width=1500,
+fig.update_layout(height=800, width=1000,
                   title_x=0.48, 
                   title_y=0.93,
                   title=dict(font=dict(size=20)),
