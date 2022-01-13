@@ -69,7 +69,7 @@ st.write('Today\'s date is: ',today)
 fig = px.bar(df.head(10).sort_values(by='confirmed_cases', ascending=True), x='confirmed_cases', y='state',
              title="10 States With the Highest Confirmed Covid Cases",
              labels = {'state':'State',
-                       'confirmed_cases':'Number of Confirmed Cases'},
+                       'confirmed_cases':'Number of Confirmed Cases (Millions)'},
              orientation='h',
              color='confirmed_cases')
 
