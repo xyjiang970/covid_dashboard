@@ -59,7 +59,7 @@ df = df[['state','id','population','confirmed_cases',
          'boosterDosesAdministered','pct_ReceivedBooster',
          'confirmed_deaths','pct_deadFromCovid']]
 
-st.title('Daily Covid Cases Dashboard')
+st.title('Covid Dashboard')
 
 # Setting Timezone
 today = str(datetime.date.today())
