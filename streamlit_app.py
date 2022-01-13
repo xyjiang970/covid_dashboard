@@ -110,20 +110,35 @@ st.plotly_chart(fig)
 ###########################################################################
 
 # Bar Chart using plotly - By vaccination %
-fig = px.bar(df.head(10).sort_values(by='pct_Fully_Vaccinated', ascending=True), x='pct_Fully_Vaccinated', y='state',
-             title="10 States with the Highest % of People Fully Vaccinated",
-             labels = {'state':'State',
-                       'pct_Fully_Vaccinated':'% of Population Fully Vaccinated'},
-             orientation='h',
-             color='pct_Fully_Vaccinated')
+fig = go.Figure()
 
-# Adjustments
-fig.update_layout(height=800, width=1000,
-                  title_x=0.43, 
-                  title_y=0.93,
-                  title=dict(font=dict(size=20)),
-                  font=dict(size=15)
-                  )
+fig.add_trace(go.Bar(
+    y=highestVacc_pct.state,
+    x=highestVacc_pct.pct_Fully_Vaccinated,
+    name='Fully Vaccinated',
+    orientation='h',
+    marker=dict(
+        color='rgba(102, 255, 102, 0.6)',
+        line=dict(color='rgba(102, 255, 102, 0.85)', width=1)
+    )
+))
+fig.add_trace(go.Bar(
+    y=highestVacc_pct.state,
+    x=highestVacc_pct.pct_ReceivedBooster,
+    name='Received Booster',
+    orientation='h',
+    marker=dict(
+        color='rgba(153, 255, 153, 0.6)',
+        line=dict(color='rgba(58, 71, 80, 0.7)', width=1)
+    )
+))
+
+fig.update_layout(barmode='stack',
+                  title='10 States With the Highest % of People Fully Vaccinated',
+                  title_x=0.48,
+                  title_y=0.85,
+                  xaxis_title="Percentage",
+                  yaxis_title="State")
 
 # Show
 st.plotly_chart(fig)
