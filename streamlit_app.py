@@ -81,7 +81,7 @@ fig.update_layout(height=800, width=1000,
                   )
 
 # Show
-st.plotly_chart(fig)
+st.plotly_chart(fig, use_container_width=True)
 
 
 ###########################################################################
@@ -105,7 +105,7 @@ fig.update_layout(height=800, width=1000,
                   )
 
 # Show
-st.plotly_chart(fig)
+st.plotly_chart(fig, use_container_width=True)
 
 ###########################################################################
 
@@ -147,7 +147,7 @@ fig.update_layout(barmode='stack', height=800, width=1000,
 
 
 # Show
-st.plotly_chart(fig)
+st.plotly_chart(fig, use_container_width=True)
 
 ###########################################################################
 
