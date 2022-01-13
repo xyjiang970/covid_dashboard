@@ -73,7 +73,7 @@ fig = px.bar(df.head(10).sort_values(by='confirmed_cases', ascending=True), x='c
              orientation='h',
              color='confirmed_cases')
 
-fig.update_layout(height=800, width=1000,
+fig.update_layout(height=800, width=1500,
                   title_x=0.48, 
                   title_y=0.93,
                   title=dict(font=dict(size=20)),
@@ -90,7 +90,7 @@ st.markdown('While it\'s helpful to see the general number of confirmed daily co
 
 # Bar Chart using plotly - By percentage of state population 
 fig = px.bar(df.head(10).sort_values(by='pct_Covid', ascending=True), x='pct_Covid', y='state',
-             title="10 States with the Highest Confirmed Covid Cases: By Percentage of State Population",
+             title="10 States with the Highest Confirmed Covid Cases: By % of State Population",
              labels = {'state':'State',
                        'pct_Covid':'Percentage of Population with Covid'},
              orientation='h',
