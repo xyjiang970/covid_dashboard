@@ -82,11 +82,12 @@ fig.update_layout(height=800, width=1000,
 
 # Show
 st.plotly_chart(fig)
+st.caption('Data from NYT.')
 
 
 ###########################################################################
 
-st.markdown('While it\'s helpful to see the breakdown of general confirmed daily covid cases, it would be more insightful to see **_what percentage of confirmed cases make up of the total state population_** as some states hold more people than others.')
+st.markdown('While it\'s helpful to see the general number of confirmed daily covid cases by state, it would be more insightful to see **_what percentage of confirmed cases make up of the total state population_** since some states have a larger population than other states.')
 
 # Bar Chart using plotly - By percentage of state population 
 fig = px.bar(df.head(10).sort_values(by='pct_Covid', ascending=True), x='pct_Covid', y='state',
