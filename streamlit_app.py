@@ -98,7 +98,7 @@ fig = px.bar(df.head(10).sort_values(by='pct_Covid', ascending=True), x='pct_Cov
 
 # Adjustments
 fig.update_layout(height=800, width=1000,
-                  title_x=0.43, 
+                  title_x=0.45, 
                   title_y=0.93,
                   title=dict(font=dict(size=20)),
                   font=dict(size=15)
