@@ -12,4 +12,4 @@ All of the above resources were used in the making of this simple dashboard.
 
 I will be looking at the breakdown of Covid-19 cases and vaccinations with a foucs on NYC, and then from a national level (top states).
 
-Hopefully, one day I can update this with an "EDIT" when the above repos stop updating their data because Covid has stopped. But we are not there yet. Wear your masks.
+Hopefully, one day I can update this README with an "EDIT" when the above repos stop updating their data because Covid has stopped. We are not there yet. Wear your masks.
