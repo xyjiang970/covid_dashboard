@@ -137,12 +137,13 @@ fig.add_trace(go.Bar(
     )
 ))
 
-fig.update_layout(barmode='stack',
+fig.update_layout(barmode='stack', height=800, width=1000,
                   title='10 States With the Highest % of People Fully Vaccinated',
                   title_x=0.48,
-                  title_y=0.85,
+                  title_y=0.92,
                   xaxis_title="Percentage",
                   yaxis_title="State")
+
 
 # Show
 st.plotly_chart(fig)
