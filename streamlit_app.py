@@ -151,4 +151,4 @@ st.plotly_chart(fig)
 
 ###########################################################################
 
-st.markdown('You can check out the [code in my github here](https://github.com/xyjiang970/covid_dashboard).')
+st.markdown('You can check out the [code on my github here](https://github.com/xyjiang970/covid_dashboard).')
