@@ -65,7 +65,7 @@ st.title('Daily Covid Cases Dashboard')
 today = str(datetime.date.today())
 st.write('Today\'s date is: ',today)
 
-# Bar Chart using plotly - General confirmed cases
+############# Bar Chart using plotly - General confirmed cases #############
 fig = px.bar(df.head(10).sort_values(by='confirmed_cases', ascending=True), x='confirmed_cases', y='state',
              title="10 States With the Highest Confirmed Covid Cases",
              labels = {'state':'State',
@@ -83,9 +83,12 @@ fig.update_layout(height=800, width=1000,
 # Show
 st.plotly_chart(fig)
 
+
+###########################################################################
+
 st.markdown('While it\'s helpful to see the breakdown of general confirmed daily covid cases, it would be more helpful to see **_what percentage of confirmed cases make up of the total state population_** as some states hold more people than others.')
 
-# Bar Chart using plotly - By percentage of state population
+# Bar Chart using plotly - By percentage of state population 
 fig = px.bar(df.head(10).sort_values(by='pct_Covid', ascending=True), x='pct_Covid', y='state',
              title="10 States with the Highest Covid Cases: By Percentage of State Population",
              labels = {'state':'State',
@@ -104,11 +107,13 @@ fig.update_layout(height=800, width=1000,
 # Show
 st.plotly_chart(fig)
 
+###########################################################################
+
 # Bar Chart using plotly - By vaccination %
 fig = px.bar(df.head(10).sort_values(by='pct_Fully_Vaccinated', ascending=True), x='pct_Fully_Vaccinated', y='state',
-             title="10 States with the Highest Covid Cases: By Percentage of State Population",
+             title="10 States with the Highest % of People Fully Vaccinated",
              labels = {'state':'State',
-                       'pct_Covid':'Percentage of Population with Covid'},
+                       'pct_Fully_Vaccinated':'% of Population Fully Vaccinated'},
              orientation='h',
              color='pct_Fully_Vaccinated')
 
@@ -122,3 +127,7 @@ fig.update_layout(height=800, width=1000,
 
 # Show
 st.plotly_chart(fig)
+
+###########################################################################
+
+
