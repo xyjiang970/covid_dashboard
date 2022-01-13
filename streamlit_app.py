@@ -83,6 +83,7 @@ fig.update_layout(height=800, width=1000,
 # Show
 st.plotly_chart(fig)
 st.caption('The above chart uses data from NYT.')
+st.markdown('#')
 
 
 ###########################################################################
