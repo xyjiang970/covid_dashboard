@@ -151,4 +151,4 @@ st.plotly_chart(fig)
 
 ###########################################################################
 
-st.markdown('You can check out the code for this streamlit app here: <a href="https://github.com/xyjiang970/covid_dashboard" target="_blank">code for this streamlit app here</a>')
+st.markdown('You can check out the [code in my github here](https://github.com/xyjiang970/covid_dashboard).')
