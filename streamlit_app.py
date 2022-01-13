@@ -4,7 +4,6 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 import datetime
-from pytz import timezone
 
 # Live Datasets that are regularly updated
 url = 'https://github.com/nytimes/covid-19-data/blob/master/live/us-states.csv?raw=true'
@@ -63,8 +62,7 @@ df = df[['state','id','population','confirmed_cases',
 st.title('Daily Covid Cases Dashboard')
 
 # Setting Timezone
-timezone = pytz.timezone("US/Eastern")
-today = str(datetime.date.today(timezone))
+today = str(datetime.date.today())
 st.write('Today\'s date is: ',today)
 
 # Bar Chart using plotly - General confirmed cases
@@ -94,6 +92,25 @@ fig = px.bar(df.head(10).sort_values(by='pct_Covid', ascending=True), x='pct_Cov
                        'pct_Covid':'Percentage of Population with Covid'},
              orientation='h',
              color='pct_Covid')
+
+# Adjustments
+fig.update_layout(height=800, width=1000,
+                  title_x=0.43, 
+                  title_y=0.93,
+                  title=dict(font=dict(size=20)),
+                  font=dict(size=15)
+                  )
+
+# Show
+st.plotly_chart(fig)
+
+# Bar Chart using plotly - By vaccination %
+fig = px.bar(df.head(10).sort_values(by='pct_Fully_Vaccinated', ascending=True), x='pct_Fully_Vaccinated', y='state',
+             title="10 States with the Highest Covid Cases: By Percentage of State Population",
+             labels = {'state':'State',
+                       'pct_Covid':'Percentage of Population with Covid'},
+             orientation='h',
+             color='pct_Fully_Vaccinated')
 
 # Adjustments
 fig.update_layout(height=800, width=1000,
