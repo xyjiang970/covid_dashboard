@@ -61,7 +61,9 @@ df = df[['state','id','population','confirmed_cases',
 
 st.title('Daily Covid Cases Dashboard')
 
-today = str(datetime.date.today().tz_localize(tz='US/Eastern'))
+# Setting Timezone
+timezone = pytz.timezone("US/Eastern")
+today = str(datetime.date.today(timezone))
 st.write('Today\'s date is: ',today)
 
 # Bar Chart using plotly - General confirmed cases
