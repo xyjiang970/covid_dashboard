@@ -110,6 +110,10 @@ st.plotly_chart(fig)
 ###########################################################################
 
 # Bar Chart using plotly - By vaccination %
+
+# Dataframe of 10 states with highest vaccination rates of population
+highestVacc_pct = df.head(10).sort_values(by='pct_Fully_Vaccinated')
+
 fig = go.Figure()
 
 fig.add_trace(go.Bar(
