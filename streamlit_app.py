@@ -90,7 +90,7 @@ st.markdown('While it\'s helpful to see the breakdown of general confirmed daily
 
 # Bar Chart using plotly - By percentage of state population 
 fig = px.bar(df.head(10).sort_values(by='pct_Covid', ascending=True), x='pct_Covid', y='state',
-             title="10 States with the Highest Covid Cases: By Percentage of State Population",
+             title="10 States with the Highest Confirmed Covid Cases: By Percentage of State Population",
              labels = {'state':'State',
                        'pct_Covid':'Percentage of Population with Covid'},
              orientation='h',
