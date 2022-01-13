@@ -63,7 +63,7 @@ st.title('Covid Dashboard')
 
 # Setting Timezone
 today = str(datetime.date.today())
-st.write('Today\'s date is: ',today)
+st.write('Updated: ',today)
 
 ############# Bar Chart using plotly - General confirmed cases #############
 fig = px.bar(df.head(10).sort_values(by='confirmed_cases', ascending=True), x='confirmed_cases', y='state',
