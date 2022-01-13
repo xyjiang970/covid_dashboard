@@ -133,7 +133,7 @@ fig.add_trace(go.Bar(
     orientation='h',
     marker=dict(
         color='rgba(153, 255, 153, 0.6)',
-        line=dict(color='rgba(58, 71, 80, 0.7)', width=1)
+        line=dict(color='rgba(153, 255, 153, 0.9)', width=1)
     )
 ))
 
