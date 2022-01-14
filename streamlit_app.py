@@ -99,7 +99,8 @@ fig.update_layout(height=800, width=1000,
                   )
 
 # Show
-st.plotly_chart(fig, use_container_width=True)
+st.plotly_chart(fig)
+# st.plotly_chart(fig, use_container_width=True)
 
 
 ###########################################################################
@@ -108,7 +109,7 @@ st.markdown('While it\'s helpful to see the general number of confirmed daily co
 
 fig = make_subplots(rows=1, cols=2,
                     subplot_titles=("Top 10 HIGHEST % States", "Top 10 LOWEST % States"),
-                    horizontal_spacing = 0.3)
+                    horizontal_spacing = 0.2)
 
 
 fig.add_trace(
@@ -143,7 +144,7 @@ fig.update_layout(height=800, width=1000,
                   title_text="Covid Positive by % of State Population",
                   title_x=0.5)
 
-st.plotly_chart(fig, use_container_width=True)
+st.plotly_chart(fig)
 
 ###########################################################################
 
@@ -185,7 +186,7 @@ fig.update_layout(barmode='stack', height=800, width=1000,
 
 
 # Show
-st.plotly_chart(fig, use_container_width=True)
+st.plotly_chart(fig)
 
 ###########################################################################
 
