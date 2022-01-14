@@ -60,8 +60,6 @@ df = df[['state','id','population','confirmed_cases',
          'boosterDosesAdministered','pct_ReceivedBooster',
          'confirmed_deaths','pct_deadFromCovid']]
 
-st.title('Covid Dashboard: NYC Focus')
-
 ########################################################################################
 # Dataframe of 10 states with the highest general number of people who are covid positive
 highestNumCovid = df.head(10).sort_values(by='confirmed_cases', ascending=True)
@@ -78,6 +76,12 @@ lowestCovid_pct = cleaned.head(10).sort_values(by='pct_Covid', ascending=False)
 # Dataframe of 10 states with highest vaccination rates of population
 highestVacc_pct = df.head(10).sort_values(by='pct_Fully_Vaccinated')
 ########################################################################################
+
+
+st.title('Covid Dashboard: NYC Focus')
+st.subheader('Introduction')
+st.markdown('This is a simple, live dashboard showing Covid-19 statistics and general information with a focus on New York City. Three main databases where the data originated from are: New York Times (NYT), Bloomberg, and NYC Health - all of which are linked at the end.')
+
 
 # Setting Timezone
 today = str(datetime.date.today())
