@@ -62,6 +62,17 @@ df = df[['state','id','population','confirmed_cases',
 
 st.title('Covid Dashboard: NYC Focus')
 
+########################################################################################
+# Dataframe of 10 states with the highest general number of people who are covid positive
+highestNumCovid = df.head(10).sort_values(by='confirmed_cases', ascending=True)
+
+# Dataframe of 10 states with highest percentage of covid positive population
+highestCovid_pct = df.head(10).sort_values(by='pct_Covid', ascending=True)
+
+# Dataframe of 10 states with highest vaccination rates of population
+highestVacc_pct = df.head(10).sort_values(by='pct_Fully_Vaccinated')
+########################################################################################
+
 # Setting Timezone
 today = str(datetime.date.today())
 st.write('Updated: ',today)
