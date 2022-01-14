@@ -69,6 +69,12 @@ highestNumCovid = df.head(10).sort_values(by='confirmed_cases', ascending=True)
 # Dataframe of 10 states with highest percentage of covid positive population
 highestCovid_pct = df.head(10).sort_values(by='pct_Covid', ascending=True)
 
+# Missing (NaN) and 0 confirmed cases states removed
+cleaned = df.dropna(subset=['confirmed_cases'])
+cleaned = cleaned[cleaned.confirmed_cases != 0]
+cleaned = cleaned.sort_values(by='pct_Covid')
+lowestCovid_pct = cleaned.head(10).sort_values(by='pct_Covid', ascending=False)
+
 # Dataframe of 10 states with highest vaccination rates of population
 highestVacc_pct = df.head(10).sort_values(by='pct_Fully_Vaccinated')
 ########################################################################################
@@ -166,27 +172,39 @@ st.plotly_chart(fig, use_container_width=True)
 st.markdown('You can check out the [code on my github here](https://github.com/xyjiang970/covid_dashboard).')
 
 
-# fig = make_subplots(rows=1, cols=2,
-#                     subplot_titles=("Plot 1", "Plot 2"),
-#                     horizontal_spacing = 0.2)
+fig = make_subplots(rows=1, cols=2,
+                    subplot_titles=("Top 10 Highest % States", ""),
+                    horizontal_spacing = 0.2)
 
-# fig.add_trace(
-#     go.Bar(
-#         x=highestNumCovid.confirmed_cases, 
-#         y=highestNumCovid.state,
-#         orientation='h',
-#         name='# People Confirmed Covid Positive',),
-#     row=1, col=1
-# )
 
-# fig.add_trace(
-#     go.Bar(
-#         x=highestCovid_pct.pct_Covid, 
-#         y=highestCovid_pct.state,
-#         orientation='h',
-#         name='# % of Total State Population Covid Positive'),
-#     row=1, col=2
-# )
+fig.add_trace(
+    go.Bar(
+        x=highestCovid_pct.pct_Covid, 
+        y=highestCovid_pct.state,
+        orientation='h',
+        showlegend=False),
+    row=1, col=1
+)
 
-# fig.update_layout(height=800, width=1000, title_text="Side By Side Subplots")
-# st.plotly_chart(fig, use_container_width=True)
+fig.add_trace(
+    go.Bar(
+        x=lowestCovid_pct.pct_Covid, 
+        y=lowestCovid_pct.state,
+        orientation='h',
+        showlegend=False),
+    row=1, col=2
+)
+
+# Update xaxis properties
+fig.update_xaxes(title_text="Number of People (Millions)", row=1, col=1)
+fig.update_xaxes(title_text="Percentage of State Population", row=1, col=2)
+
+# Update yaxis properties
+fig.update_yaxes(title_text="State", row=1, col=1)
+fig.update_yaxes(title_text="State", row=1, col=2)
+
+fig.update_layout(height=800, width=1000, 
+                  title_text="Covid Positive by % of State Population",
+                  title_x=0.5)
+
+st.plotly_chart(fig, use_container_width=True)
