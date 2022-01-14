@@ -166,29 +166,27 @@ st.plotly_chart(fig, use_container_width=True)
 st.markdown('You can check out the [code on my github here](https://github.com/xyjiang970/covid_dashboard).')
 
 
-fig = make_subplots(rows=1, cols=2,
-                    subplot_titles=("Plot 1", "Plot 2"),
-                    horizontal_spacing = 0.2)
+# fig = make_subplots(rows=1, cols=2,
+#                     subplot_titles=("Plot 1", "Plot 2"),
+#                     horizontal_spacing = 0.2)
 
-#highestNumCovid = df.head(10).sort_values(by='confirmed_cases', ascending=True)
+# fig.add_trace(
+#     go.Bar(
+#         x=highestNumCovid.confirmed_cases, 
+#         y=highestNumCovid.state,
+#         orientation='h',
+#         name='# People Confirmed Covid Positive',),
+#     row=1, col=1
+# )
 
-fig.add_trace(
-    go.Bar(
-        x=highestNumCovid.confirmed_cases, 
-        y=highestNumCovid.state,
-        orientation='h',
-        name='# People Confirmed Covid Positive',),
-    row=1, col=1
-)
+# fig.add_trace(
+#     go.Bar(
+#         x=highestCovid_pct.pct_Covid, 
+#         y=highestCovid_pct.state,
+#         orientation='h',
+#         name='# % of Total State Population Covid Positive'),
+#     row=1, col=2
+# )
 
-fig.add_trace(
-    go.Bar(
-        x=highestCovid_pct.pct_Covid, 
-        y=highestCovid_pct.state,
-        orientation='h',
-        name='# % of Total State Population Covid Positive'),
-    row=1, col=2
-)
-
-fig.update_layout(height=800, width=1000, title_text="Side By Side Subplots")
-st.plotly_chart(fig, use_container_width=True)
+# fig.update_layout(height=800, width=1000, title_text="Side By Side Subplots")
+# st.plotly_chart(fig, use_container_width=True)
