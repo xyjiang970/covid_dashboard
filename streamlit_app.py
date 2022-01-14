@@ -141,7 +141,7 @@ fig.update_layout(height=800, width=1000,
                   title_text="Covid Positive by % of State Population",
                   title_x=0.5)
 
-st.plotly_chart(fig, use_container_width=True)
+st.plotly_chart(fig)
 
 ###########################################################################
 
