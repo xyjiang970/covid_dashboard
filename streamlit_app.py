@@ -174,7 +174,7 @@ st.markdown('You can check out the [code on my github here](https://github.com/x
 
 fig = make_subplots(rows=1, cols=2,
                     subplot_titles=("Top 10 Highest % States", ""),
-                    horizontal_spacing = 0.2)
+                    horizontal_spacing = 0.3)
 
 
 fig.add_trace(
