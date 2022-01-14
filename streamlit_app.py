@@ -108,7 +108,7 @@ st.plotly_chart(fig)
 st.markdown('While it\'s helpful to see the general number of confirmed daily covid cases by state, it would be more insightful to see **_what percentage of confirmed cases make up the total state population_** (since some states have a larger population than other states).')
 
 fig = make_subplots(rows=1, cols=2,
-                    subplot_titles=("Top 10 HIGHEST % States", "Top 10 LOWEST % States"),
+                    subplot_titles=("Top 10 HIGHEST % Territories", "Top 10 LOWEST % Territories"),
                     horizontal_spacing = 0.2)
 
 
@@ -141,7 +141,7 @@ fig.update_yaxes(title_text="State", row=1, col=1)
 fig.update_yaxes(title_text="State", row=1, col=2)
 
 fig.update_layout(height=800, width=1000, 
-                  title_text="Covid Positive by % of State Population",
+                  title_text="Covid Positive by % of State/ Territory Population",
                   title_x=0.5)
 
 st.plotly_chart(fig)
