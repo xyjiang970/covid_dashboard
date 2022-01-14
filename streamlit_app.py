@@ -150,7 +150,7 @@ fig.update_layout(height=800, width=1000,
 
 st.plotly_chart(fig)
 
-st.markdown('It\'s important to note here that some states here may show up in both charts because of the amount of missing data from the NYT database [here](https://github.com/nytimes/covid-19-data/blob/master/live/us-states.csv)')
+st.markdown('It\'s important to note here that some states here may show up in both charts because of the amount of missing data from the NYT database [here](https://github.com/nytimes/covid-19-data/blob/master/live/us-states.csv).')
 
 ###########################################################################
 
