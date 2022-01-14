@@ -196,8 +196,8 @@ fig.add_trace(
 )
 
 # Update xaxis properties
-fig.update_xaxes(title_text="Number of People (Millions)", row=1, col=1)
-fig.update_xaxes(title_text="Percentage of State Population", row=1, col=2)
+fig.update_xaxes(title_text="Percentage", row=1, col=1)
+fig.update_xaxes(title_text="Percentage", row=1, col=2)
 
 # Update yaxis properties
 fig.update_yaxes(title_text="State", row=1, col=1)
