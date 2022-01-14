@@ -118,7 +118,9 @@ fig.add_trace(
         y=highestCovid_pct.state,
         orientation='h',
         name='% Covid Positive',
-        showlegend=False),
+        showlegend=False,
+        marker=dict(
+        color=highestCovid_pct.pct_Covid)),
     row=1, col=1
 )
 
@@ -128,7 +130,9 @@ fig.add_trace(
         y=lowestCovid_pct.state,
         orientation='h',
         name='% Covid Positive',
-        showlegend=False),
+        showlegend=False,
+        marker=dict(
+        color=lowestCovid_pct.pct_Covid)),
     row=1, col=2
 )
 
@@ -145,6 +149,8 @@ fig.update_layout(height=800, width=1000,
                   title_x=0.5)
 
 st.plotly_chart(fig)
+
+st.markdown('It\'s important to note here that some states here may show up in both charts because of the amount of missing data from the NYT database [here](https://github.com/nytimes/covid-19-data/blob/master/live/us-states.csv)')
 
 ###########################################################################
 
