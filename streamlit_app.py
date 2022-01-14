@@ -116,6 +116,7 @@ fig.add_trace(
         x=highestCovid_pct.pct_Covid, 
         y=highestCovid_pct.state,
         orientation='h',
+        name='% Covid Positive',
         showlegend=False),
     row=1, col=1
 )
@@ -125,6 +126,7 @@ fig.add_trace(
         x=lowestCovid_pct.pct_Covid, 
         y=lowestCovid_pct.state,
         orientation='h',
+        name='% Covid Positive',
         showlegend=False),
     row=1, col=2
 )
@@ -141,7 +143,7 @@ fig.update_layout(height=800, width=1000,
                   title_text="Covid Positive by % of State Population",
                   title_x=0.5)
 
-st.plotly_chart(fig)
+st.plotly_chart(fig, use_container_width=True)
 
 ###########################################################################
 
