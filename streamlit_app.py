@@ -102,6 +102,8 @@ st.write('Updated: ',today)
 #############################################################################################################################
 
 # NYC
+st.subheader('NYC Statistics')
+
 fig = px.pie(df4, values='Counts', names=df4.index.values,
              color_discrete_sequence=px.colors.sequential.RdBu,
              title='% Breakdown of Confirmed Covid Cases by Borough',
@@ -111,8 +113,6 @@ fig = px.pie(df4, values='Counts', names=df4.index.values,
 fig.update_traces(textfont_size=15)
 
 st.plotly_chart(fig)
-
-st.subheader('NYC Statistics')
 
 #############################################################################################################################
 
