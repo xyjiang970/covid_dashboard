@@ -139,8 +139,8 @@ fig = px.bar(cleaned, x='pct_Covid', y='state',
 fig.update_layout(height=1200, width=1000,
                   title_x=0.5, 
                   title_y=0.95,
-                  title=dict(font=dict(size=20)),
-                  font=dict(size=10)
+                  title=dict(font=dict(size=15)),
+                  font=dict(size=11)
                   )
 
 st.plotly_chart(fig)
@@ -179,7 +179,8 @@ fig.update_layout(barmode='stack', height=1700, width=1000,
                   title_y=0.97,
                   xaxis_title="Percentage",
                   yaxis_title="State",
-                  font=dict(size=10))
+                  title=dict(font=dict(size=15),
+                  font=dict(size=11))
 
 # Show
 st.plotly_chart(fig)
