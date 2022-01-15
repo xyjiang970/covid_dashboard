@@ -9,12 +9,17 @@ import datetime
 
 # Get from source and load into dataframe
 # Live Datasets that are regularly updated
+# Live Datasets that are regularly updated
 url = 'https://github.com/nytimes/covid-19-data/blob/master/live/us-states.csv?raw=true'
 url2 = 'https://github.com/BloombergGraphics/covid-vaccine-tracker-data/blob/master/data/current-usa.csv?raw=true'
+url3 = 'https://github.com/CSSEGISandData/COVID-19/blob/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_US.csv?raw=true'
+url4 = 'https://github.com/nychealth/coronavirus-data/blob/master/totals/group-data-by-boro.csv?raw=true'
 
 # Load into separate dataframes
 df1 = pd.read_csv(url, index_col=0)
 df2 = pd.read_csv(url2)
+df3 = pd.read_csv(url3)
+df4 = pd.read_csv(url4)
 #############################################################################################################################
 
 # Adjustments and Merging dataframes
@@ -63,6 +68,16 @@ df = df[['state','id','population','confirmed_cases',
          'pct_Covid','completedVaccination','pct_Fully_Vaccinated',
          'boosterDosesAdministered','pct_ReceivedBooster',
          'confirmed_deaths','pct_deadFromCovid']]
+
+# Setting up Borough data in df4 (data frame 4)
+boroughConfirmedCount = ['BK_CONFIRMED_CASE_COUNT','BX_CONFIRMED_CASE_COUNT',
+                         'MN_CONFIRMED_CASE_COUNT', 'QN_CONFIRMED_CASE_COUNT',
+                         'SI_CONFIRMED_CASE_COUNT']
+df4 = df4[boroughConfirmedCount].iloc[0].T.to_frame()
+df4.rename(columns={0:'Counts'}, inplace=True)
+df4.rename(index={'BK_CONFIRMED_CASE_COUNT': 'Brooklyn', 'BX_CONFIRMED_CASE_COUNT':'Bronx',
+                  'MN_CONFIRMED_CASE_COUNT':'Manhattan', 'QN_CONFIRMED_CASE_COUNT':'Queens',
+                  'SI_CONFIRMED_CASE_COUNT':'StatenIsland'}, inplace=True)
 #############################################################################################################################
 
 # Cleaning and dealing with 0 values and NaNs
@@ -87,8 +102,15 @@ st.write('Updated: ',today)
 #############################################################################################################################
 
 # NYC
+fig = px.pie(df4, values='Counts', names=df4.index.values,
+             color_discrete_sequence=px.colors.sequential.RdBu,
+             title='% Breakdown of Confirmed Covid Cases by Borough',
+             height=600,
+             width=600)
 
+fig.update_traces(textfont_size=15)
 
+st.plotly_chart(fig)
 
 st.subheader('NYC Statistics')
 
