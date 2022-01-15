@@ -196,10 +196,7 @@ st.markdown('[Bloomberg](https://github.com/BloombergGraphics/covid-vaccine-trac
 st.markdown('[NYC Health](https://github.com/nychealth/coronavirus-data)')
 
 """
-### Markdown
-Unordered List:
-- First
-- Second
-    - thirdt
-    - Fourth
+- [NYT](https://github.com/nytimes/covid-19-data)
+- [Bloomberg](https://github.com/BloombergGraphics/covid-vaccine-tracker-data)
+- [NYC Health](https://github.com/nychealth/coronavirus-data)
 """
