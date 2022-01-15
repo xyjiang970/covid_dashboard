@@ -72,6 +72,7 @@ highestVacc_pct = df.sort_values(by='pct_Fully_Vaccinated',
                                  ascending=True)
 ########################################################################################
 
+######################### Intro/ Title Stuff ###############################
 
 st.title('Covid Dashboard: NYC Focus')
 st.subheader('Introduction')
@@ -84,8 +85,19 @@ st.write('Updated: ',today)
 
 ###########################################################################
 
-# Bar Chart using plotly - By percentage of state population
+########################          NYC            ##########################
 
+st.subheader('NYC Statistics')
+
+###########################################################################
+
+
+###########################################################################
+
+st.subheader('National View')
+
+################### % Covid Positive ###########################
+# Bar Chart using plotly - By percentage of state population
 fig = px.bar(cleaned, x='pct_Covid', y='state',
              title="% of State Population That Are covid Positive",
              labels = {'state':'State',
@@ -105,10 +117,8 @@ st.plotly_chart(fig)
 
 st.caption('It\'s important to note here that some states are not shown because of the amount of missing data from the NYT database [here](https://github.com/nytimes/covid-19-data/blob/master/live/us-states.csv).')
 
-###########################################################################
-
+################### % Fully Vaccinated ###########################
 # Bar Chart using plotly - By vaccination %
-
 fig = go.Figure()
 
 fig.add_trace(go.Bar(
@@ -145,6 +155,8 @@ fig.update_layout(barmode='stack', height=1700, width=1000,
 st.plotly_chart(fig)
 
 ###########################################################################
+
+st.subheader('References')
 
 st.markdown('You can check out the [code on my github here](https://github.com/xyjiang970/covid_dashboard).')
 st.markdown('\n')
