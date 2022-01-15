@@ -7,6 +7,10 @@ from plotly.subplots import make_subplots
 import datetime
 #############################################################################################################################
 
+# Streamlit adjustments
+_, col2, _ = st.beta_columns([1, 2, 1])
+#############################################################################################################################
+
 # Get from source and load into dataframe
 # Live Datasets that are regularly updated
 # Live Datasets that are regularly updated
@@ -92,7 +96,9 @@ highestVacc_pct = df.sort_values(by='pct_Fully_Vaccinated',
 #############################################################################################################################
 
 # Intro/ Title Stuff
-st.title('Covid Dashboard: NYC Focus')
+with col2:
+    st.title("Covid Dashboard: NYC Focus")
+#st.title('Covid Dashboard: NYC Focus')
 st.subheader('Introduction')
 st.markdown('This is a simple, live dashboard showing Covid-19 statistics and general information with a focus on New York City. Three main databases where the data originated from are: New York Times (NYT), Bloomberg, and NYC Health - all of which are linked at the end.')
 
