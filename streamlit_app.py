@@ -61,9 +61,6 @@ df = df[['state','id','population','confirmed_cases',
          'confirmed_deaths','pct_deadFromCovid']]
 
 ########################################################################################
-# Dataframe of 10 states with the highest general number of people who are covid positive
-highestNumCovid = df.head(10).sort_values(by='confirmed_cases', ascending=True)
-
 # Dataframe of 10 states with highest percentage of covid positive population
 highestCovid_pct = df.head(10).sort_values(by='pct_Covid', ascending=True)
 
@@ -74,7 +71,8 @@ cleaned = cleaned.sort_values(by='pct_Covid')
 lowestCovid_pct = cleaned.head(10).sort_values(by='pct_Covid', ascending=False)
 
 # Dataframe of 10 states with highest vaccination rates of population
-highestVacc_pct = df.head(10).sort_values(by='pct_Fully_Vaccinated')
+highestVacc_pct = df.sort_values(by='pct_Fully_Vaccinated', 
+                                 ascending=True)
 ########################################################################################
 
 
@@ -161,8 +159,6 @@ st.caption('It\'s important to note here that some states here may show up in bo
 # Bar Chart using plotly - By vaccination %
 
 # Dataframe of 10 states with highest vaccination rates of population
-highestVacc_pct = df.head(10).sort_values(by='pct_Fully_Vaccinated')
-
 fig = go.Figure()
 
 fig.add_trace(go.Bar(
@@ -186,10 +182,10 @@ fig.add_trace(go.Bar(
     )
 ))
 
-fig.update_layout(barmode='stack', height=800, width=1000,
-                  title='10 States With the Highest % of Population Fully Vaccinated',
+fig.update_layout(barmode='stack', height=1500, width=1000,
+                  title='10 States With the Highest % of People Fully Vaccinated',
                   title_x=0.48,
-                  title_y=0.92,
+                  title_y=0.95,
                   xaxis_title="Percentage",
                   yaxis_title="State",
                   font=dict(size=15))
