@@ -115,7 +115,7 @@ fig.update_layout(height=1200, width=1000,
 
 st.plotly_chart(fig)
 
-st.caption('It\'s important to note here that some states are not shown because of the amount of missing data from the NYT database [here](https://github.com/nytimes/covid-19-data/blob/master/live/us-states.csv).')
+st.caption('It\'s important to note here that some states are not shown in the chart directly above because of the amount of missing data from the NYT database [here](https://github.com/nytimes/covid-19-data/blob/master/live/us-states.csv).')
 
 ################### % Fully Vaccinated ###########################
 # Bar Chart using plotly - By vaccination %
