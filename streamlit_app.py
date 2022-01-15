@@ -187,15 +187,15 @@ st.plotly_chart(fig)
 st.markdown("***")
 # References Section
 st.header('References')
+"""
+### Code Repo
+You can check out the [code on my github here](https://github.com/xyjiang970/covid_dashboard).
+"""
 
-st.markdown('You can check out the [code on my github here](https://github.com/xyjiang970/covid_dashboard).')
 st.text("")
-st.markdown('Datasources:')
-st.markdown('[NYT](https://github.com/nytimes/covid-19-data)')
-st.markdown('[Bloomberg](https://github.com/BloombergGraphics/covid-vaccine-tracker-data)')
-st.markdown('[NYC Health](https://github.com/nychealth/coronavirus-data)')
 
 """
+### DataSources
 - [NYT](https://github.com/nytimes/covid-19-data)
 - [Bloomberg](https://github.com/BloombergGraphics/covid-vaccine-tracker-data)
 - [NYC Health](https://github.com/nychealth/coronavirus-data)
