@@ -179,7 +179,7 @@ fig.update_layout(barmode='stack', height=2100, width=1000,
                   title_y=0.97,
                   xaxis_title="Percentage",
                   yaxis_title="State",
-                  font=dict(size=15))
+                  font=dict(size=13))
 
 # Show
 st.plotly_chart(fig)
