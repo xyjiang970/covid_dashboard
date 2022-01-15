@@ -9,6 +9,15 @@ import datetime
 
 # Streamlit adjustments
 _, col2, _ = st.columns([1, 2, 1])
+
+# Vertical Spaces
+def v_spacer(height, sb=False) -> None:
+    for _ in range(height):
+        if sb:
+            st.sidebar.write('\n')
+        else:
+            st.write('\n')
+# example: v_spacer(height=3, sb=True)
 #############################################################################################################################
 
 # Get from source and load into dataframe
@@ -96,10 +105,11 @@ highestVacc_pct = df.sort_values(by='pct_Fully_Vaccinated',
 #############################################################################################################################
 
 # Intro/ Title Stuff
+st.title("Covid Dashboard: NYC Focus")
+
 with col2:
-    st.title("Covid Dashboard: NYC Focus")
-#st.title('Covid Dashboard: NYC Focus')
-st.subheader('Introduction')
+  st.subheader('Introduction')
+  
 st.markdown('This is a simple, live dashboard showing Covid-19 statistics and general information with a focus on New York City. Three main databases where the data originated from are: New York Times (NYT), Bloomberg, and NYC Health - all of which are linked at the end.')
 
 # Setting Timezone
