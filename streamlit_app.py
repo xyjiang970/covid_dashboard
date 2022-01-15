@@ -82,29 +82,7 @@ st.markdown('This is a simple, live dashboard showing Covid-19 statistics and ge
 today = str(datetime.date.today())
 st.write('Updated: ',today)
 
-############# Bar Chart using plotly - General confirmed cases #############
-fig = px.bar(df.head(10).sort_values(by='confirmed_cases', ascending=True), x='confirmed_cases', y='state',
-             title="10 States With the Highest Confirmed Covid Cases",
-             labels = {'state':'State',
-                       'confirmed_cases':'Number of Confirmed Cases (Millions)'},
-             orientation='h',
-             color='confirmed_cases')
-
-fig.update_layout(height=800, width=1000,
-                  title_x=0.40, 
-                  title_y=0.93,
-                  title=dict(font=dict(size=20)),
-                  font=dict(size=15)
-                  )
-
-# Show
-st.plotly_chart(fig)
-# st.plotly_chart(fig, use_container_width=True)
-
-
 ###########################################################################
-
-st.markdown('While it\'s helpful to see the general number of confirmed daily covid cases by state, it would be more insightful to see **_what percentage of confirmed cases make up the total state population_** (since some states have a larger population than other states).')
 
 # Bar Chart using plotly - By percentage of state population
 
