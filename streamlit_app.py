@@ -115,9 +115,9 @@ fig.update_layout(height=1200, width=1000,
                   )
 
 st.plotly_chart(fig)
-
 st.caption('It\'s important to note here that some states are not shown in the chart directly above because of the amount of missing data from the NYT database [here](https://github.com/nytimes/covid-19-data/blob/master/live/us-states.csv).')
 
+st.markdown('\n')
 ################### % Fully Vaccinated ###########################
 # Bar Chart using plotly - By vaccination %
 fig = go.Figure()
@@ -132,6 +132,7 @@ fig.add_trace(go.Bar(
         line=dict(color='rgba(102, 255, 102, 0.85)', width=1)
     )
 ))
+
 fig.add_trace(go.Bar(
     y=highestVacc_pct.state,
     x=highestVacc_pct.pct_ReceivedBooster,
@@ -144,7 +145,7 @@ fig.add_trace(go.Bar(
 ))
 
 fig.update_layout(barmode='stack', height=1700, width=1000,
-                  title='% of Population Fully Vaccinated',
+                  title='% of State Population That Are Fully Vaccinated',
                   title_x=0.48,
                   title_y=0.97,
                   xaxis_title="Percentage",
