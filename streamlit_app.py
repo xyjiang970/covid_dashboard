@@ -179,7 +179,7 @@ fig.update_layout(barmode='stack', height=1700, width=1000,
                   title_y=0.97,
                   xaxis_title="Percentage",
                   yaxis_title="State",
-                  title=dict(font=dict(size=15),
+                  title=dict(font=dict(size=15)),
                   font=dict(size=11))
 
 # Show
