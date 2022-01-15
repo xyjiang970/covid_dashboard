@@ -101,7 +101,7 @@ st.markdown('This is a simple, live dashboard showing Covid-19 statistics and ge
 today = str(datetime.date.today())
 st.write('Updated: ',today)
 #############################################################################################################################
-
+st.markdown("***")
 # NYC
 st.header('NYC Statistics')
 st.subheader('Borough Breakdown')
@@ -122,7 +122,7 @@ fig.update_layout(
 st.plotly_chart(fig)
 
 #############################################################################################################################
-
+st.markdown("***")
 # National View Stats. Section
 st.header('National View')
 
@@ -184,12 +184,12 @@ fig.update_layout(barmode='stack', height=1700, width=1000,
 # Show
 st.plotly_chart(fig)
 #############################################################################################################################
-
+st.markdown("***")
 # References Section
 st.header('References')
 
 st.markdown('You can check out the [code on my github here](https://github.com/xyjiang970/covid_dashboard).')
-st.markdown("***")
+st.text("")
 st.markdown('Datasources:')
 st.markdown('[NYT](https://github.com/nytimes/covid-19-data)')
 st.markdown('[Bloomberg](https://github.com/BloombergGraphics/covid-vaccine-tracker-data)')
