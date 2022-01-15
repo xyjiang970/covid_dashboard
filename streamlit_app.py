@@ -61,14 +61,11 @@ df = df[['state','id','population','confirmed_cases',
          'confirmed_deaths','pct_deadFromCovid']]
 
 ########################################################################################
-# Dataframe of 10 states with highest percentage of covid positive population
-highestCovid_pct = df.head(10).sort_values(by='pct_Covid', ascending=True)
-
 # Missing (NaN) and 0 confirmed cases states removed
 cleaned = df.dropna(subset=['confirmed_cases'])
 cleaned = cleaned[cleaned.confirmed_cases != 0]
 cleaned = cleaned.sort_values(by='pct_Covid')
-lowestCovid_pct = cleaned.head(10).sort_values(by='pct_Covid', ascending=False)
+lowestCovid_pct = cleaned.sort_values(by='pct_Covid', ascending=False)
 
 # Dataframe of 10 states with highest vaccination rates of population
 highestVacc_pct = df.sort_values(by='pct_Fully_Vaccinated', 
@@ -109,56 +106,31 @@ st.plotly_chart(fig)
 
 st.markdown('While it\'s helpful to see the general number of confirmed daily covid cases by state, it would be more insightful to see **_what percentage of confirmed cases make up the total state population_** (since some states have a larger population than other states).')
 
-fig = make_subplots(rows=1, cols=2,
-                    subplot_titles=("Top 10 HIGHEST % Territories", "Top 10 LOWEST % Territories"),
-                    horizontal_spacing = 0.2)
+# Bar Chart using plotly - By percentage of state population
 
+fig = px.bar(cleaned, x='pct_Covid', y='state',
+             title="% of State Population That Are covid Positive",
+             labels = {'state':'State',
+                       'pct_Covid':'Percentage'},
+             orientation='h',
+             color='pct_Covid')
 
-fig.add_trace(
-    go.Bar(
-        x=highestCovid_pct.pct_Covid, 
-        y=highestCovid_pct.state,
-        orientation='h',
-        name='% Covid Positive',
-        showlegend=False,
-        marker=dict(
-        color=highestCovid_pct.pct_Covid)),
-    row=1, col=1
-)
-
-fig.add_trace(
-    go.Bar(
-        x=lowestCovid_pct.pct_Covid, 
-        y=lowestCovid_pct.state,
-        orientation='h',
-        name='% Covid Positive',
-        showlegend=False,
-        marker=dict(
-        color=lowestCovid_pct.pct_Covid)),
-    row=1, col=2
-)
-
-# Update xaxis properties
-fig.update_xaxes(title_text="Percentage", row=1, col=1)
-fig.update_xaxes(title_text="Percentage", row=1, col=2)
-
-# Update yaxis properties
-fig.update_yaxes(title_text="State", row=1, col=1)
-fig.update_yaxes(title_text="State", row=1, col=2)
-
-fig.update_layout(height=800, width=1000, 
-                  title_text="Covid Positive by % of State/ Territory Population",
-                  title_x=0.5)
+# Adjustments
+fig.update_layout(height=1200, width=1000,
+                  title_x=0.5, 
+                  title_y=0.95,
+                  title=dict(font=dict(size=20)),
+                  font=dict(size=15)
+                  )
 
 st.plotly_chart(fig)
 
-st.caption('It\'s important to note here that some states here may show up in both charts because of the amount of missing data from the NYT database [here](https://github.com/nytimes/covid-19-data/blob/master/live/us-states.csv).')
+st.caption('It\'s important to note here that some states are not shown because of the amount of missing data from the NYT database [here](https://github.com/nytimes/covid-19-data/blob/master/live/us-states.csv).')
 
 ###########################################################################
 
 # Bar Chart using plotly - By vaccination %
 
-# Dataframe of 10 states with highest vaccination rates of population
 fig = go.Figure()
 
 fig.add_trace(go.Bar(
@@ -183,7 +155,7 @@ fig.add_trace(go.Bar(
 ))
 
 fig.update_layout(barmode='stack', height=1700, width=1000,
-                  title='10 States With the Highest % of People Fully Vaccinated',
+                  title='% of Population Fully Vaccinated',
                   title_x=0.48,
                   title_y=0.97,
                   xaxis_title="Percentage",
