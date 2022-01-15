@@ -5,7 +5,9 @@ import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import datetime
+#############################################################################################################################
 
+# Get from source and load into dataframe
 # Live Datasets that are regularly updated
 url = 'https://github.com/nytimes/covid-19-data/blob/master/live/us-states.csv?raw=true'
 url2 = 'https://github.com/BloombergGraphics/covid-vaccine-tracker-data/blob/master/data/current-usa.csv?raw=true'
@@ -13,6 +15,9 @@ url2 = 'https://github.com/BloombergGraphics/covid-vaccine-tracker-data/blob/mas
 # Load into separate dataframes
 df1 = pd.read_csv(url, index_col=0)
 df2 = pd.read_csv(url2)
+#############################################################################################################################
+
+# Adjustments and Merging dataframes
 
 # Selection and adjustments of data from dataframe 1
 df1 = df1[['state','confirmed_cases','confirmed_deaths']]
@@ -21,7 +26,6 @@ df1 = df1.sort_values(by='confirmed_cases', ascending=False)
 
 df1 = df1[-df1["state"].isin(["Northern Mariana Islands",
                               "American Samoa"])]
-
 
 # Selection and adjustments of data from dataframe 2
 df2 = df2.drop([i for i in range(59,66)])
@@ -59,9 +63,9 @@ df = df[['state','id','population','confirmed_cases',
          'pct_Covid','completedVaccination','pct_Fully_Vaccinated',
          'boosterDosesAdministered','pct_ReceivedBooster',
          'confirmed_deaths','pct_deadFromCovid']]
+#############################################################################################################################
 
-########################################################################################
-# Missing (NaN) and 0 confirmed cases states removed
+# Cleaning and dealing with 0 values and NaNs
 cleaned = df.dropna(subset=['confirmed_cases'])
 cleaned = cleaned[cleaned.confirmed_cases != 0]
 cleaned = cleaned.sort_values(by='pct_Covid')
@@ -70,30 +74,27 @@ lowestCovid_pct = cleaned.sort_values(by='pct_Covid', ascending=False)
 # Dataframe of 10 states with highest vaccination rates of population
 highestVacc_pct = df.sort_values(by='pct_Fully_Vaccinated', 
                                  ascending=True)
-########################################################################################
+#############################################################################################################################
 
-######################### Intro/ Title Stuff ###############################
-
+# Intro/ Title Stuff
 st.title('Covid Dashboard: NYC Focus')
 st.subheader('Introduction')
 st.markdown('This is a simple, live dashboard showing Covid-19 statistics and general information with a focus on New York City. Three main databases where the data originated from are: New York Times (NYT), Bloomberg, and NYC Health - all of which are linked at the end.')
 
-
 # Setting Timezone
 today = str(datetime.date.today())
 st.write('Updated: ',today)
+#############################################################################################################################
 
-###########################################################################
+# NYC
 
-########################          NYC            ##########################
+
 
 st.subheader('NYC Statistics')
 
-###########################################################################
+#############################################################################################################################
 
-
-###########################################################################
-
+# National View Stats. Section
 st.subheader('National View')
 
 ################### % Covid Positive ###########################
@@ -150,12 +151,11 @@ fig.update_layout(barmode='stack', height=1700, width=1000,
                   yaxis_title="State",
                   font=dict(size=15))
 
-
 # Show
 st.plotly_chart(fig)
+#############################################################################################################################
 
-###########################################################################
-
+# References Section
 st.subheader('References')
 
 st.markdown('You can check out the [code on my github here](https://github.com/xyjiang970/covid_dashboard).')
