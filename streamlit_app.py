@@ -116,8 +116,8 @@ st.write('Updated: ',today)
 #############################################################################################################################
 
 # NYC
-st.subheader('NYC Statistics')
-
+st.header('NYC Statistics')
+st.subheader('Borough Breakdown')
 # Pie Chart using plotly - Breakdown of Confirmed Covid Cases by Borough
 fig = px.pie(df4, values='Counts', names=df4.index.values,
              color_discrete_sequence=px.colors.sequential.RdBu,
@@ -137,7 +137,7 @@ st.plotly_chart(fig)
 #############################################################################################################################
 
 # National View Stats. Section
-st.subheader('National View')
+st.header('National View')
 
 ################### % Covid Positive ###########################
 # Bar Chart using plotly - By percentage of state population
@@ -202,7 +202,7 @@ st.plotly_chart(fig)
 st.subheader('References')
 
 st.markdown('You can check out the [code on my github here](https://github.com/xyjiang970/covid_dashboard).')
-st.markdown('\n')
+v_spacer(height=3, sb=True)
 st.markdown('Datasources:')
 st.markdown('[NYT](https://github.com/nytimes/covid-19-data)')
 st.markdown('[Bloomberg](https://github.com/BloombergGraphics/covid-vaccine-tracker-data)')
