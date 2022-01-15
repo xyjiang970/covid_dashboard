@@ -7,20 +7,7 @@ from plotly.subplots import make_subplots
 import datetime
 #############################################################################################################################
 
-# Streamlit adjustments
-
-# Vertical Spaces
-def v_spacer(height, sb=False) -> None:
-    for _ in range(height):
-        if sb:
-            st.sidebar.write('\n')
-        else:
-            st.write('\n')
-# example: v_spacer(height=3, sb=True)
-#############################################################################################################################
-
 # Get from source and load into dataframe
-# Live Datasets that are regularly updated
 # Live Datasets that are regularly updated
 url = 'https://github.com/nytimes/covid-19-data/blob/master/live/us-states.csv?raw=true'
 url2 = 'https://github.com/BloombergGraphics/covid-vaccine-tracker-data/blob/master/data/current-usa.csv?raw=true'
@@ -199,10 +186,10 @@ st.plotly_chart(fig)
 #############################################################################################################################
 
 # References Section
-st.subheader('References')
+st.header('References')
 
 st.markdown('You can check out the [code on my github here](https://github.com/xyjiang970/covid_dashboard).')
-v_spacer(height=3, sb=True)
+st.markdown("***")
 st.markdown('Datasources:')
 st.markdown('[NYT](https://github.com/nytimes/covid-19-data)')
 st.markdown('[Bloomberg](https://github.com/BloombergGraphics/covid-vaccine-tracker-data)')
