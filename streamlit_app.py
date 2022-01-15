@@ -129,7 +129,7 @@ st.header('National View')
 ################### % Covid Positive ###########################
 # Bar Chart using plotly - By percentage of state population
 fig = px.bar(cleaned, x='pct_Covid', y='state',
-             title="% of State Population That Are covid Positive",
+             title="% of State Population That Are Covid Positive",
              labels = {'state':'State',
                        'pct_Covid':'Percentage'},
              orientation='h',
@@ -176,7 +176,7 @@ fig.add_trace(go.Bar(
 fig.update_layout(barmode='stack', height=1700, width=1000,
                   title='% of State Population That Are Fully Vaccinated',
                   title_x=0.5,
-                  title_y=0.97,
+                  title_y=0.95,
                   xaxis_title="Percentage",
                   yaxis_title="State",
                   font=dict(size=10)
