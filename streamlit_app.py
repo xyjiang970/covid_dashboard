@@ -224,7 +224,6 @@ You can check out the [code on my github here](https://github.com/xyjiang970/cov
 
 st.text("")
 
-"""
 st.subheader('Data Sources')
 """
 - [NYT](https://github.com/nytimes/covid-19-data)
