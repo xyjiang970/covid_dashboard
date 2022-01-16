@@ -16,8 +16,8 @@ st.set_page_config(
 
 st.sidebar.markdown("## Table of Contents")
 st.sidebar.markdown("""
-- [NYC Statistics](https://share.streamlit.io/xyjiang970/covid_dashboard/main#nyc-statistics)
-     - [Borough Breakdown](https://share.streamlit.io/xyjiang970/covid_dashboard/main#nyc-statistics)
+- [NYC Statistics](#nyc-statistics)
+     - [Borough Breakdown](#nyc-statistics)
 """)
 #############################################################################################################################
 
