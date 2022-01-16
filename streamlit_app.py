@@ -18,6 +18,7 @@ st.sidebar.markdown("## Table of Contents")
 st.sidebar.markdown("""
 - [NYC Statistics](#nyc-statistics)
      - [Borough Breakdown](#nyc-statistics)
+     
 - [National View](#national-view)
      - [Covid Positive States Ranked]()
      - [Vaccine Breakdown]()
