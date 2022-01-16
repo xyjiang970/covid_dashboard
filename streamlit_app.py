@@ -87,8 +87,7 @@ df['pct_ReceivedBooster'] = (df['boosterDosesAdministered'] / df['population'])*
 # Rearranging columns
 df = df[['state','id','population','confirmed_cases',
          'pct_Covid','completedVaccination','pct_Fully_Vaccinated',
-         'boosterDosesAdministered','pct_ReceivedBooster',
-         'confirmed_deaths','pct_deadFromCovid']]
+         'boosterDosesAdministered','pct_ReceivedBooster']]
 
 # Setting up Borough data in df4 (data frame 4)
 boroughConfirmedCount = ['BK_CONFIRMED_CASE_COUNT','BX_CONFIRMED_CASE_COUNT',
@@ -119,7 +118,6 @@ st.header('Introduction')
   
 st.markdown('This is a simple dashboard showing Covid-19 statistics and general information with a focus on New York City. The data is updated daily automatically. Three main databases where the data is sourced are from: New York Times (NYT), Bloomberg, and NYC Health - all of which are linked at the end.')
 
-# Setting Timezone
 today = str(datetime.date.today())
 st.write('Updated: ',today)
 #############################################################################################################################
