@@ -147,7 +147,7 @@ fig.add_trace(go.Pie(labels=labels, values=df4.CONFIRMED_CASE_RATE, textinfo='la
               1, 2)
 
 fig.update_traces(hoverinfo='value', textfont_size=17)
-fig.update_layout(height=850, width=1500)
+fig.update_layout(height=800, width=1300)
 
 st.plotly_chart(fig)
 
