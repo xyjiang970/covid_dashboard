@@ -177,7 +177,7 @@ fig.update_layout(height=1200, width=1000,
                   )
 
 st.plotly_chart(fig)
-st.caption('It\'s important to note here some states are not shown in the chart directly above because of the amount of missing data from the NYT database [here](https://github.com/nytimes/covid-19-data/blob/master/live/us-states.csv).')
+st.markdown('It\'s important to note here some states are not shown in the chart directly above because of the amount of missing data from the NYT database [here](https://github.com/nytimes/covid-19-data/blob/master/live/us-states.csv). Additionally, there may be some outliers as confirmed cases ≠ general cases. NYT may not have enough data regarding confirmed cases for all states, resulting in some states here reporting significantly lower percentages of their population being covid positive.')
 
 st.markdown('\n')
 ################### % Fully Vaccinated ###########################
