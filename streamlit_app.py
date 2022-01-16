@@ -95,7 +95,6 @@ df4 = df4.loc[df4.subgroup.isin(['Brooklyn','Bronx','Manhattan',
 df4.rename(columns={'subgroup': "Borough"}, inplace=True)
 df4.set_index('Borough', inplace=True)
 df4 = df4[['CONFIRMED_CASE_RATE','CONFIRMED_CASE_COUNT']]
-df4
 #############################################################################################################################
 
 # Cleaning and dealing with 0 values and NaNs
