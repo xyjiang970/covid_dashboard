@@ -23,6 +23,14 @@ st.sidebar.markdown("""
 - [National View](#national-view)
      - [Covid Positive States Ranked]()
      - [Vaccine Breakdown]()
+    
+    
+- [References](#references)
+     - [Code](code-repo)
+     - [Data Sources](#data-sources)
+          - [NYT](https://github.com/nytimes/covid-19-data)
+          - [Bloomberg](https://github.com/BloombergGraphics/covid-vaccine-tracker-data)
+          - [NYC Health](https://github.com/nychealth/coronavirus-data)
 """)
 #############################################################################################################################
 
@@ -217,7 +225,7 @@ You can check out the [code on my github here](https://github.com/xyjiang970/cov
 st.text("")
 
 """
-### DataSources
+### Data Sources
 - [NYT](https://github.com/nytimes/covid-19-data)
 - [Bloomberg](https://github.com/BloombergGraphics/covid-vaccine-tracker-data)
 - [NYC Health](https://github.com/nychealth/coronavirus-data)
