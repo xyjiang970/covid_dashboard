@@ -18,6 +18,9 @@ st.sidebar.markdown("## Table of Contents")
 st.sidebar.markdown("""
 - [NYC Statistics](#nyc-statistics)
      - [Borough Breakdown](#nyc-statistics)
+- [National View](#national-view)
+     - [Covid Positive States Ranked]()
+     - [Vaccine Breakdown]()
 """)
 #############################################################################################################################
 
@@ -141,6 +144,7 @@ st.markdown("***")
 st.header('National View')
 
 ################### % Covid Positive ###########################
+st.subheader('Covid Positive States Ranked')
 # Bar Chart using plotly - By percentage of state population
 fig = px.bar(cleaned, x='pct_Covid', y='state',
              title="% of State Population That Are Covid Positive",
@@ -162,6 +166,7 @@ st.caption('It\'s important to note here some states are not shown in the chart 
 
 st.markdown('\n')
 ################### % Fully Vaccinated ###########################
+st.subheader('Vaccine Breakdown')
 # Bar Chart using plotly - By vaccination %
 fig = go.Figure()
 
