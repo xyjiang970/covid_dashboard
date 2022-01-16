@@ -158,7 +158,7 @@ fig.update_layout(height=1200, width=1000,
                   title_x=0.5, 
                   title_y=0.95,
                   title=dict(font=dict(size=15)),
-                  font=dict(size=11)
+                  font=dict(size=15)
                   )
 
 st.plotly_chart(fig)
@@ -192,13 +192,13 @@ fig.add_trace(go.Bar(
     )
 ))
 
-fig.update_layout(barmode='stack', height=1700, width=1000,
+fig.update_layout(barmode='stack', height=1600, width=1000,
                   title='% of State Population That Are Fully Vaccinated',
                   title_x=0.5,
                   title_y=0.95,
                   xaxis_title="Percentage",
                   yaxis_title="State",
-                  font=dict(size=10)
+                  font=dict(size=15)
                  )
 
 # Show
