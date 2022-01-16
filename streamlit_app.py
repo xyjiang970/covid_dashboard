@@ -135,9 +135,9 @@ labels = df4.index.values
 
 fig = make_subplots(rows=1, cols=2, specs=[[{'type':'domain'}, 
                                             {'type':'domain'}]],
-                   subplot_titles=['Covid Cases (Cumulative - all variants)', 
+                   subplot_titles=['Covid Cases (Cumulative since outbreak - all variants)', 
                                    'Covid Positive RATE (per 100K people)'],
-                   horizontal_spacing = 0.25)
+                   horizontal_spacing = 0.2)
 
 fig.add_trace(go.Pie(labels=labels, values=df4.CONFIRMED_CASE_COUNT, textinfo='label+value', 
                      name='Counts', marker_colors=colors),
