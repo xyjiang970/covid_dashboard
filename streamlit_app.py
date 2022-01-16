@@ -83,8 +83,6 @@ df['pct_Fully_Vaccinated'] = (df['completedVaccination'] / df['population'])*100
 # Percentage of population that received booster
 df['pct_ReceivedBooster'] = (df['boosterDosesAdministered'] / df['population'])*100
 
-# Percentage of population confirmed dead from covid
-df['pct_deadFromCovid'] = (df['confirmed_deaths'] / df['population'])*100
 
 # Rearranging columns
 df = df[['state','id','population','confirmed_cases',
