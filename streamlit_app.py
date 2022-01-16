@@ -36,7 +36,7 @@ st.sidebar.markdown("""
 url = 'https://github.com/nytimes/covid-19-data/blob/master/live/us-states.csv?raw=true'
 url2 = 'https://github.com/BloombergGraphics/covid-vaccine-tracker-data/blob/master/data/current-usa.csv?raw=true'
 url3 = 'https://github.com/CSSEGISandData/COVID-19/blob/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_US.csv?raw=true'
-url4 = 'https://github.com/nychealth/coronavirus-data/blob/master/totals/group-data-by-boro.csv?raw=true'
+url4 = 'https://github.com/nychealth/coronavirus-data/blob/master/totals/by-group.csv?raw=true'
 
 # Load into separate dataframes
 df1 = pd.read_csv(url, index_col=0)
@@ -90,14 +90,12 @@ df = df[['state','id','population','confirmed_cases',
          'boosterDosesAdministered','pct_ReceivedBooster']]
 
 # Setting up Borough data in df4 (data frame 4)
-boroughConfirmedCount = ['BK_CONFIRMED_CASE_COUNT','BX_CONFIRMED_CASE_COUNT',
-                         'MN_CONFIRMED_CASE_COUNT', 'QN_CONFIRMED_CASE_COUNT',
-                         'SI_CONFIRMED_CASE_COUNT']
-df4 = df4[boroughConfirmedCount].iloc[0].T.to_frame()
-df4.rename(columns={0:'Counts'}, inplace=True)
-df4.rename(index={'BK_CONFIRMED_CASE_COUNT': 'Brooklyn', 'BX_CONFIRMED_CASE_COUNT':'Bronx',
-                  'MN_CONFIRMED_CASE_COUNT':'Manhattan', 'QN_CONFIRMED_CASE_COUNT':'Queens',
-                  'SI_CONFIRMED_CASE_COUNT':'StatenIsland'}, inplace=True)
+df4 = df4.loc[df4.subgroup.isin(['Brooklyn','Bronx','Manhattan',
+                                 'Queens','StatenIsland'])]
+df4.rename(columns={'subgroup': "Borough"}, inplace=True)
+df4.set_index('Borough', inplace=True)
+df4 = df4[['CONFIRMED_CASE_RATE','CONFIRMED_CASE_COUNT']]
+df4
 #############################################################################################################################
 
 # Cleaning and dealing with 0 values and NaNs
@@ -125,19 +123,28 @@ st.markdown("***")
 # NYC
 st.header('NYC Statistics')
 st.subheader('Borough Breakdown')
-# Pie Chart using plotly - Breakdown of Confirmed Covid Cases by Borough
-fig = px.pie(df4, values='Counts', names=df4.index.values,
-             color_discrete_sequence=px.colors.sequential.RdBu,
-             title='Confirmed Covid Cases by Borough (Cumulative since outbreak - all variants)',
-             height=600,
-             width=600)
+# Pie Chart subplots using plotly - Breakdown of Confirmed Data (counts & rates)
+colors = ['rgb(164,162,184)','rgb(226,197,184)','rgb(243,239,216)',
+          'rgb(197,210,156)','rgb(149,195,174)']
 
-# Adjustments
-fig.update_traces(textfont_size=15)
-fig.update_layout(
-                  title_x=0.5, 
-                  title_y=0.95,
-                  )
+labels = df4.index.values
+
+fig = make_subplots(rows=1, cols=2, specs=[[{'type':'domain'}, 
+                                            {'type':'domain'}]],
+                   subplot_titles=['Covid Cases (Cumulative - all variants)', 
+                                   'Covid Positive RATE (per 100K people)'],
+                   horizontal_spacing = 0.1)
+
+fig.add_trace(go.Pie(labels=labels, values=df4.CONFIRMED_CASE_COUNT, textinfo='label+value', 
+                     name='Counts', marker_colors=colors),
+              1, 1)
+fig.add_trace(go.Pie(labels=labels, values=df4.CONFIRMED_CASE_RATE, textinfo='label+percent',
+                     name='Rates', marker_colors=colors),
+              1, 2)
+
+fig.update_traces(hoverinfo='value')
+fig.update_layout(height=600, width=1000,
+                  title_text='Confirmed Data Only')
 
 st.plotly_chart(fig)
 
