@@ -154,7 +154,7 @@ st.header('National View')
 st.subheader('Covid Positive States Ranked')
 # Bar Chart using plotly - By percentage of state population
 fig = px.bar(cleaned, x='pct_Covid', y='state',
-             title="% of State Population That Are Covid Positive",
+             title="% of State Population That Are Covid Positive (Confirmed cases only)",
              labels = {'state':'State',
                        'pct_Covid':'Percentage'},
              orientation='h',
