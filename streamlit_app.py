@@ -164,7 +164,7 @@ fig = px.bar(cleaned, x='pct_Covid', y='state',
 fig.update_layout(height=1200, width=1000,
                   title_x=0.5, 
                   title_y=0.95,
-                  title=dict(font=dict(size=15)),
+                  title=dict(font=dict(size=20)),
                   font=dict(size=15)
                   )
 
@@ -202,7 +202,7 @@ fig.add_trace(go.Bar(
 fig.update_layout(barmode='stack', height=1600, width=1000,
                   title='% of State Population That Are Fully Vaccinated',
                   title_x=0.5,
-                  title_y=0.95,
+                  title_y=0.97,
                   xaxis_title="Percentage",
                   yaxis_title="State",
                   font=dict(size=15)
