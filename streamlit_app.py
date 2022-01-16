@@ -21,8 +21,8 @@ st.sidebar.markdown("""
      
      
 - [National View](#national-view)
-     - [Covid Positive States Ranked]()
-     - [Vaccine Breakdown]()
+     - [Covid Positive States Ranked](#covid-positive-states-ranked)
+     - [Vaccine Breakdown](#vaccine-breakdown)
     
     
 - [References](#references)
