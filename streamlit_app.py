@@ -48,9 +48,9 @@ df4 = pd.read_csv(url4)
 # Adjustments and Merging dataframes
 
 # Selection and adjustments of data from dataframe 1
-df1 = df1[['state','confirmed_cases','confirmed_deaths']]
+df1 = df1[['state','confirmed_cases','cases']]
 
-df1 = df1.sort_values(by='confirmed_cases', ascending=False)
+df1 = df1.sort_values(by='cases', ascending=False)
 
 df1 = df1[-df1["state"].isin(["Northern Mariana Islands",
                               "American Samoa"])]
@@ -75,7 +75,7 @@ df2.rename(columns={"name": "state"}, inplace=True)
 df = df1.merge(df2, how='inner', on='state')
 
 # Percentage of population confirmed with covid
-df['pct_Covid'] = (df['confirmed_cases'] / df['population'])*100
+df['pct_Covid'] = (df['cases'] / df['population'])*100
 
 # Percentage of population vaccinated (fully)
 df['pct_Fully_Vaccinated'] = (df['completedVaccination'] / df['population'])*100
@@ -85,9 +85,10 @@ df['pct_ReceivedBooster'] = (df['boosterDosesAdministered'] / df['population'])*
 
 
 # Rearranging columns
-df = df[['state','id','population','confirmed_cases',
+df = df[['state','id','population','cases','confirmed_cases',
          'pct_Covid','completedVaccination','pct_Fully_Vaccinated',
          'boosterDosesAdministered','pct_ReceivedBooster']]
+
 
 # Setting up Borough data in df4 (data frame 4)
 df4 = df4.loc[df4.subgroup.isin(['Brooklyn','Bronx','Manhattan',
@@ -98,7 +99,7 @@ df4 = df4[['CONFIRMED_CASE_RATE','CONFIRMED_CASE_COUNT']]
 #############################################################################################################################
 
 # Cleaning and dealing with 0 values and NaNs
-cleaned = df.dropna(subset=['confirmed_cases'])
+cleaned = df.dropna(subset=['cases'])
 cleaned = cleaned[cleaned.confirmed_cases != 0]
 cleaned = cleaned.sort_values(by='pct_Covid')
 lowestCovid_pct = cleaned.sort_values(by='pct_Covid', ascending=False)
@@ -162,14 +163,14 @@ st.header('National View')
 st.subheader('Covid Positive States Ranked')
 # Bar Chart using plotly - By percentage of state population
 fig = px.bar(cleaned, x='pct_Covid', y='state',
-             title="% of State Population That Are Covid Positive (Confirmed cases only)",
+             title="% of State Population That Are covid Positive",
              labels = {'state':'State',
                        'pct_Covid':'Percentage'},
              orientation='h',
              color='pct_Covid')
 
 # Adjustments
-fig.update_layout(height=1200, width=1000,
+fig.update_layout(height=1700, width=1000,
                   title_x=0.5, 
                   title_y=0.95,
                   title=dict(font=dict(size=20)),
