@@ -163,7 +163,7 @@ st.header('National View')
 st.subheader('Covid Positive States Ranked')
 # Bar Chart using plotly - By percentage of state population
 fig = px.bar(cleaned, x='pct_Covid', y='state',
-             title="% of State Population That Are covid Positive",
+             title="% of State Population That Are Covid Positive",
              labels = {'state':'State',
                        'pct_Covid':'Percentage'},
              orientation='h',
@@ -172,13 +172,15 @@ fig = px.bar(cleaned, x='pct_Covid', y='state',
 # Adjustments
 fig.update_layout(height=1700, width=1000,
                   title_x=0.5, 
-                  title_y=0.95,
+                  title_y=0.97,
                   title=dict(font=dict(size=20)),
                   font=dict(size=15)
                   )
 
 st.plotly_chart(fig)
-st.markdown('It\'s important to note here some states are not shown in the chart directly above because of the amount of missing data from the NYT database [here](https://github.com/nytimes/covid-19-data/blob/master/live/us-states.csv). Additionally, there may be some outliers as confirmed cases ≠ general cases. NYT may not have enough data regarding confirmed cases for all states, resulting in some states here reporting significantly lower percentages of their population being covid positive.')
+st.markdown("""
+Cases data is from [NYT](https://github.com/nytimes/covid-19-data#live-data) and is defined as, "The total number of cases of Covid-19, including both confirmed and probable".
+""")
 
 st.markdown('\n')
 ################### % Fully Vaccinated ###########################
