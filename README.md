@@ -14,4 +14,4 @@ All of the above resources were used in the making of this simple dashboard.
 
 I will be looking at the breakdown of Covid-19 cases and vaccinations with a foucs on NYC, and then from a national level (by state).
 
-View the dashboard <a href="https://share.streamlit.io/xyjiang970/covid_dashboard/main" target="_blank">app here</a>
+View the dashboard <a href="https://share.streamlit.io/xyjiang970/covid_dashboard/main" target="_blank">app here</a>.
