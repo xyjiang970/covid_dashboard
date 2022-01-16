@@ -9,6 +9,7 @@ import datetime
 
 # General Streamlit Adjustments
 st.set_page_config(layout="wide")
+apptitle = 'Covid Dashboard: NYC Focus'
 st.set_page_config(page_title=apptitle, page_icon=":bar_chart:")
 #############################################################################################################################
 
