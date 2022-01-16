@@ -9,8 +9,9 @@ import datetime
 
 # General Streamlit Adjustments
 st.set_page_config(layout="wide")
-# apptitle = 'Covid Dashboard: NYC Focus'
-# st.set_page_config(page_title=apptitle, page_icon=":bar_chart:")
+
+apptitle = 'GW Quickview'
+st.set_page_config(page_title=apptitle, page_icon=":eyeglasses:")
 #############################################################################################################################
 
 # Get from source and load into dataframe
