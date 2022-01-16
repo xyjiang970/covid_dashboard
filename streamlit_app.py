@@ -132,14 +132,14 @@ st.subheader('Borough Breakdown')
 # Pie Chart using plotly - Breakdown of Confirmed Covid Cases by Borough
 fig = px.pie(df4, values='Counts', names=df4.index.values,
              color_discrete_sequence=px.colors.sequential.RdBu,
-             title='% Breakdown of Confirmed Covid Cases by Borough',
+             title='% Breakdown of Confirmed Covid Cases by Borough (Cumulative since outbreak)',
              height=600,
              width=600)
 
 # Adjustments
 fig.update_traces(textfont_size=15)
 fig.update_layout(
-                  title_x=0.5, 
+                  title_x=0.45, 
                   title_y=0.95,
                   )
 
