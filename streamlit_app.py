@@ -9,6 +9,7 @@ import datetime
 
 # General Streamlit Adjustments
 st.set_page_config(layout="wide")
+st.set_page_config(page_title=apptitle, page_icon=":virus:")
 #############################################################################################################################
 
 # Get from source and load into dataframe
