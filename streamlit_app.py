@@ -11,7 +11,7 @@ import datetime
 st.set_page_config(layout="wide")
 
 apptitle = 'GW Quickview'
-st.set_page_config(page_title=apptitle, page_icon=":eyeglasses:")
+st.set_page_config(page_title=apptitle, page_icon="eyeglasses")
 #############################################################################################################################
 
 # Get from source and load into dataframe
