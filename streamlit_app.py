@@ -217,15 +217,16 @@ st.plotly_chart(fig)
 st.markdown("***")
 # References Section
 st.header('References')
+st.subheader('Code Repo')
 """
-### Code Repo
 You can check out the [code on my github here](https://github.com/xyjiang970/covid_dashboard).
 """
 
 st.text("")
 
 """
-### Data Sources
+st.subheader('Data Sources')
+"""
 - [NYT](https://github.com/nytimes/covid-19-data)
 - [Bloomberg](https://github.com/BloombergGraphics/covid-vaccine-tracker-data)
 - [NYC Health](https://github.com/nychealth/coronavirus-data)
