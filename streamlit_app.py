@@ -124,7 +124,9 @@ st.header('NYC Statistics')
 st.subheader('Borough Breakdown')
 st.markdown(
 """
-Confirmed data only. For rates, [NYC HEALTH](https://github.com/nychealth/coronavirus-data/tree/master/totals#by-groupcsv) defines confirmed case rate as out of 100,000 people.
+Confirmed data only. 
+For C
+For rates, [NYC HEALTH](https://github.com/nychealth/coronavirus-data/tree/master/totals#by-groupcsv) defines confirmed case rate as out of 100,000 people.
 """
 )
 # Pie Chart subplots using plotly - Breakdown of Confirmed Data (counts & rates)
@@ -137,7 +139,7 @@ fig = make_subplots(rows=1, cols=2, specs=[[{'type':'domain'},
                                             {'type':'domain'}]],
                    subplot_titles=['Covid Cases (Cumulative since outbreak - all variants)', 
                                    'Covid Positive RATE (per 100K people)'],
-                   horizontal_spacing = 0.1)
+                   horizontal_spacing = 0.15)
 
 fig.add_trace(go.Pie(labels=labels, values=df4.CONFIRMED_CASE_COUNT, textinfo='label+value', 
                      name='Counts', marker_colors=colors),
@@ -146,8 +148,10 @@ fig.add_trace(go.Pie(labels=labels, values=df4.CONFIRMED_CASE_RATE, textinfo='la
                      name='Rates', marker_colors=colors),
               1, 2)
 
-fig.update_traces(hoverinfo='value', textfont_size=17)
-fig.update_layout(height=700, width=1000)
+fig.update_traces(hoverinfo='value', textfont_size=16)
+fig.update_layout(height=700, width=1200, 
+                  font=dict(size=17)
+                 )
 
 st.plotly_chart(fig)
 
