@@ -8,10 +8,10 @@ import datetime
 #############################################################################################################################
 
 # General Streamlit Adjustments
-st.set_page_config(layout="wide")
-
 apptitle = 'GW Quickview'
 st.set_page_config(page_title=apptitle)
+
+st.set_page_config(layout="wide")
 #############################################################################################################################
 
 # Get from source and load into dataframe
