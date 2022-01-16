@@ -7,6 +7,10 @@ from plotly.subplots import make_subplots
 import datetime
 #############################################################################################################################
 
+# General Streamlit Adjustments
+st.set_page_config(layout="wide")
+#############################################################################################################################
+
 # Get from source and load into dataframe
 # Live Datasets that are regularly updated
 url = 'https://github.com/nytimes/covid-19-data/blob/master/live/us-states.csv?raw=true'
