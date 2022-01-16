@@ -26,11 +26,8 @@ st.sidebar.markdown("""
     
     
 - [References](#references)
-     - [Code](code-repo)
+     - [Code](#code-repo)
      - [Data Sources](#data-sources)
-          - [NYT](https://github.com/nytimes/covid-19-data)
-          - [Bloomberg](https://github.com/BloombergGraphics/covid-vaccine-tracker-data)
-          - [NYC Health](https://github.com/nychealth/coronavirus-data)
 """)
 #############################################################################################################################
 
