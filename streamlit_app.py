@@ -8,8 +8,8 @@ import datetime
 #############################################################################################################################
 
 # General Streamlit Adjustments
-apptitle = 'GW Quickview'
-st.set_page_config(page_title=apptitle)
+# apptitle = 'GW Quickview'
+# st.set_page_config(page_title=apptitle)
 
 st.set_page_config(layout="wide")
 #############################################################################################################################
