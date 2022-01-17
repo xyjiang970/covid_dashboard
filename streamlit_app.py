@@ -114,7 +114,7 @@ st.title("Covid Dashboard: NYC Focus")
 
 st.header('Introduction')
   
-st.markdown('This is a simple dashboard showing Covid-19 statistics and general information with a focus on New York City. The data is updated daily automatically. Three main databases where the data is sourced are from: New York Times (NYT), Bloomberg, and NYC Health - all of which are linked at the end.')
+st.markdown('This is a simple dashboard showing Covid-19 statistics and general information with a focus on New York City. The data is updated regularly, automatically. Three main databases where the data is sourced are from: New York Times (NYT), Bloomberg, and NYC Health - all of which are linked at the end.')
 
 today = str(datetime.date.today())
 st.write('Updated: ',today)
