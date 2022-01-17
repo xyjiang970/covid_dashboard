@@ -201,6 +201,15 @@ st.plotly_chart(fig)
 st.markdown('\n')
 ################### % Fully Vaccinated ###########################
 st.subheader('Vaccine Breakdown')
+
+st.markdown("""
+According to the Bloomberg repo's [data dictionary](https://github.com/BloombergGraphics/covid-vaccine-tracker-data#data-dictionary), fully vaccinated (or "completedVaccination") is defined as the "cumulative number of additional doses administered to people who've already been fully vaccinated with either a single-, two- or three-dose vaccine".
+""")
+
+st.markdown("""
+Received booster (or "boosterDosesAdministered") is defined as the "Cumulative number of additional doses administered to people who've already been fully vaccinated with either a single- or two-dose vaccine".
+""")
+
 # Bar Chart using plotly - By vaccination %
 fig = go.Figure()
 
