@@ -100,7 +100,7 @@ df4 = df4[['CONFIRMED_CASE_RATE','CONFIRMED_CASE_COUNT']]
 
 # Cleaning and dealing with 0 values and NaNs
 cleaned = df.dropna(subset=['cases'])
-cleaned = cleaned[cleaned.confirmed_cases != 0]
+cleaned = cleaned[cleaned.cases != 0]
 cleaned = cleaned.sort_values(by='pct_Covid')
 lowestCovid_pct = cleaned.sort_values(by='pct_Covid', ascending=False)
 
