@@ -158,11 +158,7 @@ st.markdown("""
 For reference, the populations for each respective borough can be seen in the table below:
 """)
 
-df_html = '''<div>
-https://www.citypopulation.de/en/usa/newyorkcity/
-</div>
-'''
-boro_pop = pd.read_html(df_html)[0]
+boro_pop = pd.read_html('https://www.citypopulation.de/en/usa/newyorkcity/')[0]
 boro_pop = boro_pop.iloc[:, [0,-2]]
 st.table(boro_pop)
 
