@@ -128,6 +128,8 @@ st.markdown(
 Confirmed data only. For "counts", the number is cumulative and sums up all confirmed cases since the beginning of the outbreak. For "rates", [NYC HEALTH](https://github.com/nychealth/coronavirus-data/tree/master/totals#by-groupcsv) defines confirmed case rate as out of 100,000 people.
 """
 )
+st.caption('Using the [by-group.csv](https://github.com/nychealth/coronavirus-data/blob/master/totals/by-group.csv) file.')
+
 # Pie Chart subplots using plotly - Breakdown of Confirmed Data (counts & rates)
 colors = ['rgb(164,162,184)','rgb(226,197,184)','rgb(243,239,216)',
           'rgb(197,210,156)','rgb(149,195,174)']
@@ -179,6 +181,8 @@ Cases data is from [NYT](https://github.com/nytimes/covid-19-data#live-data) and
 st.markdown("""
 More info can be found in a [note here](https://github.com/nytimes/covid-19-data/blob/master/PROBABLE-CASES-NOTE.md) on probably cases by NYT. Additionally, here is a [PDF](https://int.nyt.com/data/documenthelper/6908-cste-interim-20-id-01-covid-19/85d47e89b637cd643d50/optimized/full.pdf) by the CSTE that establishes what are considered "probable" cases.
 """)
+
+st.caption('Using the [us-states.csv](https://github.com/nytimes/covid-19-data/tree/master/live) file.')
 
 # Bar Chart using plotly - By percentage of state population
 fig = px.bar(cleaned, x='pct_Covid', y='state',
