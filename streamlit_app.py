@@ -162,7 +162,7 @@ boro_pop = pd.read_html('https://www.citypopulation.de/en/usa/newyorkcity/')[0]
 boro_pop = boro_pop.iloc[:, [0,-2]]
 boro_pop.set_index('Name', inplace=True)
 boro_pop.rename(columns={boro_pop.columns[0]: "Latest Census Population" }, inplace = True)
-st.table(boro_pop)
+st.dataframe(boro_pop)
 st.caption('Table data is from [U.S. Census Bureau](https://www.citypopulation.de/en/usa/newyorkcity/).')
 
 #############################################################################################################################
