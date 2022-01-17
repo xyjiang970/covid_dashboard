@@ -155,7 +155,7 @@ fig.update_layout(height=700, width=1200,
 st.plotly_chart(fig)
 
 st.markdown("""
-For reference, the populations for each respective borough can be seen in the table below:
+For reference, the populations for each respective borough can be seen in the interactive table below:
 """)
 
 boro_pop = pd.read_html('https://www.citypopulation.de/en/usa/newyorkcity/')[0]
