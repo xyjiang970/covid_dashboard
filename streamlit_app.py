@@ -210,6 +210,8 @@ st.markdown("""
 Received booster (or "boosterDosesAdministered") is defined as the "Cumulative number of additional doses administered to people who've already been fully vaccinated with either a single- or two-dose vaccine".
 """)
 
+st.caption('Using the [current-usa.csv](https://github.com/BloombergGraphics/covid-vaccine-tracker-data/blob/master/data/current-usa.csv) file.')
+
 # Bar Chart using plotly - By vaccination %
 fig = go.Figure()
 
