@@ -5,12 +5,6 @@ import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import datetime
-
-import os, ssl
-
-if (not os.environ.get('PYTHONHTTPSVERIFY', '') and
-getattr(ssl, '_create_unverified_context', None)):
-    ssl._create_default_https_context = ssl._create_unverified_context
 #############################################################################################################################
 
 # General Streamlit Adjustments
@@ -164,7 +158,10 @@ st.markdown("""
 For reference, the populations for each respective borough can be seen in the table below:
 """)
 
-boro_pop = pd.read_html('https://www.citypopulation.de/en/usa/newyorkcity/')[0]
+df_html = '''
+https://www.citypopulation.de/en/usa/newyorkcity/
+'''
+boro_pop = pd.read_html(df_html)[0]
 boro_pop = boro_pop.iloc[:, [0,-2]]
 st.table(boro_pop)
 
