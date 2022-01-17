@@ -182,7 +182,7 @@ st.markdown("""
 More info can be found in a [note here](https://github.com/nytimes/covid-19-data/blob/master/PROBABLE-CASES-NOTE.md) on probably cases by NYT. Additionally, here is a [PDF](https://int.nyt.com/data/documenthelper/6908-cste-interim-20-id-01-covid-19/85d47e89b637cd643d50/optimized/full.pdf) by the CSTE that establishes what are considered "probable" cases.
 """)
 
-st.caption('Using the [us-states.csv](https://github.com/nytimes/covid-19-data/tree/master/live) file.')
+st.caption('Using the [us-states.csv](https://github.com/nytimes/covid-19-data/blob/master/live/us-states.csv) file.')
 
 # Bar Chart using plotly - By percentage of state population
 fig = px.bar(cleaned, x='pct_Covid', y='state',
