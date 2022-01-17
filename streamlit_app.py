@@ -160,6 +160,7 @@ For reference, the populations for each respective borough can be seen in the ta
 
 boro_pop = pd.read_html('https://www.citypopulation.de/en/usa/newyorkcity/')[0]
 boro_pop = boro_pop.iloc[:, [0,-2]]
+boro_pop.set_index('Name', inplace=True)
 st.table(boro_pop)
 
 #############################################################################################################################
