@@ -179,7 +179,7 @@ fig.update_layout(height=1700, width=1000,
 
 st.plotly_chart(fig)
 st.markdown("""
-Cases data is from [NYT](https://github.com/nytimes/covid-19-data#live-data) and is defined as, "The total number of cases of Covid-19, including both confirmed and probable".
+Cases data is from [NYT](https://github.com/nytimes/covid-19-data#live-data) and is defined as, "The total number of cases of Covid-19, including both confirmed and **probable**". Here is a [PDF](https://int.nyt.com/data/documenthelper/6908-cste-interim-20-id-01-covid-19/85d47e89b637cd643d50/optimized/full.pdf) which can be found linked in the same NYT github repo that establishes what is considered a "probable" case
 """)
 
 st.markdown('\n')
