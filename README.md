@@ -1,12 +1,17 @@
 # Simple Covid Dashboard (In Progress)
 
-The ongoing repo from NYT containg Coronavirus (Covid-19) data in the United States can be <a href="https://github.com/nytimes/covid-19-data" target="_blank">found here</a>. 
+<ul>
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Milk</li>
+</ul>
 
-The ongoing vaccine tracking information can be found from the Bloomberg <a href="https://github.com/BloombergGraphics/covid-vaccine-tracker-data" target="_blank">repo here</a>.
-
+<ul>
+  <li><a href="https://github.com/nytimes/covid-19-data" target="_blank">NYT containg Coronavirus (Covid-19) data in the United States</a></li>
+  <li><a href="https://github.com/BloombergGraphics/covid-vaccine-tracker-data" target="_blank">Vaccine tracking information from Bloomberg </a></li>
+  <li><a href="https://github.com/nychealth/coronavirus-data" target="_blank">NYC Health: NYC specific Covid data</a>.</li>
+</ul>
 <!-- For historical data (time series), I found Johns Hopkins University's ongoing <a href="https://github.com/BloombergGraphics/covid-vaccine-tracker-data" target="_blank">CSSE Covid-19 repo</a> especially useful.  -->
-
-For ongoing NYC specific Covid data, everything can be found in <a href="https://github.com/nychealth/coronavirus-data" target="_blank">this repo here</a>.
 
 All of the above resources were used in the making of this simple dashboard.
 
