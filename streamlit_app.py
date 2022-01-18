@@ -150,7 +150,7 @@ fig.add_trace(go.Pie(labels=labels, values=df4.CONFIRMED_CASE_RATE, textinfo='la
               1, 2)
 
 fig.update_traces(hoverinfo='value', textfont_size=16)
-fig.update_layout(height=600, width=1100, 
+fig.update_layout(height=500, width=1100, 
                   font=dict(size=17)
                  )
 
