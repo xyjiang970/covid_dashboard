@@ -1,7 +1,7 @@
 # Simple Covid Dashboard (In Progress)
 
 <ul>
-  <li><a href="https://github.com/nytimes/covid-19-data" target="_blank">NYT containg Coronavirus (Covid-19) data in the United States</a></li>
+  <li><a href="https://github.com/nytimes/covid-19-data" target="_blank">NYT containing Coronavirus (Covid-19) data in the United States</a></li>
   <li><a href="https://github.com/BloombergGraphics/covid-vaccine-tracker-data" target="_blank">Vaccine tracking information from Bloomberg </a></li>
   <li><a href="https://github.com/nychealth/coronavirus-data" target="_blank">NYC Health: NYC specific Covid data</a>.</li>
 </ul>
