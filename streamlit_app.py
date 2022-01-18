@@ -140,7 +140,7 @@ fig = make_subplots(rows=1, cols=2, specs=[[{'type':'domain'},
                                             {'type':'domain'}]],
                    subplot_titles=['Covid Cases Count (Cumulative since outbreak - all variants)', 
                                    'Covid Positive RATE (per 100K people)'],
-                   horizontal_spacing = 0.15)
+                   horizontal_spacing=0.15)
 
 fig.add_trace(go.Pie(labels=labels, values=df4.CONFIRMED_CASE_COUNT, textinfo='label+value', 
                      name='Counts', marker_colors=colors),
@@ -150,8 +150,9 @@ fig.add_trace(go.Pie(labels=labels, values=df4.CONFIRMED_CASE_RATE, textinfo='la
               1, 2)
 
 fig.update_traces(hoverinfo='value', textfont_size=16)
-fig.update_layout(height=550, width=1100, 
-                  font=dict(size=16), title_y=0.97)
+fig.update_layout(height=600, width=1100, 
+                  font=dict(size=16)
+                 )
 
 st.plotly_chart(fig)
 
