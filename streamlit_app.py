@@ -20,13 +20,17 @@ st.sidebar.markdown("""
      - [City Overview](#city-overview)
      - [Borough Breakdown](#borough-breakdown)
      
+     
 - State View (Coming soon!)
+     
      
 - [National View](#national-view)
      - [Covid Positive States Ranked](#covid-positive-states-ranked)
      - [Vaccine Breakdown](#vaccine-breakdown)
      
+     
 - Global View (Coming soon!)
+    
     
 - [References](#references)
      - [Code](#code-repo)
