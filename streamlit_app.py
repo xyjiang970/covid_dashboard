@@ -163,7 +163,6 @@ if option=='Past Year':
                       yaxis_title='Count (Thousands)',
                       width=1000,
                       height=600,
-                      plot_bgcolor='white',
                       xaxis=dict(
                         showgrid=True,
                         showticklabels=True
@@ -173,7 +172,9 @@ if option=='Past Year':
                         zeroline=False,
                         showline=True,
                         showticklabels=True,
-                    ))
+                    ),
+                      paper_bgcolor='rgba(0,0,0,0)',
+                      plot_bgcolor='rgba(0,0,0,0)')
 
     fig.update_xaxes(showline=False, linewidth=2, linecolor='black',
                      showgrid=False)
