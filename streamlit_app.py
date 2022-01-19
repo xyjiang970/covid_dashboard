@@ -45,6 +45,7 @@ df1 = pd.read_csv(url, index_col=0)
 df2 = pd.read_csv(url2)
 df3 = pd.read_csv(url3)
 df4 = pd.read_csv(url4)
+df5 = pd.read_csv(url5)
 #############################################################################################################################
 
 # Adjustments and Merging dataframes
@@ -100,7 +101,7 @@ df4.set_index('Borough', inplace=True)
 df4 = df4[['CONFIRMED_CASE_RATE','CONFIRMED_CASE_COUNT']]
 
 # Setting up Borough data in df5 (data frame 5)
-df5 = df5.tail(100)
+df5 = df5.tail(365)
 df5['date_of_interest'] = pd.to_datetime(df5['date_of_interest'])
 df5 = df5[['date_of_interest','ALL_CASE_COUNT_7DAY_AVG',
            'BK_ALL_CASE_COUNT_7DAY_AVG','BX_ALL_CASE_COUNT_7DAY_AVG',
