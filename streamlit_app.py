@@ -269,8 +269,3 @@ st.subheader('Data Sources')
 - [Bloomberg](https://github.com/BloombergGraphics/covid-vaccine-tracker-data)
 - [NYC Health](https://github.com/nychealth/coronavirus-data)
 """
-
-
-option = st.selectbox(
-'How would you like to be contacted?',
-('Email', 'Home phone', 'Mobile phone'))
