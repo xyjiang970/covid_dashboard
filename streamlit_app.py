@@ -307,7 +307,7 @@ fig = go.Figure(data=go.Choropleth(
     locations=cleaned.id,
     z = cleaned.pct_Covid, # Data to be color-coded
     locationmode = 'USA-states', # set of locations match entries in `locations`,
-    colorbar_title = "Percent",
+    colorbar_title = "% of population that's covid positive",
 ))
 
 fig.update_layout(
@@ -367,7 +367,7 @@ fig.update_layout(barmode='stack', height=1600, width=1000,
                   title='% of State Population That Are Fully Vaccinated',
                   title_x=0.5,
                   title_y=0.97,
-                  xaxis_title="% of population that's covid positive",
+                  xaxis_title="Percent",
                   yaxis_title="State",
                   font=dict(size=15)
                  )
