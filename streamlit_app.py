@@ -26,6 +26,7 @@ st.sidebar.markdown("""
      
 - [National View](#national-view)
      - [Covid Positive States Ranked](#covid-positive-states-ranked)
+     - [Covid Heatmap of the US](#covid-heatmap-of-the-us)
      - [Vaccine Breakdown](#vaccine-breakdown)
      
      
@@ -300,6 +301,7 @@ fig.update_layout(height=1700, width=1000,
 
 st.plotly_chart(fig)
 
+st.subheader('Covid Heatmap of the US')
 # US MAP 
 fig = go.Figure(data=go.Choropleth(
     locations=cleaned.id,
