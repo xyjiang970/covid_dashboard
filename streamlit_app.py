@@ -229,9 +229,9 @@ fig.add_trace(go.Pie(labels=labels, values=df4.CONFIRMED_CASE_RATE, textinfo='la
                      name='Rates', marker_colors=colors),
               1, 2)
 
-fig.update_traces(hoverinfo='value', textfont_size=16)
-fig.update_layout(height=600, width=900, 
-                  font=dict(size=16)
+fig.update_traces(hoverinfo='value', textfont_size=15)
+fig.update_layout(height=600, width=950, 
+                  font=dict(size=15)
                  )
 
 st.plotly_chart(fig)
