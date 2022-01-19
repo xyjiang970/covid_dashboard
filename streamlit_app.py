@@ -18,7 +18,7 @@ st.sidebar.markdown("## Table of Contents")
 st.sidebar.markdown("""
 - [NYC Statistics](#nyc-statistics)
      - [City Overview](#city-overview)
-     - [Borough Breakdown](#nyc-statistics)
+     - [Borough Breakdown](#borough-breakdown)
      
      
 - [National View](#national-view)
