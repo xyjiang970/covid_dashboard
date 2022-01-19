@@ -314,7 +314,8 @@ fig.update_layout(
     title_y=0.95,
     width=1000,
     height=600,
-    geo=dict(scope='usa', bgcolor='rgba(0,0,0,0)')
+    geo=dict(scope='usa', bgcolor='rgba(0,0,0,0)',
+             showlakes=False)
 )
 
 fig.show()
