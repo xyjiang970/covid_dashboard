@@ -143,216 +143,216 @@ st.markdown("***")
 st.header('NYC Statistics')
 st.subheader('City Overview')
 
-# User selection dropdown
-option = st.selectbox(
-'Please select your desired timeframe:',
-('Past Year','90 Days','30 Days','14 Days','Past Week'))
+# # User selection dropdown
+# option = st.selectbox(
+# 'Please select your desired timeframe:',
+# ('Past Year','90 Days','30 Days','14 Days','Past Week'))
 
-# Time series using plotly - Daily Cases (All of NYC)
+# # Time series using plotly - Daily Cases (All of NYC)
 
-if option=='Past Year':
-    fig = go.Figure()
-    fig.add_trace(go.Scatter(x=df5.tail(365).index.values, y=df5.Avg_Total_City_Case_Count,
-                        mode='lines+markers',
-                        name='lines',
-                        line=dict(color='firebrick', width=3)))
+# if option=='Past Year':
+#     fig = go.Figure()
+#     fig.add_trace(go.Scatter(x=df5.tail(365).index.values, y=df5.Avg_Total_City_Case_Count,
+#                         mode='lines+markers',
+#                         name='lines',
+#                         line=dict(color='firebrick', width=3)))
 
-    fig.update_layout(title='Average NYC Daily Case Count',
-                      title_x=0.5, 
-                      title_y=0.9,
-                      xaxis_title='Day',
-                      yaxis_title='Count (Thousands)',
-                      width=1000,
-                      height=600,
-                      xaxis=dict(
-                        showgrid=True,
-                        showticklabels=True
-                      ),
-                      yaxis=dict(
-                        showgrid=True,
-                        zeroline=False,
-                        showline=True,
-                        showticklabels=True,
-                    ),
-                      paper_bgcolor='rgba(0,0,0,0)',
-                      plot_bgcolor='rgba(0,0,0,0)')
+#     fig.update_layout(title='Average NYC Daily Case Count',
+#                       title_x=0.5, 
+#                       title_y=0.9,
+#                       xaxis_title='Day',
+#                       yaxis_title='Count (Thousands)',
+#                       width=1000,
+#                       height=600,
+#                       xaxis=dict(
+#                         showgrid=True,
+#                         showticklabels=True
+#                       ),
+#                       yaxis=dict(
+#                         showgrid=True,
+#                         zeroline=False,
+#                         showline=True,
+#                         showticklabels=True,
+#                     ),
+#                       paper_bgcolor='rgba(0,0,0,0)',
+#                       plot_bgcolor='rgba(0,0,0,0)')
 
-    fig.update_xaxes(showline=False, linewidth=2, linecolor='black',
-                     showgrid=False)
-    fig.update_yaxes(showline=False, linewidth=2, linecolor='black',
-                     showgrid=True, gridcolor='lightgray')
+#     fig.update_xaxes(showline=False, linewidth=2, linecolor='black',
+#                      showgrid=False)
+#     fig.update_yaxes(showline=False, linewidth=2, linecolor='black',
+#                      showgrid=True, gridcolor='lightgray')
 
-    st.plotly_chart(fig)
+#     st.plotly_chart(fig)
     
-elif option=='90 Days':
-    fig = go.Figure()
-    fig.add_trace(go.Scatter(x=df5.tail(90).index.values, y=df5.Avg_Total_City_Case_Count,
-                        mode='lines+markers',
-                        name='lines',
-                        line=dict(color='firebrick', width=3)))
+# elif option=='90 Days':
+#     fig = go.Figure()
+#     fig.add_trace(go.Scatter(x=df5.tail(90).index.values, y=df5.Avg_Total_City_Case_Count,
+#                         mode='lines+markers',
+#                         name='lines',
+#                         line=dict(color='firebrick', width=3)))
 
-    fig.update_layout(title='Average NYC Daily Case Count',
-                      title_x=0.5, 
-                      title_y=0.9,
-                      xaxis_title='Day',
-                      yaxis_title='Count (Thousands)',
-                      width=1000,
-                      height=600,
-                      xaxis=dict(
-                        showgrid=True,
-                        showticklabels=True
-                      ),
-                      yaxis=dict(
-                        showgrid=True,
-                        zeroline=False,
-                        showline=True,
-                        showticklabels=True,
-                    ),
-                      paper_bgcolor='rgba(0,0,0,0)',
-                      plot_bgcolor='rgba(0,0,0,0)')
+#     fig.update_layout(title='Average NYC Daily Case Count',
+#                       title_x=0.5, 
+#                       title_y=0.9,
+#                       xaxis_title='Day',
+#                       yaxis_title='Count (Thousands)',
+#                       width=1000,
+#                       height=600,
+#                       xaxis=dict(
+#                         showgrid=True,
+#                         showticklabels=True
+#                       ),
+#                       yaxis=dict(
+#                         showgrid=True,
+#                         zeroline=False,
+#                         showline=True,
+#                         showticklabels=True,
+#                     ),
+#                       paper_bgcolor='rgba(0,0,0,0)',
+#                       plot_bgcolor='rgba(0,0,0,0)')
 
-    fig.update_xaxes(showline=False, linewidth=2, linecolor='black',
-                     showgrid=False)
-    fig.update_yaxes(showline=False, linewidth=2, linecolor='black',
-                     showgrid=True, gridcolor='lightgray')
+#     fig.update_xaxes(showline=False, linewidth=2, linecolor='black',
+#                      showgrid=False)
+#     fig.update_yaxes(showline=False, linewidth=2, linecolor='black',
+#                      showgrid=True, gridcolor='lightgray')
 
-    st.plotly_chart(fig)
+#     st.plotly_chart(fig)
     
-elif option=='30 Days':
-    fig = go.Figure()
-    fig.add_trace(go.Scatter(x=df5.tail(30).index.values, y=df5.Avg_Total_City_Case_Count,
-                        mode='lines+markers',
-                        name='lines',
-                        line=dict(color='firebrick', width=3)))
+# elif option=='30 Days':
+#     fig = go.Figure()
+#     fig.add_trace(go.Scatter(x=df5.tail(30).index.values, y=df5.Avg_Total_City_Case_Count,
+#                         mode='lines+markers',
+#                         name='lines',
+#                         line=dict(color='firebrick', width=3)))
 
-    fig.update_layout(title='Average NYC Daily Case Count',
-                      title_x=0.5, 
-                      title_y=0.9,
-                      xaxis_title='Day',
-                      yaxis_title='Count (Thousands)',
-                      width=1000,
-                      height=600,
-                      xaxis=dict(
-                        showgrid=True,
-                        showticklabels=True
-                      ),
-                      yaxis=dict(
-                        showgrid=True,
-                        zeroline=False,
-                        showline=True,
-                        showticklabels=True,
-                    ),
-                      paper_bgcolor='rgba(0,0,0,0)',
-                      plot_bgcolor='rgba(0,0,0,0)')
+#     fig.update_layout(title='Average NYC Daily Case Count',
+#                       title_x=0.5, 
+#                       title_y=0.9,
+#                       xaxis_title='Day',
+#                       yaxis_title='Count (Thousands)',
+#                       width=1000,
+#                       height=600,
+#                       xaxis=dict(
+#                         showgrid=True,
+#                         showticklabels=True
+#                       ),
+#                       yaxis=dict(
+#                         showgrid=True,
+#                         zeroline=False,
+#                         showline=True,
+#                         showticklabels=True,
+#                     ),
+#                       paper_bgcolor='rgba(0,0,0,0)',
+#                       plot_bgcolor='rgba(0,0,0,0)')
 
-    fig.update_xaxes(showline=False, linewidth=2, linecolor='black',
-                     showgrid=False)
-    fig.update_yaxes(showline=False, linewidth=2, linecolor='black',
-                     showgrid=True, gridcolor='lightgray')
+#     fig.update_xaxes(showline=False, linewidth=2, linecolor='black',
+#                      showgrid=False)
+#     fig.update_yaxes(showline=False, linewidth=2, linecolor='black',
+#                      showgrid=True, gridcolor='lightgray')
 
-    st.plotly_chart(fig)
+#     st.plotly_chart(fig)
 
-elif option=='14 Days':
-    fig = go.Figure()
-    fig.add_trace(go.Scatter(x=df5.tail(14).index.values, y=df5.Avg_Total_City_Case_Count,
-                        mode='lines+markers',
-                        name='lines',
-                        line=dict(color='firebrick', width=3)))
+# elif option=='14 Days':
+#     fig = go.Figure()
+#     fig.add_trace(go.Scatter(x=df5.tail(14).index.values, y=df5.Avg_Total_City_Case_Count,
+#                         mode='lines+markers',
+#                         name='lines',
+#                         line=dict(color='firebrick', width=3)))
 
-    fig.update_layout(title='Average NYC Daily Case Count',
-                      title_x=0.5, 
-                      title_y=0.9,
-                      xaxis_title='Day',
-                      yaxis_title='Count (Thousands)',
-                      width=1000,
-                      height=600,
-                      xaxis=dict(
-                        showgrid=True,
-                        showticklabels=True
-                      ),
-                      yaxis=dict(
-                        showgrid=True,
-                        zeroline=False,
-                        showline=True,
-                        showticklabels=True,
-                    ),
-                      paper_bgcolor='rgba(0,0,0,0)',
-                      plot_bgcolor='rgba(0,0,0,0)')
+#     fig.update_layout(title='Average NYC Daily Case Count',
+#                       title_x=0.5, 
+#                       title_y=0.9,
+#                       xaxis_title='Day',
+#                       yaxis_title='Count (Thousands)',
+#                       width=1000,
+#                       height=600,
+#                       xaxis=dict(
+#                         showgrid=True,
+#                         showticklabels=True
+#                       ),
+#                       yaxis=dict(
+#                         showgrid=True,
+#                         zeroline=False,
+#                         showline=True,
+#                         showticklabels=True,
+#                     ),
+#                       paper_bgcolor='rgba(0,0,0,0)',
+#                       plot_bgcolor='rgba(0,0,0,0)')
 
-    fig.update_xaxes(showline=False, linewidth=2, linecolor='black',
-                     showgrid=False)
-    fig.update_yaxes(showline=False, linewidth=2, linecolor='black',
-                     showgrid=True, gridcolor='lightgray')
+#     fig.update_xaxes(showline=False, linewidth=2, linecolor='black',
+#                      showgrid=False)
+#     fig.update_yaxes(showline=False, linewidth=2, linecolor='black',
+#                      showgrid=True, gridcolor='lightgray')
 
-    st.plotly_chart(fig)
+#     st.plotly_chart(fig)
     
-elif option=='Past Week':
-    fig = go.Figure()
-    fig.add_trace(go.Scatter(x=df5.tail(7).index.values, y=df5.Avg_Total_City_Case_Count,
-                        mode='lines+markers',
-                        name='lines',
-                        line=dict(color='firebrick', width=3)))
+# elif option=='Past Week':
+#     fig = go.Figure()
+#     fig.add_trace(go.Scatter(x=df5.tail(7).index.values, y=df5.Avg_Total_City_Case_Count,
+#                         mode='lines+markers',
+#                         name='lines',
+#                         line=dict(color='firebrick', width=3)))
 
-    fig.update_layout(title='Average NYC Daily Case Count',
-                      title_x=0.5, 
-                      title_y=0.9,
-                      xaxis_title='Day',
-                      yaxis_title='Count (Thousands)',
-                      width=1000,
-                      height=600,
-                      xaxis=dict(
-                        showgrid=True,
-                        showticklabels=True
-                      ),
-                      yaxis=dict(
-                        showgrid=True,
-                        zeroline=False,
-                        showline=True,
-                        showticklabels=True,
-                    ),
-                      paper_bgcolor='rgba(0,0,0,0)',
-                      plot_bgcolor='rgba(0,0,0,0)')
+#     fig.update_layout(title='Average NYC Daily Case Count',
+#                       title_x=0.5, 
+#                       title_y=0.9,
+#                       xaxis_title='Day',
+#                       yaxis_title='Count (Thousands)',
+#                       width=1000,
+#                       height=600,
+#                       xaxis=dict(
+#                         showgrid=True,
+#                         showticklabels=True
+#                       ),
+#                       yaxis=dict(
+#                         showgrid=True,
+#                         zeroline=False,
+#                         showline=True,
+#                         showticklabels=True,
+#                     ),
+#                       paper_bgcolor='rgba(0,0,0,0)',
+#                       plot_bgcolor='rgba(0,0,0,0)')
 
-    fig.update_xaxes(showline=False, linewidth=2, linecolor='black',
-                     showgrid=False)
-    fig.update_yaxes(showline=False, linewidth=2, linecolor='black',
-                     showgrid=True, gridcolor='lightgray')
+#     fig.update_xaxes(showline=False, linewidth=2, linecolor='black',
+#                      showgrid=False)
+#     fig.update_yaxes(showline=False, linewidth=2, linecolor='black',
+#                      showgrid=True, gridcolor='lightgray')
 
-    st.plotly_chart(fig)
+#     st.plotly_chart(fig)
     
-else:
-    fig = go.Figure()
-    fig.add_trace(go.Scatter(x=df5.tail(90).index.values, y=df5.Avg_Total_City_Case_Count,
-                        mode='lines+markers',
-                        name='lines',
-                        line=dict(color='firebrick', width=3)))
+# else:
+#     fig = go.Figure()
+#     fig.add_trace(go.Scatter(x=df5.tail(90).index.values, y=df5.Avg_Total_City_Case_Count,
+#                         mode='lines+markers',
+#                         name='lines',
+#                         line=dict(color='firebrick', width=3)))
 
-    fig.update_layout(title='Average NYC Daily Case Count',
-                      title_x=0.5, 
-                      title_y=0.9,
-                      xaxis_title='Day',
-                      yaxis_title='Count (Thousands)',
-                      width=1000,
-                      height=600,
-                      xaxis=dict(
-                        showgrid=True,
-                        showticklabels=True
-                      ),
-                      yaxis=dict(
-                        showgrid=True,
-                        zeroline=False,
-                        showline=True,
-                        showticklabels=True,
-                    ),
-                      paper_bgcolor='rgba(0,0,0,0)',
-                      plot_bgcolor='rgba(0,0,0,0)')
+#     fig.update_layout(title='Average NYC Daily Case Count',
+#                       title_x=0.5, 
+#                       title_y=0.9,
+#                       xaxis_title='Day',
+#                       yaxis_title='Count (Thousands)',
+#                       width=1000,
+#                       height=600,
+#                       xaxis=dict(
+#                         showgrid=True,
+#                         showticklabels=True
+#                       ),
+#                       yaxis=dict(
+#                         showgrid=True,
+#                         zeroline=False,
+#                         showline=True,
+#                         showticklabels=True,
+#                     ),
+#                       paper_bgcolor='rgba(0,0,0,0)',
+#                       plot_bgcolor='rgba(0,0,0,0)')
 
-    fig.update_xaxes(showline=False, linewidth=2, linecolor='black',
-                     showgrid=False)
-    fig.update_yaxes(showline=False, linewidth=2, linecolor='black',
-                     showgrid=True, gridcolor='lightgray')
+#     fig.update_xaxes(showline=False, linewidth=2, linecolor='black',
+#                      showgrid=False)
+#     fig.update_yaxes(showline=False, linewidth=2, linecolor='black',
+#                      showgrid=True, gridcolor='lightgray')
 
-    st.plotly_chart(fig)
+#     st.plotly_chart(fig)
 
 
 
