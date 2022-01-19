@@ -199,7 +199,7 @@ def city_overview_graph(timeframe):
     fig.update_yaxes(showline=False, linewidth=2, linecolor='black',
                      showgrid=True, gridcolor='lightgray')
 
-    st.plotly_chart(fig)
+    return st.plotly_chart(fig)
 
 city_overview_graph(timeframe)
 #############################################################################################################################
