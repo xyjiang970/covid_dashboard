@@ -157,7 +157,7 @@ if option=='Past Year':
                         name='lines',
                         line=dict(color='firebrick', width=3)))
 
-    fig.update_layout(title='Average NYC Daily Case Count Over 90 Days',
+    fig.update_layout(title='Average NYC Daily Case Count',
                       title_x=0.5, 
                       title_y=0.9,
                       xaxis_title='Day',
@@ -191,7 +191,7 @@ elif option=='90 Days':
                         name='lines',
                         line=dict(color='firebrick', width=3)))
 
-    fig.update_layout(title='Average NYC Daily Case Count Over 90 Days',
+    fig.update_layout(title='Average NYC Daily Case Count',
                       title_x=0.5, 
                       title_y=0.9,
                       xaxis_title='Day',
@@ -225,7 +225,7 @@ elif option=='30 Days':
                         name='lines',
                         line=dict(color='firebrick', width=3)))
 
-    fig.update_layout(title='Average NYC Daily Case Count Over 90 Days',
+    fig.update_layout(title='Average NYC Daily Case Count',
                       title_x=0.5, 
                       title_y=0.9,
                       xaxis_title='Day',
@@ -259,7 +259,7 @@ elif option=='14 Days':
                         name='lines',
                         line=dict(color='firebrick', width=3)))
 
-    fig.update_layout(title='Average NYC Daily Case Count Over 90 Days',
+    fig.update_layout(title='Average NYC Daily Case Count',
                       title_x=0.5, 
                       title_y=0.9,
                       xaxis_title='Day',
@@ -293,7 +293,7 @@ elif option=='Past Week':
                         name='lines',
                         line=dict(color='firebrick', width=3)))
 
-    fig.update_layout(title='Average NYC Daily Case Count Over 90 Days',
+    fig.update_layout(title='Average NYC Daily Case Count',
                       title_x=0.5, 
                       title_y=0.9,
                       xaxis_title='Day',
@@ -327,7 +327,7 @@ else:
                         name='lines',
                         line=dict(color='firebrick', width=3)))
 
-    fig.update_layout(title='Average NYC Daily Case Count Over 90 Days',
+    fig.update_layout(title='Average NYC Daily Case Count',
                       title_x=0.5, 
                       title_y=0.9,
                       xaxis_title='Day',
