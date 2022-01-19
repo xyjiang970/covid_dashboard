@@ -309,7 +309,7 @@ fig = go.Figure(data=go.Choropleth(
 ))
 
 fig.update_layout(
-    title_text = '% of State Population That Is Covid Positive',
+    title_text = 'Covid Heatmap: U.S.',
     title_x=0.5,
     title_y=0.95,
     width=1000,
