@@ -40,13 +40,23 @@ url3 = 'https://github.com/CSSEGISandData/COVID-19/blob/master/csse_covid_19_dat
 url4 = 'https://github.com/nychealth/coronavirus-data/blob/master/totals/by-group.csv?raw=true'
 url5 = 'https://github.com/nychealth/coronavirus-data/blob/master/trends/data-by-day.csv?raw=true'
 
+@st.cache(allow_output_mutation=True)
+def load_df(url, index_column=None):
+     dataframe = pd.read_csv(URL, index_col=index_column)
+     return dataframe
 
-# Load into separate dataframes
-df1 = pd.read_csv(url, index_col=0)
-df2 = pd.read_csv(url2)
-df3 = pd.read_csv(url3)
-df4 = pd.read_csv(url4)
-df5 = pd.read_csv(url5)
+df1 = load_df(url, 0)
+df2 = load_df(url2)
+df3 = load_df(url3)
+df4 = load_df(url4)
+df5 = load_df(url5)
+
+# # Load into separate dataframes
+# df1 = pd.read_csv(url, index_col=0)
+# df2 = pd.read_csv(url2)
+# df3 = pd.read_csv(url3)
+# df4 = pd.read_csv(url4)
+# df5 = pd.read_csv(url5)
 #############################################################################################################################
 
 # Adjustments and Merging dataframes
