@@ -220,7 +220,7 @@ fig = make_subplots(rows=1, cols=2, specs=[[{'type':'domain'},
                                             {'type':'domain'}]],
                    subplot_titles=['Covid Cases Count (Cumulative since outbreak - all variants)', 
                                    'Covid Positive RATE (per 100K people)'],
-                   horizontal_spacing=0.1)
+                   horizontal_spacing=0.15)
 
 fig.add_trace(go.Pie(labels=labels, values=df4.CONFIRMED_CASE_COUNT, textinfo='label+value', 
                      name='Counts', marker_colors=colors),
