@@ -193,8 +193,8 @@ def city_overview_graph(timeframe):
     fig.update_layout(title=f"Average NYC Daily Case Count: {timeframe}",
                       title_x=0.5, 
                       title_y=0.9,
-                      xaxis_title='Day',
-                      yaxis_title='Count',
+                      xaxis_title='Date',
+                      yaxis_title='Cases',
                       width=1000,
                       height=600,
                       xaxis=dict(
