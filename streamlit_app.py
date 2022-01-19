@@ -30,7 +30,6 @@ st.sidebar.markdown("""
      - [Data Sources](#data-sources)
 """)
 
-@st.cache(allow_output_mutation=True)
 #############################################################################################################################
 
 # Get from source and load into dataframe
@@ -164,6 +163,7 @@ timeframe_dict = {
 }
 
 # Time series using plotly - Daily Cases (All of NYC)
+@st.cache(allow_output_mutation=True)
 def city_overview_graph(timeframe):
     global df5
     df5 = df5.tail(timeframe_dict[timeframe])
