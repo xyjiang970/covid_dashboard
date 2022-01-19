@@ -300,7 +300,27 @@ fig.update_layout(height=1700, width=1000,
 
 st.plotly_chart(fig)
 
-st.markdown('\n')
+# US MAP 
+fig = go.Figure(data=go.Choropleth(
+    locations=cleaned.id,
+    z = cleaned.pct_Covid, # Data to be color-coded
+    locationmode = 'USA-states', # set of locations match entries in `locations`,
+    colorbar_title = "Percent",
+))
+
+fig.update_layout(
+    title_text = '% of State Population That Is Covid Positive',
+    geo_scope='usa', # limite map scope to USA,
+    title_x=0.5,
+    title_y=0.95,
+    width=1000,
+    height=600
+)
+
+fig.show()
+
+st.plotly_chart(fig)
+
 ################### % Fully Vaccinated ###########################
 st.subheader('Vaccine Breakdown')
 
