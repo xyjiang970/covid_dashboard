@@ -142,6 +142,10 @@ st.markdown("***")
 # NYC
 st.header('NYC Statistics')
 st.subheader('City Overview')
+st.markdown("""
+[7-day average of count cases citywide](https://github.com/nychealth/coronavirus-data/tree/master/trends#cases-by-daycsv) - which includes both confirmed and probable.
+""")
+st.caption('Using the [data-by-day.csv](https://github.com/nychealth/coronavirus-data/blob/master/trends/data-by-day.csv) file.')
 
 # User selection dropdown
 timeframe = st.selectbox(
@@ -185,7 +189,8 @@ def city_overview_graph(timeframe):
                         showticklabels=True,
                     ),
                       paper_bgcolor='rgba(0,0,0,0)',
-                      plot_bgcolor='rgba(0,0,0,0)')
+                      plot_bgcolor='rgba(0,0,0,0)',
+                      font=dict(size=15))
 
     fig.update_xaxes(showline=False, linewidth=2, linecolor='black',
                      showgrid=False)
