@@ -310,11 +310,11 @@ fig = go.Figure(data=go.Choropleth(
 
 fig.update_layout(
     title_text = '% of State Population That Is Covid Positive',
-    geo_scope='usa', # limite map scope to USA,
     title_x=0.5,
     title_y=0.95,
     width=1000,
-    height=600
+    height=600,
+    geo=dict(scope='usa', bgcolor='rgba(0,0,0,0)')
 )
 
 fig.show()
