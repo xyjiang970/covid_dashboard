@@ -219,7 +219,7 @@ elif option=='90 Days':
     st.plotly_chart(fig)
     
 elif option=='30 Days':
-        fig = go.Figure()
+    fig = go.Figure()
     fig.add_trace(go.Scatter(x=df5.tail(30).index.values, y=df5.Avg_Total_City_Case_Count,
                         mode='lines+markers',
                         name='lines',
