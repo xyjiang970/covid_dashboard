@@ -29,6 +29,8 @@ st.sidebar.markdown("""
      - [Code](#code-repo)
      - [Data Sources](#data-sources)
 """)
+
+@st.cache(allow_output_mutation=True)
 #############################################################################################################################
 
 # Get from source and load into dataframe
@@ -175,7 +177,7 @@ def city_overview_graph(timeframe):
                       title_x=0.5, 
                       title_y=0.9,
                       xaxis_title='Day',
-                      yaxis_title='Count (Thousands)',
+                      yaxis_title='Count',
                       width=1000,
                       height=600,
                       xaxis=dict(
