@@ -284,7 +284,7 @@ st.caption('Using the [us-states.csv](https://github.com/nytimes/covid-19-data/b
 
 # Bar Chart using plotly - By percentage of state population
 fig = px.bar(cleaned, x='pct_Covid', y='state',
-             title="% of State Population That Are Covid Positive",
+             title="% of State Population That Is Covid Positive",
              labels = {'state':'State',
                        'pct_Covid':'Percentage'},
              orientation='h',
@@ -315,7 +315,8 @@ fig.update_layout(
     width=1000,
     height=600,
     geo=dict(scope='usa', bgcolor='rgba(0,0,0,0)',
-             showlakes=False)
+             showlakes=False),
+    title=dict(font=dict(size=20))
 )
 
 fig.show()
