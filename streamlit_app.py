@@ -37,6 +37,8 @@ url = 'https://github.com/nytimes/covid-19-data/blob/master/live/us-states.csv?r
 url2 = 'https://github.com/BloombergGraphics/covid-vaccine-tracker-data/blob/master/data/current-usa.csv?raw=true'
 url3 = 'https://github.com/CSSEGISandData/COVID-19/blob/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_US.csv?raw=true'
 url4 = 'https://github.com/nychealth/coronavirus-data/blob/master/totals/by-group.csv?raw=true'
+url5 = 'https://github.com/nychealth/coronavirus-data/blob/master/trends/data-by-day.csv?raw=true'
+
 
 # Load into separate dataframes
 df1 = pd.read_csv(url, index_col=0)
@@ -96,6 +98,22 @@ df4 = df4.loc[df4.subgroup.isin(['Brooklyn','Bronx','Manhattan',
 df4.rename(columns={'subgroup': "Borough"}, inplace=True)
 df4.set_index('Borough', inplace=True)
 df4 = df4[['CONFIRMED_CASE_RATE','CONFIRMED_CASE_COUNT']]
+
+# Setting up Borough data in df5 (data frame 5)
+df5 = df5.tail(365)
+df5['date_of_interest'] = pd.to_datetime(df5['date_of_interest'])
+df5 = df5[['date_of_interest','ALL_CASE_COUNT_7DAY_AVG',
+           'BK_ALL_CASE_COUNT_7DAY_AVG','BX_ALL_CASE_COUNT_7DAY_AVG',
+           'MN_ALL_CASE_COUNT_7DAY_AVG','QN_ALL_CASE_COUNT_7DAY_AVG',
+           'SI_ALL_CASE_COUNT_7DAY_AVG']]
+df5.rename(columns={df5.columns[0]:"Date",
+                    df5.columns[1]:"Avg_Total_City_Case_Count",
+                    df5.columns[2]:"BK_7Day_Avg",
+                    df5.columns[3]:"BX_7Day_Avg",
+                    df5.columns[4]:"MN_7Day_Avg",
+                    df5.columns[5]:"QN_7Day_Avg",
+                    df5.columns[6]:"SI_7Day_Avg"}, inplace=True)
+df5.set_index('Date',inplace=True)
 #############################################################################################################################
 
 # Cleaning and dealing with 0 values and NaNs
@@ -122,6 +140,52 @@ st.write('Updated: ',today)
 st.markdown("***")
 # NYC
 st.header('NYC Statistics')
+st.subheader('City Overview')
+
+# User selection dropdown
+option = st.selectbox(
+'Please select your desired time frame:',
+('Past Year','90 Days','30 Days','14 Days','Past Week'))
+
+# Time series using plotly - Daily Cases (All of NYC)
+if option=='Past Year':
+    fig = go.Figure()
+    fig.add_trace(go.Scatter(x=df5.index.values, y=df5.Avg_Total_City_Case_Count,
+                        mode='lines+markers',
+                        name='lines',
+                        line=dict(color='firebrick', width=3)))
+
+    fig.update_layout(title='Average NYC Daily Case Count Over 90 Days',
+                      title_x=0.5, 
+                      title_y=0.9,
+                      xaxis_title='Day',
+                      yaxis_title='Count (Thousands)',
+                      width=1000,
+                      height=600,
+                      plot_bgcolor='white',
+                      xaxis=dict(
+                        showgrid=True,
+                        showticklabels=True
+                      ),
+                      yaxis=dict(
+                        showgrid=True,
+                        zeroline=False,
+                        showline=True,
+                        showticklabels=True,
+                    ))
+
+    fig.update_xaxes(showline=False, linewidth=2, linecolor='black',
+                     showgrid=False)
+    fig.update_yaxes(showline=False, linewidth=2, linecolor='black',
+                     showgrid=True, gridcolor='lightgray')
+
+    fig.show()
+else:
+    print('hello world')
+
+
+
+#############################################################################################################################
 st.subheader('Borough Breakdown')
 st.markdown(
 """
