@@ -17,6 +17,7 @@ st.set_page_config(
 st.sidebar.markdown("## Table of Contents")
 st.sidebar.markdown("""
 - [NYC Statistics](#nyc-statistics)
+     - [City Overview](#city-overview)
      - [Borough Breakdown](#nyc-statistics)
      
      
@@ -31,7 +32,6 @@ st.sidebar.markdown("""
 """)
 
 #############################################################################################################################
-
 # Get from source and load into dataframe
 # Live Datasets that are regularly updated
 url = 'https://github.com/nytimes/covid-19-data/blob/master/live/us-states.csv?raw=true'
@@ -40,6 +40,7 @@ url3 = 'https://github.com/CSSEGISandData/COVID-19/blob/master/csse_covid_19_dat
 url4 = 'https://github.com/nychealth/coronavirus-data/blob/master/totals/by-group.csv?raw=true'
 url5 = 'https://github.com/nychealth/coronavirus-data/blob/master/trends/data-by-day.csv?raw=true'
 
+# Load into separate dataframes, using cache as well
 @st.cache(allow_output_mutation=True)
 def load_df(URL, index_column=None):
      dataframe = pd.read_csv(URL, index_col=index_column)
@@ -51,7 +52,7 @@ df3 = load_df(url3)
 df4 = load_df(url4)
 df5 = load_df(url5)
 
-# # Load into separate dataframes
+# # Old code
 # df1 = pd.read_csv(url, index_col=0)
 # df2 = pd.read_csv(url2)
 # df3 = pd.read_csv(url3)
