@@ -42,10 +42,15 @@ url5 = 'https://github.com/nychealth/coronavirus-data/blob/master/trends/data-by
 
 
 # Load into separate dataframes
+@st.cache(allow_output_mutation=True)
 df1 = pd.read_csv(url, index_col=0)
+@st.cache(allow_output_mutation=True)
 df2 = pd.read_csv(url2)
+@st.cache(allow_output_mutation=True)
 df3 = pd.read_csv(url3)
+@st.cache(allow_output_mutation=True)
 df4 = pd.read_csv(url4)
+@st.cache(allow_output_mutation=True)
 df5 = pd.read_csv(url5)
 #############################################################################################################################
 
@@ -163,7 +168,6 @@ timeframe_dict = {
 }
 
 # Time series using plotly - Daily Cases (All of NYC)
-@st.cache(allow_output_mutation=True)
 def city_overview_graph(timeframe):
     global df5
     df5 = df5.tail(timeframe_dict[timeframe])
