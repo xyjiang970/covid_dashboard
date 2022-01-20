@@ -307,27 +307,27 @@ def show_boro_breakdown(boro_timeframe):
     fig.add_trace(go.Scatter(x=df5.index.values, y=df5.BK_7Day_Avg,
                   mode='lines',
                   name='Brooklyn',
-                  line_shape='spline'))
+                  line=dict(width=3, shape='spline')))
     fig.add_trace(go.Scatter(x=df5.index.values, y=df5.BX_7Day_Avg,
                   mode='lines',
                   name='Bronx',
-                  line_shape='spline'))
+                  line=dict(width=3, shape='spline')))
     fig.add_trace(go.Scatter(x=df5.index.values, y=df5.MN_7Day_Avg,
                   mode='lines',
                   name='Manhattan',
-                  line_shape='spline'))
+                  line=dict(width=3, shape='spline')))
     fig.add_trace(go.Scatter(x=df5.index.values, y=df5.QN_7Day_Avg,
                   mode='lines',
                   name='Queens',
-                  line_shape='spline'))
+                  line=dict(width=3, shape='spline')))
     fig.add_trace(go.Scatter(x=df5.index.values, y=df5.SI_7Day_Avg,
                   mode='lines',
                   name='Staten Island',
-                  line_shape='spline'))
+                  line=dict(width=3, shape='spline')))
     
-    fig.update_xaxes(showline=False, linewidth=2, linecolor='black',
-                     showgrid=False)
-    fig.update_yaxes(showline=False, linewidth=2, linecolor='black',
+    fig.update_xaxes(showline=False, linewidth=2, linecolor='gray',
+                     showgrid=False, gridcolor='lightgray')
+    fig.update_yaxes(showline=False, linewidth=2, linecolor='gray',
                      showgrid=True, gridcolor='lightgray')
 
     fig.update_layout(title=f'Average Cases Count by Borough: {boro_timeframe}',
