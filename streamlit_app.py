@@ -181,16 +181,16 @@ st.caption('Using the [data-by-day.csv](https://github.com/nychealth/coronavirus
 # User selection dropdown
 timeframe = st.selectbox(
 'Please select your desired time frame:',
-('Past Year','90 Days','30 Days','14 Days','Past Week'))
+('Past Year','90 Days','30 Days','14 Days','Past Week'), key=1)
 
 # Dictionary for timeframe
-timeframe_dict = dict({
+timeframe_dict = {
     'Past Year': 365,
     '90 Days':90,
     '30 Days':30,
     '14 Days':14,
     'Past Week':7
-})
+}
 
 # Time series using plotly - Daily Cases (All of NYC)
 def city_overview_graph(timeframe):
@@ -281,15 +281,15 @@ st.caption('Table data is from [U.S. Census Bureau](https://www.citypopulation.d
 # Borough User selection timeframe
 boro_timeframe = st.selectbox(
 'Please select your desired time frame:',
-('Past Year','90 Days','30 Days','14 Days','Past Week'))
+('Past Year','90 Days','30 Days','14 Days','Past Week'), key=2)
 # Dictionary for boroughs timeframe
-boro_timeframeDict = dict({
+boro_timeframeDict = {
     'Past Year': 365,
     '90 Days':90,
     '30 Days':30,
     '14 Days':14,
     'Past Week':7
-})
+}
 
 # Time series using plotly - Daily Cases (By Borough)
 def show_boro_breakdown(boro_timeframe):
