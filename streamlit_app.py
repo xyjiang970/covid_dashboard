@@ -194,10 +194,11 @@ timeframe_dict = {
 
 # Time series using plotly - Daily Cases (All of NYC)
 def city_overview_graph(timeframe):
-    global df5
-    df5 = df5.tail(timeframe_dict[timeframe])
+    global df5_city
+    df5_city = df5.tail(timeframe_dict[timeframe])
     fig = go.Figure()
-    fig.add_trace(go.Scatter(x=df5.index.values, y=df5.Avg_Total_City_Case_Count,
+    
+    fig.add_trace(go.Scatter(x=df5_city.index.values, y=df5_city.Avg_Total_City_Case_Count,
                         mode='lines+markers',
                         name='lines',
                         line=dict(color='firebrick', width=3)))
@@ -303,34 +304,34 @@ boro_timeframeDict = {
 
 # Time series using plotly - Daily Cases (By Borough)
 def show_boro_breakdown(boro_timeframe):
-    global df5
-    df5 = df5.tail(boro_timeframeDict[boro_timeframe])
+    global df5_boro
+    df5_boro = df5.tail(boro_timeframeDict[boro_timeframe])
     
     fig = go.Figure()
-    fig.add_trace(go.Scatter(x=df5.index.values, y=df5.BK_7Day_Avg,
+    fig.add_trace(go.Scatter(x=df5_boro.index.values, y=df5_boro.BK_7Day_Avg,
                   mode='lines',
                   name='Brooklyn',
                   line=dict(width=3, shape='spline')))
-    fig.add_trace(go.Scatter(x=df5.index.values, y=df5.BX_7Day_Avg,
+    fig.add_trace(go.Scatter(x=df5_boro.index.values, y=df5_boro.BX_7Day_Avg,
                   mode='lines',
                   name='Bronx',
                   line=dict(width=3, shape='spline')))
-    fig.add_trace(go.Scatter(x=df5.index.values, y=df5.MN_7Day_Avg,
+    fig.add_trace(go.Scatter(x=df5_boro.index.values, y=df5_boro.MN_7Day_Avg,
                   mode='lines',
                   name='Manhattan',
                   line=dict(width=3, shape='spline')))
-    fig.add_trace(go.Scatter(x=df5.index.values, y=df5.QN_7Day_Avg,
+    fig.add_trace(go.Scatter(x=df5_boro.index.values, y=df5_boro.QN_7Day_Avg,
                   mode='lines',
                   name='Queens',
                   line=dict(width=3, shape='spline')))
-    fig.add_trace(go.Scatter(x=df5.index.values, y=df5.SI_7Day_Avg,
+    fig.add_trace(go.Scatter(x=df5_boro.index.values, y=df5_boro.SI_7Day_Avg,
                   mode='lines',
                   name='Staten Island',
                   line=dict(width=3, shape='spline')))
     
-    fig.update_xaxes(showline=False, linewidth=2, linecolor='gray',
+    fig.update_xaxes(linewidth=2, linecolor='gray',
                      showgrid=False, gridcolor='lightgray')
-    fig.update_yaxes(showline=False, linewidth=2, linecolor='gray',
+    fig.update_yaxes(linewidth=2, linecolor='gray',
                      showgrid=True, gridcolor='lightgray')
 
     fig.update_layout(title=f'Average Cases Count by Borough: {boro_timeframe}',
@@ -342,7 +343,8 @@ def show_boro_breakdown(boro_timeframe):
                       height=600,
                       xaxis=dict(
                             showgrid=False,
-                            showticklabels=True
+                            showticklabels=True,
+                            showline=False
                             ),
                       yaxis=dict(
                             showgrid=True,
