@@ -57,7 +57,7 @@ url4 = 'https://github.com/nychealth/coronavirus-data/blob/master/totals/by-grou
 url5 = 'https://github.com/nychealth/coronavirus-data/blob/master/trends/data-by-day.csv?raw=true'
 
 # Load into separate dataframes, using cache as well
-@st.cache(allow_output_mutation=True, ttl=60*30)
+@st.cache(allow_output_mutation=True, ttl=60*30) # ttl = 60*30 refresh cache every 30 minutes
 def load_df(URL, index_column=None):
      dataframe = pd.read_csv(URL, index_col=index_column)
      return dataframe
@@ -162,6 +162,15 @@ st.title("Covid Dashboard: NYC Focus")
 st.header('Introduction')
   
 st.markdown('This is a simple dashboard showing Covid-19 statistics and general information with a focus on New York City. The data is updated regularly, automatically. Three main databases where the data is sourced are from: New York Times (NYT), Bloomberg, and NYC Health - all of which are linked at the end.')
+st.markdown("""
+Important definitions:
+- Confirmed COVID-19 case: _A person is classified as a confirmed COVID-19 case if they test positive with a molecular test_
+- Probable COVID-19 case: _A person is classified as a probable COVID-19 case if they meet any of the following criteria with no positive molecular test on record: (a) test positive with an antigen test, (b) have symptoms and an exposure to a confirmed COVID-19 case, or (c) died and their cause of death is listed as COVID-19 or similar_
+
+More info. [here](https://github.com/nychealth/coronavirus-data#counting-covid-19-cases-hospitalizations-and-deaths)
+[NYT's Methodology and Definitions](https://github.com/nytimes/covid-19-data#methodology-and-definitions)
+Johns Hopkins University [field descriptions](https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data)
+""")
 
 today = str(datetime.date.today())
 st.write('Updated: ',today)
@@ -235,7 +244,7 @@ city_overview_graph(timeframe)
 st.subheader('Borough Breakdown')
 st.markdown(
 """
-**Confirmed and probable cases data**. For "counts", the number is cumulative and sums up all cases _since the beginning of the outbreak_. For "rates", [NYC HEALTH](https://github.com/nychealth/coronavirus-data/tree/master/totals#by-groupcsv) defines case rate as out of 100,000 people.
+**Confirmed and probable cases data**. For "counts", the number is cumulative and sums up all cases _since the beginning of the outbreak_. For "rates", [NYC HEALTH](https://github.com/nychealth/coronavirus-data#rates-vs-case-counts) defines case rate as out of 100,000 people.
 """
 )
 st.caption('Using the [by-group.csv](https://github.com/nychealth/coronavirus-data/blob/master/totals/by-group.csv) file.')
@@ -284,6 +293,7 @@ st.text("")
 st.markdown("""
 Click on the legend in the chart below to select/ deselect boroughs.
 """)
+st.caption('Using [data-by-day.csv](https://github.com/nychealth/coronavirus-data/blob/master/trends/data-by-day.csv) file')
 
 # Borough User selection timeframe
 boro_timeframe = st.selectbox(
