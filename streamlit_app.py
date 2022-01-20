@@ -280,6 +280,8 @@ st.dataframe(boro_pop)
 st.caption('Table data is from [U.S. Census Bureau](https://www.citypopulation.de/en/usa/newyorkcity/).')
 
 st.text("")
+st.text("")
+st.text("")
 
 st.markdown("""
 Click on the legend in the chart below to select/ deselect boroughs.
