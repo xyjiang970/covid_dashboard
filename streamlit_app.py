@@ -57,7 +57,7 @@ url4 = 'https://github.com/nychealth/coronavirus-data/blob/master/totals/by-grou
 url5 = 'https://github.com/nychealth/coronavirus-data/blob/master/trends/data-by-day.csv?raw=true'
 
 # Load into separate dataframes, using cache as well
-@st.cache(allow_output_mutation=True)
+@st.cache(allow_output_mutation=True, ttl=60*30)
 def load_df(URL, index_column=None):
      dataframe = pd.read_csv(URL, index_col=index_column)
      return dataframe
