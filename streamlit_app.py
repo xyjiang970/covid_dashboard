@@ -278,6 +278,12 @@ boro_pop.rename(columns={boro_pop.columns[0]: "Latest Census Data" }, inplace = 
 st.dataframe(boro_pop)
 st.caption('Table data is from [U.S. Census Bureau](https://www.citypopulation.de/en/usa/newyorkcity/).')
 
+st.text("")
+
+st.markdown("""
+Click on the legend in the chart below to select/ deselect boroughs.
+""")
+
 # Borough User selection timeframe
 boro_timeframe = st.selectbox(
 'Please select your desired time frame:',
