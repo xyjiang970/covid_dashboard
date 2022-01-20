@@ -482,9 +482,10 @@ You can check out the [code on my github here](https://github.com/xyjiang970/cov
 
 st.subheader('Data Sources')
 st.markdown("""
-- [NYT Covif Github Repo.](https://github.com/nytimes/covid-19-data)
+- [NYT Covid Github Repo.](https://github.com/nytimes/covid-19-data)
 - [Bloomberg Covid Vaccines Github Repo.](https://github.com/BloombergGraphics/covid-vaccine-tracker-data)
 - [NYC Health Github Repo.](https://github.com/nychealth/coronavirus-data)
+- [Johns Hopkins University Covid-19 Github Repo.](https://github.com/CSSEGISandData/COVID-19)
 """)
 
 st.markdown("***")
@@ -493,5 +494,5 @@ st.header('Inspiration')
 st.markdown("""
 - [NYT Live Covid Maps & Graphs](https://www.nytimes.com/interactive/2021/us/covid-cases.html)
 - [Bloomberg Live Vaccine Tracker Maps & Data](https://www.bloomberg.com/graphics/covid-vaccine-tracker-global-distribution/)
-- [Johns Hopkins Live Covid-19 Dashboard](https://coronavirus.jhu.edu/map.html)
+- [Johns Hopkins University Live Covid-19 Dashboard](https://coronavirus.jhu.edu/map.html)
 """)
