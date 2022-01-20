@@ -16,6 +16,10 @@ st.set_page_config(
 
 st.sidebar.markdown("## Table of Contents")
 st.sidebar.markdown("""
+- [Introduction](#introduction)
+
+***
+
 - [NYC Statistics](#nyc-statistics)
      - [City Overview](#city-overview)
      - [Borough Breakdown](#borough-breakdown)
