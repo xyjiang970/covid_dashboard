@@ -395,8 +395,9 @@ st.markdown("""
 - [NYC Health Github Repo.](https://github.com/nychealth/coronavirus-data)
 """)
 
-st.subheader('Inspiration')
+st.header('Inspiration')
 st.markdown("""
 - [NYT Live Covid Maps & Graphs](https://www.nytimes.com/interactive/2021/us/covid-cases.html)
 - [Bloomberg Live Vaccine Tracker Maps & Data](https://www.bloomberg.com/graphics/covid-vaccine-tracker-global-distribution/)
+- [Johns Hopkins Live Covid-19 Dashboard](https://coronavirus.jhu.edu/map.html)
 """)
