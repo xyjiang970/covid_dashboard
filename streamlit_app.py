@@ -398,7 +398,7 @@ fig = go.Figure(data=go.Choropleth(
 ))
 
 fig.update_layout(
-    title_text = 'Covid Heatmap: U.S.',
+    title_text = 'Covid Choropleth Map: U.S.',
     title_x=0.5,
     title_y=0.95,
     width=1000,
