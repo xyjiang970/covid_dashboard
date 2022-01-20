@@ -211,21 +211,22 @@ def city_overview_graph(timeframe):
                       height=600,
                       xaxis=dict(
                         showgrid=True,
-                        showticklabels=True
+                        showticklabels=True,
+                        showline=False
                       ),
                       yaxis=dict(
                         showgrid=True,
                         zeroline=False,
-                        showline=True,
+                        showline=False,
                         showticklabels=True,
                     ),
                       paper_bgcolor='rgba(0,0,0,0)',
                       plot_bgcolor='rgba(0,0,0,0)',
                       font=dict(size=15))
 
-    fig.update_xaxes(showline=False, linewidth=2, linecolor='black',
+    fig.update_xaxes(linewidth=2, linecolor='black',
                      showgrid=False)
-    fig.update_yaxes(showline=False, linewidth=2, linecolor='black',
+    fig.update_yaxes(linewidth=2, linecolor='black',
                      showgrid=True, gridcolor='lightgray')
 
     return st.plotly_chart(fig)
