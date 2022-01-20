@@ -31,7 +31,7 @@ st.sidebar.markdown("""
        
    
 - [National View](#national-view)
-     - [Covid Positive States Ranked](#covid-positive-states-and-territories-ranked)
+     - [Covid Positive US States/ Territories Ranked](#covid-positive-states-and-territories-ranked)
      - [Covid Choropleth Map of the US](#covid-choropleth-map-of-the-us)
      - [Vaccine Breakdown](#vaccine-breakdown)
     
