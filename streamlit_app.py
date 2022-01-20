@@ -235,7 +235,7 @@ city_overview_graph(timeframe)
 st.subheader('Borough Breakdown')
 st.markdown(
 """
-Confirmed data only. For "counts", the number is cumulative and sums up all confirmed cases _since the beginning of the outbreak_. For "rates", [NYC HEALTH](https://github.com/nychealth/coronavirus-data/tree/master/totals#by-groupcsv) defines confirmed case rate as out of 100,000 people.
+**Confirmed and probable cases data**. For "counts", the number is cumulative and sums up all cases _since the beginning of the outbreak_. For "rates", [NYC HEALTH](https://github.com/nychealth/coronavirus-data/tree/master/totals#by-groupcsv) defines case rate as out of 100,000 people.
 """
 )
 st.caption('Using the [by-group.csv](https://github.com/nychealth/coronavirus-data/blob/master/totals/by-group.csv) file.')
