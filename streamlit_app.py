@@ -14,8 +14,6 @@ st.set_page_config(
      layout="wide",
  )
 
-st.markdown('<style>body{background-color: Blue;}</style>',unsafe_allow_html=True)
-
 st.sidebar.markdown("## Table of Contents")
 st.sidebar.markdown("""
 - [Introduction](#introduction)
