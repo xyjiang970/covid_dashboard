@@ -195,7 +195,7 @@ def city_overview_graph(timeframe):
     fig.add_trace(go.Scatter(x=df5_city.index.values, y=df5_city.Avg_Total_City_Case_Count,
                         mode='lines+markers',
                         name='lines',
-                        line=dict(color='firebrick', width=3)))
+                        line=dict(color='firebrick', width=3, shape='spline')))
 
     fig.update_layout(title=f"Average NYC Daily Case Count: {timeframe}",
                       title_x=0.5, 
