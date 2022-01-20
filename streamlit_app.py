@@ -278,93 +278,78 @@ boro_pop.rename(columns={boro_pop.columns[0]: "Latest Census Data" }, inplace = 
 st.dataframe(boro_pop)
 st.caption('Table data is from [U.S. Census Bureau](https://www.citypopulation.de/en/usa/newyorkcity/).')
 
-# # Borough User selection timeframe
-# boro_timeframe = st.selectbox(
-# 'Please select your desired time frame:',
-# ('Past Year','90 Days','30 Days','14 Days','Past Week'), key=2)
-# # Dictionary for boroughs timeframe
-# boro_timeframeDict = {
-#     'Past Year': 365,
-#     '90 Days':90,
-#     '30 Days':30,
-#     '14 Days':14,
-#     'Past Week':7
-# }
+# Borough User selection timeframe
+boro_timeframe = st.selectbox(
+'Please select your desired time frame:',
+('Past Year','90 Days','30 Days','14 Days','Past Week'), key=2)
+# Dictionary for boroughs timeframe
+boro_timeframeDict = {
+    'Past Year': 365,
+    '90 Days':90,
+    '30 Days':30,
+    '14 Days':14,
+    'Past Week':7
+}
 
-# # Time series using plotly - Daily Cases (By Borough)
-# def show_boro_breakdown(boro_timeframe):
-#     global df5
-#     df5 = df5.tail(boro_timeframeDict[boro_timeframe])
+# Time series using plotly - Daily Cases (By Borough)
+def show_boro_breakdown(boro_timeframe):
+    global df5
+    df5 = df5.tail(boro_timeframeDict[boro_timeframe])
     
-#     fig = go.Figure()
-#     fig.add_trace(go.Scatter(x=df5.index.values, y=df5.BK_7Day_Avg,
-#                         mode='lines',
-#                         name='Brooklyn',
-#                         line={
-#                             "color":'rgb(226,197,184)'
-#                         },
-#                         line_shape='spline'))
-#     fig.add_trace(go.Scatter(x=df5.index.values, y=df5.BX_7Day_Avg,
-#                         mode='lines',
-#                         name='Bronx',
-#                         line={
-#                             "color":'rgb(164,162,184)'
-#                         },
-#                         line_shape='spline',
-#                         visible = "legendonly"))
-#     fig.add_trace(go.Scatter(x=df5.index.values, y=df5.MN_7Day_Avg,
-#                         mode='lines',
-#                         name='Manhattan',
-#                         line={
-#                             "color":'rgb(243,227,122)'
-#                         },
-#                         line_shape='spline',
-#                         visible = "legendonly"))
-#     fig.add_trace(go.Scatter(x=df5.index.values, y=df5.QN_7Day_Avg,
-#                         mode='lines',
-#                         name='Queens',
-#                         line={
-#                             "color":'rgb(197,210,156)'
-#                         },
-#                         line_shape='spline',
-#                         visible = "legendonly"))
-#     fig.add_trace(go.Scatter(x=df5.index.values, y=df5.SI_7Day_Avg,
-#                         mode='lines',
-#                         name='Staten Island',
-#                         line={
-#                             "color":'rgb(149,195,174)'
-#                         },
-#                         line_shape='spline',
-#                         visible = "legendonly"))
+    fig = go.Figure()
+    fig.add_trace(go.Scatter(x=df5.index.values, y=df5.BK_7Day_Avg,
+                  mode='lines',
+                  name='Brooklyn',
+                  line_shape='spline'))
+    fig.add_trace(go.Scatter(x=df5.index.values, y=df5.BX_7Day_Avg,
+                  mode='lines',
+                  name='Bronx',
+                  line_shape='spline',
+                  visible = "legendonly"))
+    fig.add_trace(go.Scatter(x=df5.index.values, y=df5.MN_7Day_Avg,
+                  mode='lines',
+                  name='Manhattan',
+                  line_shape='spline',
+                  visible = "legendonly"))
+    fig.add_trace(go.Scatter(x=df5.index.values, y=df5.QN_7Day_Avg,
+                  mode='lines',
+                  name='Queens',
+                  line_shape='spline',
+                  visible = "legendonly"))
+    fig.add_trace(go.Scatter(x=df5.index.values, y=df5.SI_7Day_Avg,
+                  mode='lines',
+                  name='Staten Island',
+                  line_shape='spline',
+                  visible = "legendonly"))
     
-#     fig.update_xaxes(showline=False, linewidth=2, linecolor='black',
-#                      showgrid=False)
-#     fig.update_yaxes(showline=False, linewidth=2, linecolor='black',
-#                      showgrid=True, gridcolor='lightgray')
+    fig.update_xaxes(showline=False, linewidth=2, linecolor='black',
+                     showgrid=False)
+    fig.update_yaxes(showline=False, linewidth=2, linecolor='black',
+                     showgrid=True, gridcolor='lightgray')
 
-#     fig.update_layout(title='Average Cases Count by Borough',
-#                       title_x=0.5, 
-#                       title_y=0.9,
-#                       xaxis_title='Date',
-#                       yaxis_title='Cases',
-#                       width=1000,
-#                       height=600,
-#                       xaxis=dict(
-#                             showgrid=True,
-#                             showticklabels=True
-#                             ),
-#                       yaxis=dict(
-#                             showgrid=True,
-#                             zeroline=False,
-#                             showline=False,
-#                             showticklabels=True,
-#                             ),
-#                       paper_bgcolor='rgba(0,0,0,0)',
-#                       plot_bgcolor='rgba(0,0,0,0)',
-#                       font=dict(size=15))
-#     return st.plotly_chart(fig)
+    fig.update_layout(title='Average Cases Count by Borough',
+                      title_x=0.5, 
+                      title_y=0.9,
+                      xaxis_title='Date',
+                      yaxis_title='Cases',
+                      width=1000,
+                      height=600,
+                      xaxis=dict(
+                            showgrid=True,
+                            showticklabels=True
+                            ),
+                      yaxis=dict(
+                            showgrid=True,
+                            zeroline=False,
+                            showline=False,
+                            showticklabels=True,
+                            ),
+                      paper_bgcolor='rgba(0,0,0,0)',
+                      plot_bgcolor='rgba(0,0,0,0)',
+                      font=dict(size=15))
+    return st.plotly_chart(fig)
 
-# show_boro_breakdown(boro_timeframe)
+show_boro_breakdown(boro_timeframe)
 
 #############################################################################################################################
 st.markdown("***")
