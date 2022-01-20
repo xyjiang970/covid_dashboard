@@ -19,7 +19,8 @@ st.sidebar.markdown("""
 - [NYC Statistics](#nyc-statistics)
      - [City Overview](#city-overview)
      - [Borough Breakdown](#borough-breakdown)
-     
+
+***
      
 - State View (Coming soon!)
      
@@ -386,14 +387,14 @@ st.markdown("""
 You can check out the [code on my github here](https://github.com/xyjiang970/covid_dashboard).
 """)
 
-st.text("")
-
 st.subheader('Data Sources')
 st.markdown("""
 - [NYT Covif Github Repo.](https://github.com/nytimes/covid-19-data)
 - [Bloomberg Covid Vaccines Github Repo.](https://github.com/BloombergGraphics/covid-vaccine-tracker-data)
 - [NYC Health Github Repo.](https://github.com/nychealth/coronavirus-data)
 """)
+
+st.markdown("***")
 
 st.header('Inspiration')
 st.markdown("""
