@@ -31,7 +31,7 @@ st.sidebar.markdown("""
        
    
 - [National View](#national-view)
-     - [Covid Positive States Ranked](#covid-positive-states-ranked)
+     - [Covid Positive States Ranked](#covid-positive-states-and-territories-ranked)
      - [Covid Choropleth Map of the US](#covid-choropleth-map-of-the-us)
      - [Vaccine Breakdown](#vaccine-breakdown)
     
@@ -166,10 +166,15 @@ st.markdown("""
 Important definitions:
 - Confirmed COVID-19 case: _A person is classified as a confirmed COVID-19 case if they test positive with a molecular test_
 - Probable COVID-19 case: _A person is classified as a probable COVID-19 case if they meet any of the following criteria with no positive molecular test on record: (a) test positive with an antigen test, (b) have symptoms and an exposure to a confirmed COVID-19 case, or (c) died and their cause of death is listed as COVID-19 or similar_
+""")
 
-More info. [here](https://github.com/nychealth/coronavirus-data#counting-covid-19-cases-hospitalizations-and-deaths)
-[NYT's Methodology and Definitions](https://github.com/nytimes/covid-19-data#methodology-and-definitions)
-Johns Hopkins University [field descriptions](https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data)
+st.markdown("""
+Definition Sources:
+- [NYC Health](https://github.com/nychealth/coronavirus-data#counting-covid-19-cases-hospitalizations-and-deaths)
+- [NYT's Methodology and Definitions](https://github.com/nytimes/covid-19-data#methodology-and-definitions)
+- Johns Hopkins University [field descriptions](https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data)
+- [Bloomberg Covid Data Dictionary](https://github.com/BloombergGraphics/covid-vaccine-tracker-data#data-dictionary)
+- [PDF](https://int.nyt.com/data/documenthelper/6908-cste-interim-20-id-01-covid-19/85d47e89b637cd643d50/optimized/full.pdf) by the CSTE that establishes what are considered "probable" cases.
 """)
 
 today = str(datetime.date.today())
@@ -372,20 +377,17 @@ st.markdown("***")
 st.header('National View')
 
 ################### % Covid Positive ###########################
-st.subheader('Covid Positive States Ranked')
+st.subheader('Covid Positive States and Territories Ranked')
 
 st.markdown("""
-Cases data is from [NYT](https://github.com/nytimes/covid-19-data#live-data) and is defined as, "The total number of cases of Covid-19, including both confirmed and **probable**".
-""")
-st.markdown("""
-More info can be found in a [note here](https://github.com/nytimes/covid-19-data/blob/master/PROBABLE-CASES-NOTE.md) on "probable" cases by NYT. Additionally, here is a [PDF](https://int.nyt.com/data/documenthelper/6908-cste-interim-20-id-01-covid-19/85d47e89b637cd643d50/optimized/full.pdf) by the CSTE that establishes what are considered "probable" cases.
+Cases used include both confirmed and probable.
 """)
 
 st.caption('Using the [us-states.csv](https://github.com/nytimes/covid-19-data/blob/master/live/us-states.csv) file.')
 
 # Bar Chart using plotly - By percentage of state population
 fig = px.bar(cleaned, x='pct_Covid', y='state',
-             title="% of State Population That Is Covid Positive",
+             title="% of US State/ Territory Population That Is Covid Positive",
              labels = {'state':'State',
                        'pct_Covid':'Percentage'},
              orientation='h',
@@ -426,14 +428,6 @@ st.plotly_chart(fig)
 ################### % Fully Vaccinated ###########################
 st.subheader('Vaccine Breakdown')
 
-st.markdown("""
-According to the Bloomberg repo's [data dictionary](https://github.com/BloombergGraphics/covid-vaccine-tracker-data#data-dictionary), fully vaccinated (or "completedVaccination") is defined as the "cumulative number of additional doses administered to people who've already been fully vaccinated with either a single-, two- or three-dose vaccine".
-""")
-
-st.markdown("""
-Received booster (or "boosterDosesAdministered") is defined as the "Cumulative number of additional doses administered to people who've already been fully vaccinated with either a single- or two-dose vaccine".
-""")
-
 st.caption('Using the [current-usa.csv](https://github.com/BloombergGraphics/covid-vaccine-tracker-data/blob/master/data/current-usa.csv) file.')
 
 # Bar Chart using plotly - By vaccination %
@@ -462,7 +456,7 @@ fig.add_trace(go.Bar(
 ))
 
 fig.update_layout(barmode='stack', height=1600, width=1000,
-                  title='% of State Population That Are Fully Vaccinated',
+                  title='% of US State/ Territory Population That Are Fully Vaccinated',
                   title_x=0.5,
                   title_y=0.97,
                   xaxis_title="Percent",
