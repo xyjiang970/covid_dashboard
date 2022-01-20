@@ -164,8 +164,10 @@ st.header('Introduction')
 st.markdown('This is a simple dashboard showing Covid-19 statistics and general information with a focus on New York City. The data is updated regularly, automatically. Three main databases where the data is sourced are from: New York Times (NYT), Bloomberg, and NYC Health - all of which are linked at the end.')
 st.markdown("""
 Important definitions:
-- Confirmed COVID-19 case: _A person is classified as a confirmed COVID-19 case if they test positive with a molecular test_
-- Probable COVID-19 case: _A person is classified as a probable COVID-19 case if they meet any of the following criteria with no positive molecular test on record: (a) test positive with an antigen test, (b) have symptoms and an exposure to a confirmed COVID-19 case, or (c) died and their cause of death is listed as COVID-19 or similar_
+- Confirmed COVID-19 case: _A person is classified as a confirmed COVID-19 case if they test positive with a molecular test._
+- Probable COVID-19 case: _A person is classified as a probable COVID-19 case if they meet any of the following criteria with no positive molecular test on record: (a) test positive with an antigen test, (b) have symptoms and an exposure to a confirmed COVID-19 case, or (c) died and their cause of death is listed as COVID-19 or similar._
+- Fully Vaccinated (completed vaccination): _Cumulative number of a state's residents who’ve been fully vaccinated with either a single- or two-dose vaccine._
+- Received Booster (completed booster): _Additional doses administered to people who've already been fully vaccinated with either a single- or two-dose vaccine._
 """)
 
 st.markdown("""
@@ -177,8 +179,11 @@ Definition Sources:
 - [PDF](https://int.nyt.com/data/documenthelper/6908-cste-interim-20-id-01-covid-19/85d47e89b637cd643d50/optimized/full.pdf) by the CSTE that establishes what are considered "probable" cases.
 """)
 
+st.text("")
+st.text("")
+
 today = str(datetime.date.today())
-st.write('Updated: ',today)
+st.write('Data Updated: ',today)
 #############################################################################################################################
 st.markdown("***")
 # NYC
