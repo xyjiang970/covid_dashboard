@@ -126,7 +126,7 @@ df4 = df4.loc[df4.subgroup.isin(['Brooklyn','Bronx','Manhattan',
                                  'Queens','StatenIsland'])]
 df4.rename(columns={'subgroup': "Borough"}, inplace=True)
 df4.set_index('Borough', inplace=True)
-df4 = df4[['CONFIRMED_CASE_RATE','CONFIRMED_CASE_COUNT']]
+df4 = df4[['CASE_RATE','CASE_COUNT']]
 
 # Setting up Borough data in df5 (data frame 5)
 df5 = df5.tail(365)
@@ -252,10 +252,10 @@ fig = make_subplots(rows=1, cols=2, specs=[[{'type':'domain'},
                                    'Covid Positive RATE (per 100K people)'],
                    horizontal_spacing=0.15)
 
-fig.add_trace(go.Pie(labels=labels, values=df4.CONFIRMED_CASE_COUNT, textinfo='label+value', 
+fig.add_trace(go.Pie(labels=labels, values=df4.CASE_COUNT, textinfo='label+value', 
                      name='Counts', marker_colors=colors),
               1, 1)
-fig.add_trace(go.Pie(labels=labels, values=df4.CONFIRMED_CASE_RATE, textinfo='label+percent',
+fig.add_trace(go.Pie(labels=labels, values=df4.CASE_RATE, textinfo='label+percent',
                      name='Rates', marker_colors=colors),
               1, 2)
 
