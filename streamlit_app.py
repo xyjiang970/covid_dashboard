@@ -388,7 +388,7 @@ You can check out the [code on my github here](https://github.com/xyjiang970/cov
 
 st.text("")
 
-st.markdown('##Data Sources')
+st.subheader('Data Sources')
 st.markdown("""
 - [NYT Covif Github Repo.](https://github.com/nytimes/covid-19-data)
 - [Bloomberg Covid Vaccines Github Repo.](https://github.com/BloombergGraphics/covid-vaccine-tracker-data)
