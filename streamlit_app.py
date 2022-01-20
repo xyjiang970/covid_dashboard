@@ -456,7 +456,7 @@ fig.add_trace(go.Bar(
 ))
 
 fig.update_layout(barmode='stack', height=1600, width=1000,
-                  title='% of US State/ Territory Population That Are Fully Vaccinated',
+                  title='% of US State/ Territory Population That Is Fully Vaccinated',
                   title_x=0.5,
                   title_y=0.97,
                   xaxis_title="Percent",
