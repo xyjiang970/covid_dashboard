@@ -7,13 +7,16 @@ from plotly.subplots import make_subplots
 import datetime
 #############################################################################################################################
 
-# General Streamlit Adjustments
+# General Adjustments
 st.set_page_config(
      page_title="Covid Dashboard: NYC Focus",
      page_icon=":bar_chart:",
      layout="wide",
  )
 
+pd.options.mode.chained_assignment = None
+
+# Table of Contents
 st.sidebar.markdown("## Table of Contents")
 st.sidebar.markdown("""
 - [Introduction](#introduction)
