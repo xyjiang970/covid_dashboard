@@ -184,13 +184,13 @@ timeframe = st.selectbox(
 ('Past Year','90 Days','30 Days','14 Days','Past Week'))
 
 # Dictionary for timeframe
-timeframe_dict = {
+timeframe_dict = dict({
     'Past Year': 365,
     '90 Days':90,
     '30 Days':30,
     '14 Days':14,
     'Past Week':7
-}
+})
 
 # Time series using plotly - Daily Cases (All of NYC)
 def city_overview_graph(timeframe):
@@ -283,13 +283,13 @@ boro_timeframe = st.selectbox(
 'Please select your desired time frame:',
 ('Past Year','90 Days','30 Days','14 Days','Past Week'))
 # Dictionary for boroughs timeframe
-boro_timeframeDict = {
+boro_timeframeDict = dict({
     'Past Year': 365,
     '90 Days':90,
     '30 Days':30,
     '14 Days':14,
     'Past Week':7
-}
+})
 
 # Time series using plotly - Daily Cases (By Borough)
 def show_boro_breakdown(boro_timeframe):
