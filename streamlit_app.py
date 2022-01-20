@@ -36,6 +36,9 @@ st.sidebar.markdown("""
 - [References](#references)
      - [Code](#code-repo)
      - [Data Sources](#data-sources)
+     
+
+- [Inspiration](#inspiration)
 """)
 
 #############################################################################################################################
@@ -379,15 +382,21 @@ st.markdown("***")
 # References Section
 st.header('References')
 st.subheader('Code Repo')
-"""
+st.markdown("""
 You can check out the [code on my github here](https://github.com/xyjiang970/covid_dashboard).
-"""
+""")
 
 st.text("")
 
 st.subheader('Data Sources')
-"""
-- [NYT](https://github.com/nytimes/covid-19-data)
-- [Bloomberg](https://github.com/BloombergGraphics/covid-vaccine-tracker-data)
-- [NYC Health](https://github.com/nychealth/coronavirus-data)
-"""
+st.markdown("""
+- [NYT Covif Github Repo.](https://github.com/nytimes/covid-19-data)
+- [Bloomberg Covid Vaccines Github Repo.](https://github.com/BloombergGraphics/covid-vaccine-tracker-data)
+- [NYC Health Github Repo.](https://github.com/nychealth/coronavirus-data)
+""")
+
+st.subheader('Inspiration')
+st.markdown("""
+- [NYT Live Covid Maps & Graphs](https://www.nytimes.com/interactive/2021/us/covid-cases.html)
+- [Bloomberg Live Vaccine Tracker Maps & Data](https://www.bloomberg.com/graphics/covid-vaccine-tracker-global-distribution/)
+""")
