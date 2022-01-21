@@ -185,7 +185,7 @@ st.text("")
 
 # today = str(datetime.date.today())
 # st.write('Data Updated: ',today)
-st.write('Data Updated: ', datetime.datetime.today(pytz.timezone("US/Eastern")))
+st.write('Data Updated: ', datetime.datetime.now(pytz.timezone("US/Eastern")))
 #############################################################################################################################
 st.markdown("***")
 # NYC
