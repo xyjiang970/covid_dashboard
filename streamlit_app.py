@@ -185,7 +185,15 @@ st.text("")
 
 # today = str(datetime.date.today())
 # st.write('Data Updated: ',today)
-st.write('Data Updated: ', datetime.datetime.now(pytz.timezone("US/Eastern")))
+#st.write('Data Updated: ', datetime.datetime.now(pytz.timezone("US/Eastern")))
+
+today = date.today()
+
+# Textual month, day and year	
+d2 = today.strftime("%B %d, %Y")
+st.write("d2 =", d2)
+
+
 #############################################################################################################################
 st.markdown("***")
 # NYC
