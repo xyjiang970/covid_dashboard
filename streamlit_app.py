@@ -182,8 +182,9 @@ Definition Sources:
 st.text("")
 st.text("")
 
-today = str(datetime.date.today())
-st.write('Data Updated: ',today)
+# today = str(datetime.date.today())
+# st.write('Data Updated: ',today)
+st.write('Data Updated: ', datetime.datetime.now(pytz.timezone("US/Eastern")))
 #############################################################################################################################
 st.markdown("***")
 # NYC
