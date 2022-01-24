@@ -408,7 +408,7 @@ st.text("")
 st.caption("Using [data-by-modzcta.csv](https://github.com/nychealth/coronavirus-data/blob/master/totals/data-by-modzcta.csv) file and geojson data from [NYC OpenData](https://data.cityofnewyork.us/Health/Modified-Zip-Code-Tabulation-Areas-MODZCTA-/pri4-ifjk/data).")
 # NYC Map
 fig = px.choropleth_mapbox(df_MODZCTA_merge,
-                           geojson=temp,
+                           geojson=nycmap,
                            locations="MODZCTA",
                            featureidkey="properties.modzcta",
                            color="PERCENT_POSITIVE",
