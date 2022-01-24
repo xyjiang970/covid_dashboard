@@ -330,7 +330,7 @@ st.text("")
 st.markdown("""
 Click on the legend in the chart below to select/ deselect boroughs.
 """)
-st.caption('Using [data-by-day.csv](https://github.com/nychealth/coronavirus-data/blob/master/trends/data-by-day.csv) file')
+st.caption('Using [data-by-day.csv](https://github.com/nychealth/coronavirus-data/blob/master/trends/data-by-day.csv) file.')
 
 # Borough User selection timeframe
 boro_timeframe = st.selectbox(
