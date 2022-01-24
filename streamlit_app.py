@@ -405,7 +405,7 @@ show_boro_breakdown(boro_timeframe)
 
 # NYC Map
 fig = px.choropleth_mapbox(df_MODZCTA_merge,
-                           geojson=temp,
+                           geojson=nycmap,
                            locations="MODZCTA",
                            featureidkey="properties.modzcta",
                            color="COVID_CASE_PCT",
