@@ -57,6 +57,10 @@ url2 = 'https://github.com/BloombergGraphics/covid-vaccine-tracker-data/blob/mas
 url3 = 'https://github.com/CSSEGISandData/COVID-19/blob/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_US.csv?raw=true'
 url4 = 'https://github.com/nychealth/coronavirus-data/blob/master/totals/by-group.csv?raw=true'
 url5 = 'https://github.com/nychealth/coronavirus-data/blob/master/trends/data-by-day.csv?raw=true'
+url6 = 'https://github.com/nychealth/coronavirus-data/blob/master/totals/data-by-modzcta.csv?raw=true'
+# url7 source: https://data.cityofnewyork.us/Health/Modified-Zip-Code-Tabulation-Areas-MODZCTA-/pri4-ifjk/data
+# will also upload file to this github repo
+url7 = 'nyc_MODZCTA.csv'
 
 # Load into separate dataframes, using cache as well
 @st.cache(allow_output_mutation=True, ttl=60*60*1) # ttl = 60*30 refresh cache every hour
@@ -69,6 +73,8 @@ df2 = load_df(url2)
 df3 = load_df(url3)
 df4 = load_df(url4)
 df5 = load_df(url5)
+df6 = load_df(url6)
+df7 = load_df(url7)
 
 # # Old code
 # df1 = pd.read_csv(url, index_col=0)
