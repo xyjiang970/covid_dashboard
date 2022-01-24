@@ -157,8 +157,9 @@ df5.set_index('Date',inplace=True)
 df_MODZCTA_merge = df6.merge(df7, how='inner', on='label')
 df_MODZCTA_merge = df_MODZCTA_merge[['NEIGHBORHOOD_NAME','BOROUGH_GROUP',
                                      'MODZCTA','ZCTA','COVID_CASE_COUNT',
-                                     'COVID_CASE_RATE','label','the_geom']]
-df_MODZCTA_merge['COVID_CASE_PCT'] = (df_MODZCTA_merge['COVID_CASE_RATE']/100000)*100
+                                     'COVID_CASE_RATE','PERCENT_POSITIVE',
+                                     'label','the_geom']]
+#df_MODZCTA_merge['COVID_CASE_PCT'] = (df_MODZCTA_merge['COVID_CASE_RATE']/100000)*100
 # NYC geojson file
 nycmap = json.load(open("nyc_MODZCTA_geojson.geojson"))
 #############################################################################################################################
@@ -407,16 +408,16 @@ st.text("")
 st.caption("Using [data-by-modzcta.csv](https://github.com/nychealth/coronavirus-data/blob/master/totals/data-by-modzcta.csv) file and geojson data from [NYC OpenData](https://data.cityofnewyork.us/Health/Modified-Zip-Code-Tabulation-Areas-MODZCTA-/pri4-ifjk/data).")
 # NYC Map
 fig = px.choropleth_mapbox(df_MODZCTA_merge,
-                           geojson=nycmap,
+                           geojson=temp,
                            locations="MODZCTA",
                            featureidkey="properties.modzcta",
-                           color="COVID_CASE_PCT",
+                           color="PERCENT_POSITIVE",
                            color_continuous_scale="thermal",
                            mapbox_style="carto-positron",
                            zoom=9.3, center={"lat": 40.7, "lon": -73.99},
                            opacity=0.9,
                            hover_name="NEIGHBORHOOD_NAME",
-                           labels={'COVID_CASE_PCT':'Covid Positive %'}
+                           labels={'PERCENT_POSITIVE':'% Positive'}
                            )
 
 fig.update_layout(
