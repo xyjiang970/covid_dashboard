@@ -543,6 +543,7 @@ st.markdown("""
 - [Bloomberg Covid Vaccines Github Repo.](https://github.com/BloombergGraphics/covid-vaccine-tracker-data)
 - [NYC Health Github Repo.](https://github.com/nychealth/coronavirus-data)
 - [Johns Hopkins University Covid-19 Github Repo.](https://github.com/CSSEGISandData/COVID-19)
+- [NYC OpenData](https://opendata.cityofnewyork.us/)
 """)
 
 st.markdown("***")
