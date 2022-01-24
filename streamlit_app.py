@@ -1,6 +1,7 @@
 # Libraries
 import streamlit as st
 import pandas as pd
+import json
 import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
@@ -151,6 +152,15 @@ df5.rename(columns={df5.columns[0]:"Date",
                     df5.columns[5]:"QN_7Day_Avg",
                     df5.columns[6]:"SI_7Day_Avg"}, inplace=True)
 df5.set_index('Date',inplace=True)
+
+# Setting up data in merged data frame "df_MODZCTA_merge"
+df_MODZCTA_merge = df6.merge(df7, how='inner', on='label')
+df_MODZCTA_merge = df_MODZCTA_merge[['NEIGHBORHOOD_NAME','BOROUGH_GROUP',
+                                     'MODZCTA','ZCTA','COVID_CASE_COUNT',
+                                     'COVID_CASE_RATE','label','the_geom']]
+df_MODZCTA_merge['COVID_CASE_PCT'] = (df_MODZCTA_merge['COVID_CASE_RATE']/100000)*100
+# NYC geojson file
+nycmap = json.load(open("nyc_MODZCTA_geojson.geojson"))
 #############################################################################################################################
 
 # Cleaning and dealing with 0 values and NaNs
@@ -392,6 +402,30 @@ def show_boro_breakdown(boro_timeframe):
     return st.plotly_chart(fig)
 
 show_boro_breakdown(boro_timeframe)
+
+# NYC Map
+fig = px.choropleth_mapbox(df_MODZCTA_merge,
+                           geojson=temp,
+                           locations="MODZCTA",
+                           featureidkey="properties.modzcta",
+                           color="COVID_CASE_PCT",
+                           color_continuous_scale="thermal",
+                           mapbox_style="carto-positron",
+                           zoom=9.3, center={"lat": 40.7, "lon": -73.99},
+                           opacity=0.9,
+                           hover_name="NEIGHBORHOOD_NAME",
+                           labels={'COVID_CASE_PCT':'Covid Positive %'}
+                           )
+
+fig.update_layout(
+    title_text = 'Covid Breakdown by Zip Codes',
+    title_x=0.5,
+    title_y=0.95,
+    width=1000,
+    height=600
+)
+
+st.plotly_chart(fig)
 
 #############################################################################################################################
 st.markdown("***")
