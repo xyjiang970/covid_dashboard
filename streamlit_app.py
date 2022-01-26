@@ -188,7 +188,6 @@ st.title("Covid Dashboard: NYC Focus")
 st.header('Introduction')
   
 st.markdown('This is a simple dashboard showing Covid-19 statistics and general information with a focus on New York City. The data is updated regularly, automatically.')
-st.markdown('Tip: double-click on graphs to return to normal view.')
 st.markdown("""
 Important definitions:
 - **Confirmed COVID-19 case:** _A person is classified as a confirmed COVID-19 case if they test positive with a molecular test._
@@ -219,6 +218,10 @@ today = date.today()
 # Textual month, day and year	
 curr_date = today.strftime("%B %d, %Y")
 st.write("Data Updated: ", curr_date)
+
+st.text("")
+
+st.markdown('Tip: double-click on graphs to return to normal view.')
 #############################################################################################################################
 
 st.markdown("***")
