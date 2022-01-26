@@ -70,7 +70,7 @@ def load_df(URL, index_column=None):
      return dataframe
 
 # Loading json using cache
-@st.cache(allow_output_mutation=True, ttl=60*60*12) # ttl = refresh cache every 12 hours
+@st.cache(allow_output_mutation=True, ttl=60*60*24*30) # ttl = refresh cache every month (30 days) 
 def load_json(URL):
      info = json.loads(urlopen(URL).read())
      return info
