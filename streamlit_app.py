@@ -64,13 +64,13 @@ url7 = 'https://data.cityofnewyork.us/resource/pri4-ifjk.csv'
 geojson_URL = 'https://data.cityofnewyork.us/resource/pri4-ifjk.geojson'
 
 # Loadign dataframes using cache
-@st.cache(allow_output_mutation=True, ttl=60*60*1) # ttl = 60*30 refresh cache every hour
+@st.cache(allow_output_mutation=True, ttl=60*60*1) # ttl = refresh cache every hour
 def load_df(URL, index_column=None):
      dataframe = pd.read_csv(URL, index_col=index_column)
      return dataframe
 
 # Loading json using cache
-@st.cache(allow_output_mutation=True, ttl=60*60*1) # ttl = 60*30 refresh cache every hour
+@st.cache(allow_output_mutation=True, ttl=60*60*12) # ttl = refresh cache every 12 hours
 def load_json(URL):
      info = json.loads(urlopen(URL).read())
      return info
@@ -84,7 +84,7 @@ df5 = load_df(url5)
 df6 = load_df(url6)
 df7 = load_df(url7)
 
-# Json
+# Json: NYC geojson file
 nycmap = load_json(geojson_URL)
 
 # # Old code
@@ -169,9 +169,6 @@ df_MODZCTA_merge = df_MODZCTA_merge[['NEIGHBORHOOD_NAME','BOROUGH_GROUP',
                                      'modzcta','zcta','COVID_CASE_COUNT',
                                      'COVID_CASE_RATE','PERCENT_POSITIVE',
                                      'label','the_geom']]
-
-# NYC geojson file
-# nycmap = json.loads(urlopen("https://data.cityofnewyork.us/resource/pri4-ifjk.geojson").read())
 #############################################################################################################################
 
 # Cleaning and dealing with 0 values and NaNs
