@@ -2,6 +2,7 @@
 import streamlit as st
 import pandas as pd
 import json
+from urllib.request import urlopen
 import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
@@ -59,9 +60,7 @@ url3 = 'https://github.com/CSSEGISandData/COVID-19/blob/master/csse_covid_19_dat
 url4 = 'https://github.com/nychealth/coronavirus-data/blob/master/totals/by-group.csv?raw=true'
 url5 = 'https://github.com/nychealth/coronavirus-data/blob/master/trends/data-by-day.csv?raw=true'
 url6 = 'https://github.com/nychealth/coronavirus-data/blob/master/totals/data-by-modzcta.csv?raw=true'
-# url7 source: https://data.cityofnewyork.us/Health/Modified-Zip-Code-Tabulation-Areas-MODZCTA-/pri4-ifjk/data
-# will also upload file to this github repo
-url7 = 'nyc_MODZCTA.csv'
+url7 = 'https://data.cityofnewyork.us/resource/pri4-ifjk.csv'
 
 # Load into separate dataframes, using cache as well
 @st.cache(allow_output_mutation=True, ttl=60*60*1) # ttl = 60*30 refresh cache every hour
@@ -156,12 +155,12 @@ df5.set_index('Date',inplace=True)
 # Setting up data in merged data frame "df_MODZCTA_merge"
 df_MODZCTA_merge = df6.merge(df7, how='inner', on='label')
 df_MODZCTA_merge = df_MODZCTA_merge[['NEIGHBORHOOD_NAME','BOROUGH_GROUP',
-                                     'MODZCTA','ZCTA','COVID_CASE_COUNT',
+                                     'modzcta','zcta','COVID_CASE_COUNT',
                                      'COVID_CASE_RATE','PERCENT_POSITIVE',
                                      'label','the_geom']]
-#df_MODZCTA_merge['COVID_CASE_PCT'] = (df_MODZCTA_merge['COVID_CASE_RATE']/100000)*100
+
 # NYC geojson file
-nycmap = json.load(open("nyc_MODZCTA_geojson.geojson"))
+nycmap = json.loads(urlopen("https://data.cityofnewyork.us/resource/pri4-ifjk.geojson").read())
 #############################################################################################################################
 
 # Cleaning and dealing with 0 values and NaNs
@@ -412,7 +411,7 @@ st.caption("Using [data-by-modzcta.csv](https://github.com/nychealth/coronavirus
 # NYC Map
 fig = px.choropleth_mapbox(df_MODZCTA_merge,
                            geojson=nycmap,
-                           locations="MODZCTA",
+                           locations="modzcta",
                            featureidkey="properties.modzcta",
                            color="PERCENT_POSITIVE",
                            color_continuous_scale="thermal",
