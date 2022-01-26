@@ -61,6 +61,7 @@ url4 = 'https://github.com/nychealth/coronavirus-data/blob/master/totals/by-grou
 url5 = 'https://github.com/nychealth/coronavirus-data/blob/master/trends/data-by-day.csv?raw=true'
 url6 = 'https://github.com/nychealth/coronavirus-data/blob/master/totals/data-by-modzcta.csv?raw=true'
 url7 = 'https://data.cityofnewyork.us/resource/pri4-ifjk.csv'
+geojson_URL = 'https://data.cityofnewyork.us/resource/pri4-ifjk.geojson'
 
 # Loadign dataframes using cache
 @st.cache(allow_output_mutation=True, ttl=60*60*1) # ttl = 60*30 refresh cache every hour
@@ -84,7 +85,7 @@ df6 = load_df(url6)
 df7 = load_df(url7)
 
 # Json
-nycmap = load_json(url7)
+nycmap = load_json(geojson_URL)
 
 # # Old code
 # df1 = pd.read_csv(url, index_col=0)
@@ -170,7 +171,7 @@ df_MODZCTA_merge = df_MODZCTA_merge[['NEIGHBORHOOD_NAME','BOROUGH_GROUP',
                                      'label','the_geom']]
 
 # NYC geojson file
-nycmap = json.loads(urlopen("https://data.cityofnewyork.us/resource/pri4-ifjk.geojson").read())
+# nycmap = json.loads(urlopen("https://data.cityofnewyork.us/resource/pri4-ifjk.geojson").read())
 #############################################################################################################################
 
 # Cleaning and dealing with 0 values and NaNs
