@@ -62,12 +62,19 @@ url5 = 'https://github.com/nychealth/coronavirus-data/blob/master/trends/data-by
 url6 = 'https://github.com/nychealth/coronavirus-data/blob/master/totals/data-by-modzcta.csv?raw=true'
 url7 = 'https://data.cityofnewyork.us/resource/pri4-ifjk.csv'
 
-# Load into separate dataframes, using cache as well
+# Loadign dataframes using cache
 @st.cache(allow_output_mutation=True, ttl=60*60*1) # ttl = 60*30 refresh cache every hour
 def load_df(URL, index_column=None):
      dataframe = pd.read_csv(URL, index_col=index_column)
      return dataframe
 
+# Loading json using cache
+@st.cache(allow_output_mutation=True, ttl=60*60*1) # ttl = 60*30 refresh cache every hour
+def load_json(URL):
+     info = json.loads(urlopen(URL).read())
+     return info
+
+# Dataframes
 df1 = load_df(url, 0)
 df2 = load_df(url2)
 df3 = load_df(url3)
@@ -75,6 +82,9 @@ df4 = load_df(url4)
 df5 = load_df(url5)
 df6 = load_df(url6)
 df7 = load_df(url7)
+
+# Json
+nycmap = load_json(url7)
 
 # # Old code
 # df1 = pd.read_csv(url, index_col=0)
