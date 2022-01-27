@@ -479,9 +479,9 @@ def ny_overview_graph(ny_timeframe):
                              y=df3_ny_overview['New York'],
                         mode='lines+markers',
                         name='lines',
-                        line=dict(color='firebrick', width=5),
+                        line=dict(color='firebrick', width=3),
                         line_shape='spline',
-                        marker=dict(size=4)
+                        marker=dict(size=5)
                             )
                  )
 
