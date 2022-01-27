@@ -154,6 +154,7 @@ df3 = df3.iloc[:, 5:]
 df3.index.names = ['Date']
 df3 = df3.T
 df3.index = pd.to_datetime(df3.index)
+df3.sort_index(ascending=False, inplace=True)
 
 # Setting up Borough data in df5 (data frame 5)
 df5 = df5.tail(365)
@@ -248,7 +249,7 @@ timeframe = st.selectbox(
 
 # Dictionary for timeframe
 timeframe_dict = {
-    'Past Year': 365,
+    'Past Year':365,
     '90 Days':90,
     '30 Days':30,
     '14 Days':14,
@@ -462,16 +463,16 @@ ny_timeframe = st.selectbox(
 ('Past Year','90 Days','30 Days','14 Days','Past Week'), key=3)
 
 ny_timeframeDict = dict({
-    'Past Year':-365,
-    '90 Days':-90,
-    '30 Days':-30,
-    '14 Days':-14,
-    'Past Week':-7
+    'Past Year':365,
+    '90 Days':90,
+    '30 Days':30,
+    '14 Days':14,
+    'Past Week':7
 })
 
 def ny_overview_graph(ny_timeframe):
     global df3_ny_overview
-    df3_ny_overview = df3.iloc[ny_timeframeDict[ny_timeframe]: ,:]
+    df3_ny_overview = df3.head(ny_timeframeDict[ny_timeframe])
     fig = go.Figure()
 
     fig.add_trace(go.Scatter(x=df3_ny_overview.index.values, 
