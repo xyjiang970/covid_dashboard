@@ -462,11 +462,11 @@ ny_timeframe = st.selectbox(
 ('Past Year','90 Days','30 Days','14 Days','Past Week'), key=3)
 
 ny_timeframeDict = dict({
-    'Past Year': 365,
-    '90 Days':90,
-    '30 Days':30,
-    '14 Days':14,
-    'Past Week':7
+    'Past Year':-365,
+    '90 Days':-90,
+    '30 Days':-30,
+    '14 Days':-14,
+    'Past Week':-7
 })
 
 def ny_overview_graph(ny_timeframe):
