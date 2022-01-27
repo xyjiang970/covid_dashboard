@@ -31,7 +31,8 @@ st.sidebar.markdown("""
      - [Borough Breakdown](#borough-breakdown)
 
      
-- State View (Coming soon!)
+- [NY State View](#ny-state-view)
+     - [Confirmed Covid Cases in New York](#confirmed-covid-cases-in-new-york)
        
    
 - [National View](#national-view)
@@ -146,6 +147,13 @@ df4 = df4.loc[df4.subgroup.isin(['Brooklyn','Bronx','Manhattan',
 df4.rename(columns={'subgroup': "Borough"}, inplace=True)
 df4.set_index('Borough', inplace=True)
 df4 = df4[['CASE_RATE','CASE_COUNT']]
+
+# Setting up NY State data in df3 (data frame 3)
+df3 = df3.groupby('Province_State').sum().loc[['New York']]
+df3 = df3.iloc[:, 5:]
+df3.index.names = ['Date']
+df3 = df3.T
+df3.index = pd.to_datetime(df3.index)
 
 # Setting up Borough data in df5 (data frame 5)
 df5 = df5.tail(365)
@@ -443,7 +451,69 @@ fig.update_layout(
 )
 
 st.plotly_chart(fig)
+#############################################################################################################################
+st.markdown("***")
+# NY State View
+st.header('NY State View')
+st.subheader('Confirmed Covid Cases in New York')
 
+ny_timeframe = st.selectbox(
+'Please select your desired time frame:',
+('Past Year','90 Days','30 Days','14 Days','Past Week'), key=3)
+
+ny_timeframeDict = dict({
+    'Past Year': 365,
+    '90 Days':90,
+    '30 Days':30,
+    '14 Days':14,
+    'Past Week':7
+})
+
+def ny_overview_graph(ny_timeframe):
+    global df3_ny_overview
+    df3_ny_overview = df3.iloc[ny_timeframeDict[ny_timeframe]: ,:]
+    fig = go.Figure()
+
+    fig.add_trace(go.Scatter(x=df3_ny_overview.index.values, 
+                             y=df3_ny_overview['New York'],
+                        mode='lines+markers',
+                        name='lines',
+                        line=dict(color='firebrick', width=5),
+                        line_shape='spline',
+                        marker=dict(size=4)
+                            )
+                 )
+
+    fig.update_layout(title=f"Confirmed New York Covid Cases: {ny_timeframe}",
+                      title_x=0.5, 
+                      title_y=0.9,
+                      xaxis_title='Date',
+                      yaxis_title='Count',
+                      width=1000,
+                      height=600,
+                      xaxis=dict(
+                          showgrid=True,
+                          showticklabels=True,
+                          showline=False
+                          ),
+                      yaxis=dict(
+                          showgrid=True,
+                          zeroline=False,
+                          showline=False,
+                          showticklabels=True,
+                          ),
+                      paper_bgcolor='rgba(0,0,0,0)',
+                      plot_bgcolor='rgba(0,0,0,0)',
+                      font=dict(size=15))
+
+    fig.update_xaxes(linewidth=2, linecolor='black',
+                     showgrid=False)
+    fig.update_yaxes(linewidth=2, linecolor='black',
+                     showgrid=True, gridcolor='lightgray')
+
+    return st.plotly_chart(fig)
+
+ny_overview_graph(ny_timeframe)
 #############################################################################################################################
 st.markdown("***")
 # National View Stats. Section
