@@ -486,7 +486,7 @@ def ny_overview_graph(ny_timeframe):
                             )
                  )
 
-    fig.update_layout(title=f"Confirmed New York Covid Cases: {ny_timeframe}",
+    fig.update_layout(title=f"Confirmed New York Covid Cases: {ny_timeframe} (CUMULATIVE SINCE OUTBREAK)",
                       title_x=0.5, 
                       title_y=0.9,
                       xaxis_title='Date',
