@@ -457,6 +457,7 @@ st.markdown("***")
 # NY State View
 st.header('NY State View')
 st.subheader('Confirmed Covid Cases in New York')
+st.caption('Using the [time_series_covid19_confirmed_US.csv](https://github.com/CSSEGISandData/COVID-19/blob/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_US.csv) file.')
 
 ny_timeframe = st.selectbox(
 'Please select your desired time frame:',
