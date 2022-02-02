@@ -1,4 +1,4 @@
-# Simple Covid Dashboard (In Progress)
+# Covid Dashboard (In Progress)
 
 <ul>
   <li><a href="https://github.com/nytimes/covid-19-data" target="_blank">New York Times (NYT) Covid-19 data in the United States</a></li>
