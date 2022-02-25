@@ -25,29 +25,23 @@ st.sidebar.markdown("## Table of Contents")
 st.sidebar.markdown("""
 - [Introduction](#introduction)
 
-
 - [NYC Statistics](#nyc-statistics)
      - [City Overview](#city-overview)
      - [Borough Breakdown](#borough-breakdown)
-
      
 - [NY State View](#ny-state-view)
      - [Confirmed Covid Cases in New York](#confirmed-covid-cases-in-new-york)
-       
    
 - [National View](#national-view)
      - [Covid Positive US States/ Territories Ranked](#covid-positive-states-and-territories-ranked)
      - [Covid Choropleth Map of the US](#covid-choropleth-map-of-the-us)
      - [Vaccine Breakdown](#vaccine-breakdown)
-    
      
 - Global View (Coming soon!)
-      
     
 - [References](#references)
      - [Code](#code-repo)
      - [Data Sources](#data-sources)
-    
 
 - [Inspiration](#inspiration)
 """)
