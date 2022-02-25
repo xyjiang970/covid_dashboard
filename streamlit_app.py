@@ -621,6 +621,7 @@ st.markdown("""
 - [Bloomberg Covid Vaccines Github Repo.](https://github.com/BloombergGraphics/covid-vaccine-tracker-data)
 - [NYC Health Github Repo.](https://github.com/nychealth/coronavirus-data)
 - [Johns Hopkins University Covid-19 Github Repo.](https://github.com/CSSEGISandData/COVID-19)
+- [Our World in Data (OWID)](https://github.com/owid/covid-19-data/tree/master/public/data)
 - [NYC OpenData](https://opendata.cityofnewyork.us/)
 """)
 
