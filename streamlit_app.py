@@ -631,8 +631,8 @@ fig.update_layout(
     title_text='Total Covid-19 Cases per Million (to Date) by Country',
     title_x=0.5,
     title_y=0.88,
-    height=600,
-    width=800,
+    height=800,
+    width=1000,
     geo=dict(
         showframe=False,
         showcoastlines=False,
