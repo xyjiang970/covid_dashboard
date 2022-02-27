@@ -558,7 +558,7 @@ fig.update_layout(
     title_x=0.5,
     title_y=0.95,
     width=1000,
-    height=600,
+    height=800,
     geo=dict(scope='usa', bgcolor='rgba(0,0,0,0)',
              showlakes=False),
     title=dict(font=dict(size=20))
