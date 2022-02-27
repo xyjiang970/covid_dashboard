@@ -37,7 +37,7 @@ st.sidebar.markdown("""
      - [Covid Choropleth Map of the US](#covid-choropleth-map-of-the-us)
      - [Vaccine Breakdown](#vaccine-breakdown)
      
-- Global View (Coming soon!)
+- [Global View](#global-view)
     
 - [References](#references)
      - [Code](#code-repo)
@@ -56,6 +56,7 @@ url4 = 'https://github.com/nychealth/coronavirus-data/blob/master/totals/by-grou
 url5 = 'https://github.com/nychealth/coronavirus-data/blob/master/trends/data-by-day.csv?raw=true'
 url6 = 'https://github.com/nychealth/coronavirus-data/blob/master/totals/data-by-modzcta.csv?raw=true'
 url7 = 'https://data.cityofnewyork.us/resource/pri4-ifjk.csv'
+url8 = 'https://github.com/owid/covid-19-data/blob/master/public/data/owid-covid-data.csv?raw=true'
 geojson_URL = 'https://data.cityofnewyork.us/resource/pri4-ifjk.geojson'
 
 # Loadign dataframes using cache
@@ -78,16 +79,11 @@ df4 = load_df(url4)
 df5 = load_df(url5)
 df6 = load_df(url6)
 df7 = load_df(url7)
+df8 = load_df(url8
 
 # Json: NYC geojson file
 nycmap = load_json(geojson_URL)
 
-# # Old code
-# df1 = pd.read_csv(url, index_col=0)
-# df2 = pd.read_csv(url2)
-# df3 = pd.read_csv(url3)
-# df4 = pd.read_csv(url4)
-# df5 = pd.read_csv(url5)
 #############################################################################################################################
 
 # Adjustments and Merging dataframes
@@ -172,6 +168,11 @@ df_MODZCTA_merge = df_MODZCTA_merge[['NEIGHBORHOOD_NAME','BOROUGH_GROUP',
                                      'modzcta','zcta','COVID_CASE_COUNT',
                                      'COVID_CASE_RATE','PERCENT_POSITIVE',
                                      'label','the_geom']]
+              
+# Setting up data/ grouping data in df8:
+df8 = df8.groupby(['iso_code', 'location'], as_index=False).sum('total_cases')
+df8.set_index('iso_code', inplace=True)
+              
 #############################################################################################################################
 
 # Cleaning and dealing with 0 values and NaNs
@@ -606,6 +607,41 @@ fig.update_layout(barmode='stack', height=1600, width=1000,
 
 # Show
 st.plotly_chart(fig)
+#############################################################################################################################
+st.markdown("***")
+# Global View Stats. Section
+st.header('Global View')
+
+fig = go.Figure(data=go.Choropleth(
+    locations = df8.index,
+    z = df8['total_cases_per_million'],
+    text = df8['location'],
+    colorscale = 'YlOrRd',
+    autocolorscale=False,
+    reversescale=False,
+    #marker_line_color='darkgray',
+    marker_line_color='black',
+    marker_line_width=0.8,
+    colorbar_title = 'Total Cases'
+))
+
+fig.update_layout(
+    title_text='Total Covid-19 Cases per Million (to Date) by Country',
+    title_x=0.5,
+    title_y=0.88,
+    height=600,
+    geo=dict(
+        showframe=False,
+        showcoastlines=False,
+        showocean=True,
+        oceancolor='#7fcdff',
+        showlakes=False,
+        projection_type='natural earth'
+    )
+)
+              
+# Show
+st.plotly_chart(fig)              
 #############################################################################################################################
 st.markdown("***")
 # References Section
