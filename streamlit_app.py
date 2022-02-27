@@ -612,6 +612,8 @@ st.markdown("***")
 # Global View Stats. Section
 st.header('Global View')
 
+st.caption('Using the [owid-covid-data.csv](https://github.com/owid/covid-19-data/blob/master/public/data/owid-covid-data.csv) file.')
+
 fig = go.Figure(data=go.Choropleth(
     locations = df8.index,
     z = df8['total_cases_per_million'],
@@ -630,6 +632,7 @@ fig.update_layout(
     title_x=0.5,
     title_y=0.88,
     height=600,
+    width=800,
     geo=dict(
         showframe=False,
         showcoastlines=False,
