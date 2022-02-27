@@ -263,7 +263,7 @@ def city_overview_graph(timeframe):
                         line=dict(color='firebrick', width=3, shape='spline'),
                         marker=dict(size=5)))
 
-    fig.update_layout(title=f"7-Day Moving Average NYC Daily Case Count: {timeframe}",
+    fig.update_layout(title=f"7 Day Moving Average of NYC Daily Case Count: {timeframe}",
                       title_x=0.5, 
                       title_y=0.9,
                       xaxis_title='Date',
@@ -395,7 +395,7 @@ def show_boro_breakdown(boro_timeframe):
     fig.update_yaxes(linewidth=2, linecolor='gray',
                      showgrid=True, gridcolor='lightgray')
 
-    fig.update_layout(title=f'Average Cases Count by Borough: {boro_timeframe}',
+    fig.update_layout(title=f'7 Day Moving Average of Case Count by Borough: {boro_timeframe}',
                       title_x=0.45, 
                       title_y=0.9,
                       xaxis_title='Date',
