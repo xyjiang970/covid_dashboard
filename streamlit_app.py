@@ -514,55 +514,54 @@ st.markdown("***")
 st.header('National View')
 
 ################### % Covid Positive ###########################
-with col1:
-     st.subheader('Covid Positive States and Territories Ranked')
+st.subheader('Covid Positive States and Territories Ranked')
 
-     st.markdown("""
-     Cases used include both confirmed and probable.
-     """)
+st.markdown("""
+Cases used include both confirmed and probable.
+""")
 
-     st.caption('Using the [us-states.csv](https://github.com/nytimes/covid-19-data/blob/master/live/us-states.csv) file.')
+st.caption('Using the [us-states.csv](https://github.com/nytimes/covid-19-data/blob/master/live/us-states.csv) file.')
 
-     # Bar Chart using plotly - By percentage of state population
-     fig = px.bar(cleaned, x='pct_Covid', y='state',
-                  title="% of US State/ Territory Population That Is Covid Positive",
-                  labels = {'state':'State',
-                            'pct_Covid':'Percentage'},
-                  orientation='h',
-                  color='pct_Covid')
+# Bar Chart using plotly - By percentage of state population
+fig = px.bar(cleaned, x='pct_Covid', y='state',
+             title="% of US State/ Territory Population That Is Covid Positive",
+             labels = {'state':'State',
+                       'pct_Covid':'Percentage'},
+             orientation='h',
+             color='pct_Covid')
 
-     # Adjustments
-     fig.update_layout(height=1700, width=1000,
-                       title_x=0.5, 
-                       title_y=0.97,
-                       title=dict(font=dict(size=20)),
-                       font=dict(size=15)
-                       )
+# Adjustments
+fig.update_layout(height=1700, width=1000,
+                  title_x=0.5, 
+                  title_y=0.97,
+                  title=dict(font=dict(size=20)),
+                  font=dict(size=15)
+                 )
 
-     st.plotly_chart(fig)
+st.plotly_chart(fig)
 
-with col2:
-     st.subheader('Covid Choropleth Map of the US')
-     # US MAP 
-     fig = go.Figure(data=go.Choropleth(
-         locations=cleaned.id,
-         z = cleaned.pct_Covid, # Data to be color-coded
-         locationmode = 'USA-states', # set of locations match entries in `locations`,
-         colorbar_title = "% of population that's covid positive",
-     ))
 
-     fig.update_layout(
-         title_text = 'Covid Choropleth Map: U.S.',
-         title_x=0.5,
-         title_y=0.95,
-         width=1000,
-         height=800,
-         geo=dict(scope='usa', bgcolor='rgba(0,0,0,0)',
-                  showlakes=False),
-         title=dict(font=dict(size=20))
-     )
+st.subheader('Covid Choropleth Map of the US')
+# US MAP 
+fig = go.Figure(data=go.Choropleth(
+     locations=cleaned.id,
+     z = cleaned.pct_Covid, # Data to be color-coded
+     locationmode = 'USA-states', # set of locations match entries in `locations`,
+     colorbar_title = "% of population that's covid positive",
+))
 
-     st.plotly_chart(fig)
+fig.update_layout(
+     title_text = 'Covid Choropleth Map: U.S.',
+     title_x=0.5,
+     title_y=0.95,
+     width=1000,
+     height=800,
+     geo=dict(scope='usa', bgcolor='rgba(0,0,0,0)',
+              showlakes=False),
+     title=dict(font=dict(size=20))
+)
+
+st.plotly_chart(fig)
 
 ################### % Fully Vaccinated ###########################
 st.subheader('Vaccine Breakdown')
