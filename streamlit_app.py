@@ -20,6 +20,8 @@ st.set_page_config(
 
 pd.options.mode.chained_assignment = None
 
+col1, col2, col3 = st.columns(3)
+
 # Table of Contents
 st.sidebar.markdown("## Table of Contents")
 st.sidebar.markdown("""
@@ -512,53 +514,55 @@ st.markdown("***")
 st.header('National View')
 
 ################### % Covid Positive ###########################
-st.subheader('Covid Positive States and Territories Ranked')
+with col1:
+     st.subheader('Covid Positive States and Territories Ranked')
 
-st.markdown("""
-Cases used include both confirmed and probable.
-""")
+     st.markdown("""
+     Cases used include both confirmed and probable.
+     """)
 
-st.caption('Using the [us-states.csv](https://github.com/nytimes/covid-19-data/blob/master/live/us-states.csv) file.')
+     st.caption('Using the [us-states.csv](https://github.com/nytimes/covid-19-data/blob/master/live/us-states.csv) file.')
 
-# Bar Chart using plotly - By percentage of state population
-fig = px.bar(cleaned, x='pct_Covid', y='state',
-             title="% of US State/ Territory Population That Is Covid Positive",
-             labels = {'state':'State',
-                       'pct_Covid':'Percentage'},
-             orientation='h',
-             color='pct_Covid')
+     # Bar Chart using plotly - By percentage of state population
+     fig = px.bar(cleaned, x='pct_Covid', y='state',
+                  title="% of US State/ Territory Population That Is Covid Positive",
+                  labels = {'state':'State',
+                            'pct_Covid':'Percentage'},
+                  orientation='h',
+                  color='pct_Covid')
 
-# Adjustments
-fig.update_layout(height=1700, width=1000,
-                  title_x=0.5, 
-                  title_y=0.97,
-                  title=dict(font=dict(size=20)),
-                  font=dict(size=15)
-                  )
+     # Adjustments
+     fig.update_layout(height=1700, width=1000,
+                       title_x=0.5, 
+                       title_y=0.97,
+                       title=dict(font=dict(size=20)),
+                       font=dict(size=15)
+                       )
 
-st.plotly_chart(fig)
+     st.plotly_chart(fig)
 
-st.subheader('Covid Choropleth Map of the US')
-# US MAP 
-fig = go.Figure(data=go.Choropleth(
-    locations=cleaned.id,
-    z = cleaned.pct_Covid, # Data to be color-coded
-    locationmode = 'USA-states', # set of locations match entries in `locations`,
-    colorbar_title = "% of population that's covid positive",
-))
+with col2:
+     st.subheader('Covid Choropleth Map of the US')
+     # US MAP 
+     fig = go.Figure(data=go.Choropleth(
+         locations=cleaned.id,
+         z = cleaned.pct_Covid, # Data to be color-coded
+         locationmode = 'USA-states', # set of locations match entries in `locations`,
+         colorbar_title = "% of population that's covid positive",
+     ))
 
-fig.update_layout(
-    title_text = 'Covid Choropleth Map: U.S.',
-    title_x=0.5,
-    title_y=0.95,
-    width=1000,
-    height=800,
-    geo=dict(scope='usa', bgcolor='rgba(0,0,0,0)',
-             showlakes=False),
-    title=dict(font=dict(size=20))
-)
+     fig.update_layout(
+         title_text = 'Covid Choropleth Map: U.S.',
+         title_x=0.5,
+         title_y=0.95,
+         width=1000,
+         height=800,
+         geo=dict(scope='usa', bgcolor='rgba(0,0,0,0)',
+                  showlakes=False),
+         title=dict(font=dict(size=20))
+     )
 
-st.plotly_chart(fig)
+     st.plotly_chart(fig)
 
 ################### % Fully Vaccinated ###########################
 st.subheader('Vaccine Breakdown')
@@ -666,17 +670,3 @@ st.markdown("""
 - [Bloomberg Live Vaccine Tracker Maps & Data](https://www.bloomberg.com/graphics/covid-vaccine-tracker-global-distribution/)
 - [Johns Hopkins University Live Covid-19 Dashboard](https://coronavirus.jhu.edu/map.html)
 """)
-
-col1, col2, col3 = st.columns(3)
-
-with col1:
-    st.header("A cat")
-    st.image("https://static.streamlit.io/examples/cat.jpg")
-
-with col2:
-    st.header("A dog")
-    st.image("https://static.streamlit.io/examples/dog.jpg")
-
-with col3:
-    st.header("An owl")
-    st.image("https://static.streamlit.io/examples/owl.jpg")
