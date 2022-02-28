@@ -221,7 +221,7 @@ st.text("")
 today = date.today()
 # Textual month, day and year	
 curr_date = today.strftime("%B %d, %Y")
-st.write("Data Updated: ", curr_date)
+st.write("Data updated for: ", curr_date)
 
 st.text("")
 
