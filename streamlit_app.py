@@ -422,7 +422,7 @@ show_boro_breakdown(boro_timeframe)
 
 st.text("")
 st.markdown("""
-The map below shows the [percentage of people ever tested for COVID-19 (positive molecular test)](https://github.com/nychealth/coronavirus-data/tree/master/totals#data-by-modzctacsv) (cumulative since the start of outbreak).
+The map below shows the [percentage of people ever tested for COVID-19 (positive molecular test)](https://github.com/nychealth/coronavirus-data/tree/master/totals#data-by-modzctacsv) - cumulative since the start of outbreak.
 """)
 st.caption("Using [data-by-modzcta.csv](https://github.com/nychealth/coronavirus-data/blob/master/totals/data-by-modzcta.csv) file and geojson data from [NYC OpenData](https://data.cityofnewyork.us/Health/Modified-Zip-Code-Tabulation-Areas-MODZCTA-/pri4-ifjk/data).")
 # NYC Map
