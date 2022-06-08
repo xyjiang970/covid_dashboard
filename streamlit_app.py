@@ -62,7 +62,7 @@ def load_df(URL, index_column=None):
      return dataframe
 
 # Loading json using cache
-@st.cache(allow_output_mutation=True, ttl=60*60*24*15) # ttl = refresh cache every 15 days 
+@st.cache(allow_output_mutation=True, ttl=60*60*24*15) # ttl = refresh cache every 15 days
 def load_json(URL):
      info = json.loads(urlopen(URL).read())
      return info
@@ -85,7 +85,7 @@ nycmap = load_json(geojson_URL)
 # Adjustments and Merging dataframes
 
 # Selection and adjustments of data from dataframe 1
-df1 = df1[['state','confirmed_cases','cases']]
+df1 = df1[['state','cases']]
 
 df1 = df1.sort_values(by='cases', ascending=False)
 
@@ -122,7 +122,7 @@ df['pct_ReceivedBooster'] = (df['boosterDosesAdministered'] / df['population'])*
 
 
 # Rearranging columns
-df = df[['state','id','population','cases','confirmed_cases',
+df = df[['state','id','population','cases',
          'pct_Covid','completedVaccination','pct_Fully_Vaccinated',
          'boosterDosesAdministered','pct_ReceivedBooster']]
 
@@ -164,11 +164,11 @@ df_MODZCTA_merge = df_MODZCTA_merge[['NEIGHBORHOOD_NAME','BOROUGH_GROUP',
                                      'modzcta','zcta','COVID_CASE_COUNT',
                                      'COVID_CASE_RATE','PERCENT_POSITIVE',
                                      'label','the_geom']]
-              
+
 # Setting up data/ grouping data in df8:
 df8 = df8.groupby(['iso_code', 'location'], as_index=False).sum('total_cases')
 df8.set_index('iso_code', inplace=True)
-              
+
 #############################################################################################################################
 
 # Cleaning and dealing with 0 values and NaNs
@@ -178,7 +178,7 @@ cleaned = cleaned.sort_values(by='pct_Covid')
 lowestCovid_pct = cleaned.sort_values(by='pct_Covid', ascending=False)
 
 # Dataframe of 10 states with highest vaccination rates of population
-highestVacc_pct = df.sort_values(by='pct_Fully_Vaccinated', 
+highestVacc_pct = df.sort_values(by='pct_Fully_Vaccinated',
                                  ascending=True)
 #############################################################################################################################
 
@@ -186,7 +186,7 @@ highestVacc_pct = df.sort_values(by='pct_Fully_Vaccinated',
 st.title("Covid Dashboard: NYC Focus")
 
 st.header('Introduction')
-  
+
 st.markdown('This is a simple dashboard showing Covid-19 statistics and general information with a focus on New York City. The data is updated regularly, automatically.')
 st.markdown("""
 Important definitions:
@@ -215,7 +215,7 @@ st.text("")
 # st.write('Data Updated: ', datetime.datetime.now(pytz.timezone("US/Eastern")))
 
 today = date.today()
-# Textual month, day and year	
+# Textual month, day and year
 curr_date = today.strftime("%B %d, %Y")
 st.write("Data updated for: ", curr_date)
 
@@ -252,7 +252,7 @@ def city_overview_graph(timeframe):
     global df5_city
     df5_city = df5.tail(timeframe_dict[timeframe])
     fig = go.Figure()
-    
+
     fig.add_trace(go.Scatter(x=df5_city.index.values, y=df5_city.Avg_Total_City_Case_Count,
                         mode='lines+markers',
                         name='lines',
@@ -260,7 +260,7 @@ def city_overview_graph(timeframe):
                         marker=dict(size=5)))
 
     fig.update_layout(title=f"7 Day Moving Average of NYC Daily Case Count: {timeframe}",
-                      title_x=0.5, 
+                      title_x=0.5,
                       title_y=0.9,
                       xaxis_title='Date',
                       yaxis_title='Cases',
@@ -305,13 +305,13 @@ colors = ['rgb(164,162,184)','rgb(226,197,184)','rgb(243,239,216)',
 
 labels = df4.index.values
 
-fig = make_subplots(rows=1, cols=2, specs=[[{'type':'domain'}, 
+fig = make_subplots(rows=1, cols=2, specs=[[{'type':'domain'},
                                             {'type':'domain'}]],
-                   subplot_titles=['Covid Cases Count (Cumulative since outbreak - all variants)', 
+                   subplot_titles=['Covid Cases Count (Cumulative since outbreak - all variants)',
                                    'Covid Positive RATE (per 100K people)'],
                    horizontal_spacing=0.15)
 
-fig.add_trace(go.Pie(labels=labels, values=df4.CASE_COUNT, textinfo='label+value', 
+fig.add_trace(go.Pie(labels=labels, values=df4.CASE_COUNT, textinfo='label+value',
                      name='Counts', marker_colors=colors),
               1, 1)
 fig.add_trace(go.Pie(labels=labels, values=df4.CASE_RATE, textinfo='label+percent',
@@ -319,7 +319,7 @@ fig.add_trace(go.Pie(labels=labels, values=df4.CASE_RATE, textinfo='label+percen
               1, 2)
 
 fig.update_traces(hoverinfo='value', textfont_size=13)
-fig.update_layout(height=500, width=950, 
+fig.update_layout(height=500, width=950,
                   font=dict(size=13)
                  )
 
@@ -363,7 +363,7 @@ boro_timeframeDict = {
 def show_boro_breakdown(boro_timeframe):
     global df5_boro
     df5_boro = df5.tail(boro_timeframeDict[boro_timeframe])
-    
+
     fig = go.Figure()
     fig.add_trace(go.Scatter(x=df5_boro.index.values, y=df5_boro.BK_7Day_Avg,
                   mode='lines',
@@ -385,14 +385,14 @@ def show_boro_breakdown(boro_timeframe):
                   mode='lines',
                   name='Staten Island',
                   line=dict(width=3, shape='spline')))
-    
+
     fig.update_xaxes(linewidth=2, linecolor='gray',
                      showgrid=False, gridcolor='lightgray')
     fig.update_yaxes(linewidth=2, linecolor='gray',
                      showgrid=True, gridcolor='lightgray')
 
     fig.update_layout(title=f'7 Day Moving Average of Case Count by Borough: {boro_timeframe}',
-                      title_x=0.45, 
+                      title_x=0.45,
                       title_y=0.9,
                       xaxis_title='Date',
                       yaxis_title='Cases',
@@ -468,7 +468,7 @@ def ny_overview_graph(ny_timeframe):
     df3_ny_overview = df3.head(ny_timeframeDict[ny_timeframe])
     fig = go.Figure()
 
-    fig.add_trace(go.Scatter(x=df3_ny_overview.index.values, 
+    fig.add_trace(go.Scatter(x=df3_ny_overview.index.values,
                              y=df3_ny_overview['New York'],
                         mode='lines+markers',
                         name='lines',
@@ -479,7 +479,7 @@ def ny_overview_graph(ny_timeframe):
                  )
 
     fig.update_layout(title=f"Confirmed New York Covid Cases: {ny_timeframe} (CUMULATIVE SINCE OUTBREAK)",
-                      title_x=0.5, 
+                      title_x=0.5,
                       title_y=0.9,
                       xaxis_title='Date',
                       yaxis_title='Count',
@@ -532,7 +532,7 @@ fig = px.bar(cleaned, x='pct_Covid', y='state',
 
 # Adjustments
 fig.update_layout(height=1700, width=1000,
-                  title_x=0.5, 
+                  title_x=0.5,
                   title_y=0.97,
                   title=dict(font=dict(size=20)),
                   font=dict(size=15)
@@ -542,7 +542,7 @@ st.plotly_chart(fig)
 
 
 st.subheader('Covid Choropleth Map of the US')
-# US MAP 
+# US MAP
 fig = go.Figure(data=go.Choropleth(
      locations=cleaned.id,
      z = cleaned.pct_Covid, # Data to be color-coded
@@ -639,9 +639,9 @@ fig.update_layout(
         projection_type='natural earth'
     )
 )
-              
+
 # Show
-st.plotly_chart(fig)              
+st.plotly_chart(fig)
 #############################################################################################################################
 st.markdown("***")
 # References Section
