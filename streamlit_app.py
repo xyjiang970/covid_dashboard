@@ -62,10 +62,10 @@ def load_df(URL, index_column=None):
      return dataframe
 
 # Loading json using cache
-# @st.cache(allow_output_mutation=True, ttl=60*60*24*15) # ttl = refresh cache every 15 days
-# def load_json(URL):
-#      info = json.loads(urlopen(URL).read())
-#      return info
+#@st.cache(allow_output_mutation=True, ttl=60*60*24*15) # ttl = refresh cache every 15 days
+def load_json(URL):
+     info = json.loads(urlopen(URL).read())
+     return info
 
 # Dataframes
 df1 = load_df(url, 0)
