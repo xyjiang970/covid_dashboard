@@ -62,10 +62,10 @@ def load_df(URL, index_column=None):
      return dataframe
 
 # Loading json using cache
-@st.cache(allow_output_mutation=True, ttl=60*60*24*15) # ttl = refresh cache every 15 days
-def load_json(URL):
-     info = json.loads(urlopen(URL).read())
-     return info
+# @st.cache(allow_output_mutation=True, ttl=60*60*24*15) # ttl = refresh cache every 15 days
+# def load_json(URL):
+#      info = json.loads(urlopen(URL).read())
+#      return info
 
 # Dataframes
 df1 = load_df(url, 0)
@@ -192,6 +192,7 @@ st.markdown("""
 Important definitions:
 - **Confirmed COVID-19 case:** _A person is classified as a confirmed COVID-19 case if they test positive with a molecular test._
 - **Probable COVID-19 case:** _A person is classified as a probable COVID-19 case if they meet any of the following criteria with no positive molecular test on record: (a) test positive with an antigen test, (b) have symptoms and an exposure to a confirmed COVID-19 case, or (c) died and their cause of death is listed as COVID-19 or similar._
+- **Cases:** _The total number of cases of Covid-19, including both confirmed and probable._
 - **Fully Vaccinated (completed vaccination):** _Cumulative number of a state's residents who’ve been fully vaccinated with either a single- or two-dose vaccine._
 - **Received Booster (booster doses administered):** _Additional doses administered to people who've already been fully vaccinated with either a single- or two-dose vaccine._
 """)
