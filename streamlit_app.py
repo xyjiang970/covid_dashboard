@@ -56,8 +56,13 @@ url7 = 'https://data.cityofnewyork.us/resource/pri4-ifjk.xlsx'
 url8 = 'https://github.com/owid/covid-19-data/blob/master/public/data/owid-covid-data.csv?raw=true'
 geojson_URL = 'https://data.cityofnewyork.us/resource/pri4-ifjk.geojson'
 
-# Loadign dataframes using cache
-@st.cache_data(allow_output_mutation=True, ttl=60*60*1) # ttl = refresh cache every hour
+# Loading dataframes using cache
+# @st.cache(allow_output_mutation=True, ttl=60*60*1) # ttl = refresh cache every hour
+# def load_df(URL, index_column=None):
+#      dataframe = pd.read_csv(URL, index_col=index_column)
+#      return dataframe
+
+@st.cache_data(ttl=60*60*1) # ttl = refresh cache every hour
 def load_df(URL, index_column=None):
      dataframe = pd.read_csv(URL, index_col=index_column)
      return dataframe
