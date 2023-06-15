@@ -80,7 +80,8 @@ df3 = load_df(url3)
 df4 = load_df(url4)
 df5 = load_df(url5)
 df6 = load_df(url6)
-df7 = load_df(url7)
+# df7 = load_df(url7)
+df7 = load_json(url7)
 df8 = load_df(url8)
 
 # Json: NYC geojson file
