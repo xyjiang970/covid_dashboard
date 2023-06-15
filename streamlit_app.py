@@ -51,12 +51,13 @@ url3 = 'https://github.com/CSSEGISandData/COVID-19/blob/master/csse_covid_19_dat
 url4 = 'https://github.com/nychealth/coronavirus-data/blob/master/totals/by-group.csv?raw=true'
 url5 = 'https://github.com/nychealth/coronavirus-data/blob/master/trends/data-by-day.csv?raw=true'
 url6 = 'https://github.com/nychealth/coronavirus-data/blob/master/totals/data-by-modzcta.csv?raw=true'
-url7 = 'https://data.cityofnewyork.us/resource/pri4-ifjk.csv'
+# url7 = 'https://data.cityofnewyork.us/resource/pri4-ifjk.csv'
+url7 = 'https://data.cityofnewyork.us/resource/pri4-ifjk.xlsx'
 url8 = 'https://github.com/owid/covid-19-data/blob/master/public/data/owid-covid-data.csv?raw=true'
 geojson_URL = 'https://data.cityofnewyork.us/resource/pri4-ifjk.geojson'
 
 # Loadign dataframes using cache
-@st.cache(allow_output_mutation=True, ttl=60*60*1) # ttl = refresh cache every hour
+@st.cache_data(allow_output_mutation=True, ttl=60*60*1) # ttl = refresh cache every hour
 def load_df(URL, index_column=None):
      dataframe = pd.read_csv(URL, index_col=index_column)
      return dataframe
