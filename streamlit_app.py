@@ -52,7 +52,7 @@ url4 = 'https://github.com/nychealth/coronavirus-data/blob/master/totals/by-grou
 url5 = 'https://github.com/nychealth/coronavirus-data/blob/master/trends/data-by-day.csv?raw=true'
 url6 = 'https://github.com/nychealth/coronavirus-data/blob/master/totals/data-by-modzcta.csv?raw=true'
 # url7 = 'https://data.cityofnewyork.us/resource/pri4-ifjk.csv'
-url7 = 'https://data.cityofnewyork.us/resource/pri4-ifjk.json'
+url7 = pd.read_json('https://data.cityofnewyork.us/resource/pri4-ifjk.json')
 url8 = 'https://github.com/owid/covid-19-data/blob/master/public/data/owid-covid-data.csv?raw=true'
 geojson_URL = 'https://data.cityofnewyork.us/resource/pri4-ifjk.geojson'
 
@@ -80,8 +80,8 @@ df3 = load_df(url3)
 df4 = load_df(url4)
 df5 = load_df(url5)
 df6 = load_df(url6)
+df7 = url7.to_csv(index_column=None)
 # df7 = load_df(url7)
-df7 = load_json(url7)
 df8 = load_df(url8)
 
 # Json: NYC geojson file
