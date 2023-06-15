@@ -80,7 +80,7 @@ df3 = load_df(url3)
 df4 = load_df(url4)
 df5 = load_df(url5)
 df6 = load_df(url6)
-df7 = url7.to_csv(index_column=None)
+df7 = url7.to_csv(index=None)
 # df7 = load_df(url7)
 df8 = load_df(url8)
 
