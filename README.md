@@ -11,5 +11,3 @@ All of the resources below were used in the making of this simple dashboard:
   <li><a href="https://opendata.cityofnewyork.us/" target="_blank">NYC OpenData</a></li>
 </ul>
 
-
-View the dashboard <a href="https://share.streamlit.io/xyjiang970/covid_dashboard/main" target="_blank">app here</a>.
